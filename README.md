@@ -11,4 +11,4 @@ The CMI format is the underlying data format for the web service ‘[correspSear
 
 ## License
 
-This work is available under dual license: [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) and [Creative Commons Attribution 3.0 Unported License (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
+This work is available under dual license: [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) and [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
