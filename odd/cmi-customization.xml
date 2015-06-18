@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+    xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Correspondence Metadata Interchange Format</title>
+                <author>TEI Correspondence SIG</author>
+            </titleStmt>
+            <publicationStmt>
+                <authority>TEI Correspondence SIG</authority>
+                <availability>
+                    <licence>
+                        <p>CC+BY and BSD-2 licences</p>
+                    </licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born digital</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change when="2015-02-18">
+                <persName>Peter Stadler</persName>
+                <desc>Updated CIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
+            </change>
+            <change when="2015-02-11">
+                <persName>Stefan Dumont</persName>
+                <desc>Updated CIF to current state of proposal and correspSearch. teiHeader//titleStmt/respStmt replaces editor.</desc>
+            </change>
+            <change when="2014-07-02">
+                <persName>Peter Stadler</persName>
+                <desc>Initial creation of Correspondence Interchange Format schema.</desc>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p>This customization builds on the correspDesc proposal as described at <ref
+                    target="https://github.com/TEI-Correspondence-SIG/correspDesc"
+                    >https://github.com/TEI-Correspondence-SIG/correspDesc</ref>. It aims to define
+                an interchange format for correspondence projects. </p>
+        </body>
+        <back>
+            <div>
+                <head>Formal Specification</head>
+                <schemaSpec ident="cmi-customization" start="TEI" status="unstable">
+                    <moduleRef key="tei"/>
+                    <moduleRef key="textstructure" include="body TEI text"/>
+                    <moduleRef key="core" include="bibl date editor email name note p ref title publisher"/>
+                    <moduleRef key="header" include="availability correspDesc correspAction correspContext fileDesc licence profileDesc publicationStmt sourceDesc teiHeader titleStmt"/>
+                    <moduleRef key="namesdates" include="persName orgName placeName" />
+                    
+                    <elementSpec ident="titleStmt" mode="change" module="header">
+                        <content>
+                            <rng:ref name="title"/>
+                            <rng:oneOrMore>
+                                <rng:ref name="editor"/>
+                            </rng:oneOrMore>
+                        </content>
+                    </elementSpec>
+
+                    <elementSpec ident="publicationStmt" mode="change" module="header">
+                        <content>
+                            <rng:ref name="publisher"/>
+                            <rng:ref name="date"/>
+                            <rng:ref name="availability"/>
+                        </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="licence" mode="change" module="header">
+                        <classes mode="replace">
+                            <memberOf key="att.pointing"/>
+                            <memberOf key="model.availabilityPart"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="targetLang" mode="delete"/>
+                            <attDef ident="evaluate" mode="delete"/>
+                            <attDef ident="target" usage="req" mode="change"/>
+                        </attList>
+                    </elementSpec>
+
+                    <elementSpec ident="sourceDesc" mode="change" module="header">
+                        <content>
+                            <rng:ref name="bibl"/>
+                        </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="bibl" module="core" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList mode="replace" type="closed">
+                                    <valItem ident="online">
+                                        <desc>The described edition is an online only publication</desc>
+                                    </valItem>
+                                    <valItem ident="print">
+                                        <desc>The described edition is a print only publication</desc>
+                                    </valItem>
+                                    <valItem ident="hybrid">
+                                        <desc>The described edition is both available online and printed</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="date" mode="change" module="core">
+                        <classes mode="replace">
+                            <memberOf key="att.datable.w3c"/>
+                            <memberOf key="att.global.responsibility"/>
+                            <memberOf key="model.correspActionPart"/>
+                        </classes>
+                        <content>
+                            <rng:empty/>
+                        </content>
+                    </elementSpec>
+
+                </schemaSpec>
+            </div>
+        </back>
+    </text>
+</TEI>

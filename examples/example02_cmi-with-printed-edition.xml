@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/TEI-Correspondence-SIG/correspDesc/master/schema/cmi-customization.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Example correspondence descriptions from the Soemmerring Briefwechsel</title>
+                <editor>Stefan Dumont <email>dumont@bbaw.de</email></editor>
+            </titleStmt>
+            <!-- Correspondence Metadata Interchange Format (example 2 of 2)
+                
+                This file is an example of a list of correspondence descriptions from a whole 
+                printed scholarly edition of letters. The letters are *only* in a printed 
+                book available, i.e. you have to use a "classic" reference with bibliographic information
+                (sourceDesc/bibl) and the identification number of the letter (noted in every correspDesc/@key). 
+                
+                For an example with letters from a *digital* edition see example13_cmi.xml.
+                
+                If you provide such a file online for your edition, it can be retrieved by other digital 
+                scholarly editions and web services, e.g. http://correspSearch.bbaw.de.
+            -->
+            <publicationStmt>
+                <publisher>
+                    <ref target="http://www.adwmainz.de">Akademie der Wissenschaften und der
+                        Literatur Mainz</ref>
+                </publisher>
+                <date when="2015-02-11T13:47:49.11+02:00"/>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/3.0/">CC-BY
+                        3.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl type="print">Samuel Thomas Soemmerring. Briefwechsel November 1792 – April 1805. Hrsg. u.
+                    erl. v. Franz Dumont. Basel 2001 (= Samuel Thomas Soemmerring. Werke, begr. v.
+                    Gunter Mann, hrsg. v. Jost Benedum u. Werner Friedrich Kümmel, Bd. 20).</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <!-- Note that in case of correspDesc list retrodigitalized from print editions you have to use 
+                @key for the letter ID (instead of @ref) -->
+            <correspDesc key="631">
+                <correspAction type="sent">
+                    <persName ref="http://d-nb.info/gnd/118805193">Samuel Thomas Soemmerring</persName>
+                    <placeName ref="http://www.geonames.org/2874225">Mainz</placeName>
+                    <date when="1792-11-22"/>
+                </correspAction>
+                <correspAction type="received">
+                    <persName ref="http://viaf.org/viaf/59894734/">Melchior von Birkenstock</persName>
+                    <placeName ref="http://www.geonames.org/2761367">Wien</placeName>
+                    <date when="1792-12-26" cert="high"/>
+                </correspAction>
+            </correspDesc>
+            <correspDesc key="632">
+                <correspAction type="sent">
+                    <persName ref="http://d-nb.info/gnd/11855073X">Christian Gottlob Heyne</persName>
+                    <placeName ref="http://www.geonames.org/2918632">Göttingen</placeName>
+                    <date when="1792-11-28"/>
+                </correspAction>
+                <correspAction type="received">
+                    <persName ref="http://d-nb.info/gnd/118805193">Samuel Thomas Soemmerring</persName>
+                    <placeName ref="http://www.geonames.org/2874225">Mainz</placeName>
+                </correspAction>
+            </correspDesc>
+            <correspDesc key="633">
+                <correspAction type="sent">
+                    <persName ref="http://d-nb.info/gnd/11855073X">Christian Gottlob Heyne</persName>
+                    <placeName ref="http://www.geonames.org/2918632">Göttingen</placeName>
+                    <date when="1792-11-30"/>
+                </correspAction>
+                <correspAction type="received">
+                    <persName ref="http://d-nb.info/gnd/118805193">Samuel Thomas Soemmerring</persName>
+                    <placeName ref="http://www.geonames.org/2874225">Mainz</placeName>
+                </correspAction>
+            </correspDesc>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p/>
+        </body>
+    </text>
+</TEI>
