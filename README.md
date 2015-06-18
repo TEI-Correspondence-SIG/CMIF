@@ -1,2 +1,2 @@
 # CIMF
-Correspondence Interchange Metadata Format
+Correspondence Metadata Interchange Format
