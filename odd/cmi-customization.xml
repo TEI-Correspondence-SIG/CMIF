@@ -83,7 +83,9 @@
 
                     <elementSpec ident="sourceDesc" mode="change" module="header">
                         <content>
-                            <rng:ref name="bibl"/>
+                            <rng:zeroOrMore>
+                                <rng:ref name="bibl"/>
+                            </rng:zeroOrMore>
                         </content>
                     </elementSpec>
                     
@@ -134,7 +136,13 @@
                             </egXML>
                         </exemplum>
                     </elementSpec>
-
+                    
+                    <elementSpec ident="correspDesc" mode="change" module="header">
+                        <classes mode="change">
+                            <memberOf key="att.source" mode="add"/>
+                        </classes>
+                    </elementSpec>
+                    
                 </schemaSpec>
             </div>
         </back>
