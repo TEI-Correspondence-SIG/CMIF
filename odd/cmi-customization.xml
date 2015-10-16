@@ -48,7 +48,7 @@
                     <moduleRef key="tei"/>
                     <moduleRef key="textstructure" include="body TEI text"/>
                     <moduleRef key="core" include="bibl date editor email name note p ref title publisher"/>
-                    <moduleRef key="header" include="availability correspDesc correspAction correspContext fileDesc licence profileDesc publicationStmt sourceDesc teiHeader titleStmt"/>
+                    <moduleRef key="header" include="availability correspDesc correspAction correspContext fileDesc idno licence profileDesc publicationStmt sourceDesc teiHeader titleStmt"/>
                     <moduleRef key="namesdates" include="persName orgName placeName" />
                     
                     <elementSpec ident="titleStmt" mode="change" module="header">
@@ -63,6 +63,7 @@
                     <elementSpec ident="publicationStmt" mode="change" module="header">
                         <content>
                             <rng:ref name="publisher"/>
+                            <rng:ref name="idno"/>
                             <rng:ref name="date"/>
                             <rng:ref name="availability"/>
                         </content>
@@ -113,6 +114,25 @@
                         <content>
                             <rng:empty/>
                         </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="idno" mode="replace" module="header">
+                        <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
+                        <content>
+                            <rng:ref name="data.pointer"/>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="add" usage="req">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="url"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                        <exemplum>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <idno type="url">http://weber-gesamtausgabe.de/correspDesc.xml</idno>
+                            </egXML>
+                        </exemplum>
                     </elementSpec>
 
                 </schemaSpec>
