@@ -22,6 +22,7 @@
                 <publisher>
                     <ref target="http://weber-gesamtausgabe.de">Carl-Maria-von-Weber-Gesamtausgabe</ref>
                 </publisher>
+                <idno type="url">https://raw.githubusercontent.com/TEI-Correspondence-SIG/CMIF/master/examples/example01_basic.xml</idno>
                 <date when="2015-02-11T13:47:49.11+02:00"/>
                 <availability>
                     <licence target="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</licence>
