@@ -1,6 +1,10 @@
 # CMIF
 Correspondence Metadata Interchange Format
 
+## News
+
+2014-10-29: New blog post: [Perspectives of the further development of the Correspondence Metadata Interchange Format (CMIF)](http://digiversity.net/2015/perspectives-of-the-further-development-of-the-correspondence-metadata-interchange-format-cmif/)
+
 ## About
 
 The CMI format is based essentially on the TEI extension ‘[correspDesc](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correspDesc.html)’ (Correspondence Description), a part of the [Text Encoding Initiative guidelines](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html). The element correspDesc was developed by the TEI Correspondence Special Interest Group in order to record correspondence-specific metadata from letters, postcards, etc., in TEI-based editions. In April 2015 ‘correspDesc’ was officially added to the version 2.8 of TEI P5.
