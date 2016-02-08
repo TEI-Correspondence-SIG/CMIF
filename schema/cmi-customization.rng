@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2015-10-16T12:12:10Z. .
+Schema generated from ODD source 2016-02-08T14:07:50Z. .
 TEI Edition: Version 2.8.0. Last updated on
 	6th April 2015, revision 13197
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 2.8.0/
@@ -1803,9 +1805,7 @@ Licensing, etc.]</a:documentation>
             </zeroOrMore>
             <optional>
                <group>
-                  <group>
-                     <ref name="model.divTop"/>
-                  </group>
+                  <ref name="model.divTop"/>
                   <zeroOrMore>
                      <choice>
                         <ref name="model.global"/>
@@ -1816,9 +1816,7 @@ Licensing, etc.]</a:documentation>
             </optional>
             <optional>
                <group>
-                  <group>
-                     <ref name="model.divGenLike"/>
-                  </group>
+                  <ref name="model.divGenLike"/>
                   <zeroOrMore>
                      <choice>
                         <ref name="model.global"/>
@@ -1827,81 +1825,67 @@ Licensing, etc.]</a:documentation>
                   </zeroOrMore>
                </group>
             </optional>
-            <group>
-               <choice>
-                  <oneOrMore>
-                     <group>
-                        <group>
-                           <ref name="model.divLike"/>
-                        </group>
-                        <zeroOrMore>
-                           <choice>
-                              <ref name="model.global"/>
-                              <ref name="model.divGenLike"/>
-                           </choice>
-                        </zeroOrMore>
-                     </group>
-                  </oneOrMore>
-                  <oneOrMore>
-                     <group>
-                        <group>
-                           <ref name="model.div1Like"/>
-                        </group>
-                        <zeroOrMore>
-                           <choice>
-                              <ref name="model.global"/>
-                              <ref name="model.divGenLike"/>
-                           </choice>
-                        </zeroOrMore>
-                     </group>
-                  </oneOrMore>
+            <choice>
+               <oneOrMore>
                   <group>
-                     <oneOrMore>
-                        <group>
-                           <ref name="model.common"/>
-                        </group>
-                        <zeroOrMore>
-                           <ref name="model.global"/>
-                        </zeroOrMore>
-                     </oneOrMore>
-                     <optional>
+                     <ref name="model.divLike"/>
+                     <zeroOrMore>
                         <choice>
-                           <oneOrMore>
-                              <group>
-                                 <group>
-                                    <ref name="model.divLike"/>
-                                 </group>
-                                 <zeroOrMore>
-                                    <choice>
-                                       <ref name="model.global"/>
-                                       <ref name="model.divGenLike"/>
-                                    </choice>
-                                 </zeroOrMore>
-                              </group>
-                           </oneOrMore>
-                           <oneOrMore>
-                              <group>
-                                 <group>
-                                    <ref name="model.div1Like"/>
-                                 </group>
-                                 <zeroOrMore>
-                                    <choice>
-                                       <ref name="model.global"/>
-                                       <ref name="model.divGenLike"/>
-                                    </choice>
-                                 </zeroOrMore>
-                              </group>
-                           </oneOrMore>
+                           <ref name="model.global"/>
+                           <ref name="model.divGenLike"/>
                         </choice>
-                     </optional>
+                     </zeroOrMore>
                   </group>
-               </choice>
-            </group>
+               </oneOrMore>
+               <oneOrMore>
+                  <group>
+                     <ref name="model.div1Like"/>
+                     <zeroOrMore>
+                        <choice>
+                           <ref name="model.global"/>
+                           <ref name="model.divGenLike"/>
+                        </choice>
+                     </zeroOrMore>
+                  </group>
+               </oneOrMore>
+               <group>
+                  <oneOrMore>
+                     <ref name="model.common"/>
+                     <zeroOrMore>
+                        <ref name="model.global"/>
+                     </zeroOrMore>
+                  </oneOrMore>
+                  <optional>
+                     <choice>
+                        <oneOrMore>
+                           <group>
+                              <ref name="model.divLike"/>
+                              <zeroOrMore>
+                                 <choice>
+                                    <ref name="model.global"/>
+                                    <ref name="model.divGenLike"/>
+                                 </choice>
+                              </zeroOrMore>
+                           </group>
+                        </oneOrMore>
+                        <oneOrMore>
+                           <group>
+                              <ref name="model.div1Like"/>
+                              <zeroOrMore>
+                                 <choice>
+                                    <ref name="model.global"/>
+                                    <ref name="model.divGenLike"/>
+                                 </choice>
+                              </zeroOrMore>
+                           </group>
+                        </oneOrMore>
+                     </choice>
+                  </optional>
+               </group>
+            </choice>
             <zeroOrMore>
                <group>
-                  <group>
-                     <ref name="model.divBottom"/>
-                  </group>
+                  <ref name="model.divBottom"/>
                   <zeroOrMore>
                      <ref name="model.global"/>
                   </zeroOrMore>
@@ -2037,9 +2021,9 @@ Licensing, etc.]</a:documentation>
    <define name="sourceDesc">
       <element name="sourceDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(source description) describes the source from which an electronic text was derived or generated, typically a bibliographic description in the case of a digitized text, or a phrase such as "born digital" for a text which has no previous existence. [2.2.7. The Source Description]</a:documentation>
-         <zeroOrMore>
+         <oneOrMore>
             <ref name="bibl"/>
-         </zeroOrMore>
+         </oneOrMore>
          <ref name="att.global.attributes"/>
          <ref name="att.declarable.attributes"/>
          <empty/>
@@ -2048,11 +2032,9 @@ Licensing, etc.]</a:documentation>
    <define name="profileDesc">
       <element name="profileDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the languages and sublanguages used, the situation in which it was produced, the participants and their setting. [2.4. The Profile Description 2.1.1. The TEI Header and Its Components]</a:documentation>
-         <group>
-            <zeroOrMore>
-               <ref name="model.profileDescPart"/>
-            </zeroOrMore>
-         </group>
+         <zeroOrMore>
+            <ref name="model.profileDescPart"/>
+         </zeroOrMore>
          <ref name="att.global.attributes"/>
          <empty/>
       </element>

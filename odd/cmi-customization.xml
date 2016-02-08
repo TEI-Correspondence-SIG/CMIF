@@ -53,19 +53,17 @@
                     
                     <elementSpec ident="titleStmt" mode="change" module="header">
                         <content>
-                            <rng:ref name="title"/>
-                            <rng:oneOrMore>
-                                <rng:ref name="editor"/>
-                            </rng:oneOrMore>
+                            <elementRef key="title"/>
+                            <elementRef key="editor" maxOccurs="unbounded"/><!-- oneOrMore -->
                         </content>
                     </elementSpec>
 
                     <elementSpec ident="publicationStmt" mode="change" module="header">
                         <content>
-                            <rng:ref name="publisher"/>
-                            <rng:ref name="idno"/>
-                            <rng:ref name="date"/>
-                            <rng:ref name="availability"/>
+                            <elementRef key="publisher"/>
+                            <elementRef key="idno"/>
+                            <elementRef key="date"/>
+                            <elementRef key="availability"/>
                         </content>
                     </elementSpec>
                     
@@ -83,9 +81,7 @@
 
                     <elementSpec ident="sourceDesc" mode="change" module="header">
                         <content>
-                            <rng:zeroOrMore>
-                                <rng:ref name="bibl"/>
-                            </rng:zeroOrMore>
+                            <elementRef key="bibl" maxOccurs="unbounded"/><!-- oneOrMore -->
                         </content>
                     </elementSpec>
                     
@@ -113,15 +109,15 @@
                             <memberOf key="att.global.responsibility"/>
                             <memberOf key="model.correspActionPart"/>
                         </classes>
-                        <content>
-                            <rng:empty/>
-                        </content>
+                        <content/>
                     </elementSpec>
                     
                     <elementSpec ident="idno" mode="replace" module="header">
                         <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
                         <content>
                             <rng:ref name="data.pointer"/>
+                            <!-- Doesn't work at present -->
+                            <!--<dataRef key="teidata.pointer"/>-->
                         </content>
                         <attList>
                             <attDef ident="type" mode="add" usage="req">
