@@ -60,7 +60,7 @@
 
                     <elementSpec ident="publicationStmt" mode="change" module="header">
                         <content>
-                            <elementRef key="publisher"/>
+                            <elementRef key="publisher" maxOccurs="unbounded" />
                             <elementRef key="idno"/>
                             <elementRef key="date"/>
                             <elementRef key="availability"/>
@@ -138,7 +138,7 @@
                             <memberOf key="att.source" mode="add"/>
                         </classes>
                     </elementSpec>
-                    
+                                      
                 </schemaSpec>
             </div>
         </back>
