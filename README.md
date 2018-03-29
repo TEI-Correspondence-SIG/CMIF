@@ -1,4 +1,4 @@
-#CMIF – Correspondence Metadata Interchange Format
+# CMIF – Correspondence Metadata Interchange Format
 
 ## About
 
