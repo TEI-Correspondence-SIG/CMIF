@@ -12,9 +12,9 @@
                 This file is an example of a list of correspondence descriptions from a whole 
                 digital scholarly edition of letters. If you provide such a file online for your 
                 edition, it can be retrieved by other digital scholarly editions and web services, 
-                e.g. http://correspSearch.bbaw.de.
+                e.g. http://correspSearch.net.
                 
-                For an example with letters from a *only printed* edition see example14_cmi-with-printed-edition.xml.
+                For an example with letters from a *only printed* edition see example02_cmi-with-printed-edition.xml.
                 
                 Example provided by Stefan Dumont
             -->
@@ -23,19 +23,21 @@
                     <ref target="http://weber-gesamtausgabe.de">Carl-Maria-von-Weber-Gesamtausgabe</ref>
                 </publisher>
                 <idno type="url">https://raw.githubusercontent.com/TEI-Correspondence-SIG/CMIF/master/examples/example01_basic.xml</idno>
-                <date when="2015-02-11T13:47:49.11+02:00"/>
+                <!-- URL of the CMIF file itself -->
+                <date when="2018-03-30T13:47:49.11+02:00"/>
                 <availability>
-                    <licence target="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</licence>
+                    <licence target="http://creativecommons.org/licenses/by/4.0/">This file is licensed under the terms of the Creative Commons Licence CC BY 4.0</licence>
                 </availability>
             </publicationStmt>
             <sourceDesc>
-                <bibl type="online">
+                <bibl type="online" xml:id="f5055f00-9182-4728-8f81-a0cf016b616b">
                     Carl-Maria-von-Weber-Gesamtausgabe. Digitale Edition, <ref target="http://www.weber-gesamtausgabe.de">http://www.weber-gesamtausgabe.de</ref> (Version 1.2 vom 12. Juni 2014)
                 </bibl>
             </sourceDesc>
         </fileDesc>
         <profileDesc>
-            <correspDesc ref="http://www.weber-gesamtausgabe.de/A044980">
+            <correspDesc ref="http://www.weber-gesamtausgabe.de/A044980" source="#f5055f00-9182-4728-8f81-a0cf016b616b">
+                <!-- @source references to bibl/@xml:id; as identifier an UUID should be used -->
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/118814044">Gänsbacher, Johann</persName>
                     <date notBefore="1810-07-11" notAfter="1810-07-18" cert="medium"/>
@@ -46,7 +48,7 @@
                     <date when="1810-07-18"/>
                 </correspAction>
             </correspDesc>
-            <correspDesc ref="http://www.weber-gesamtausgabe.de/A044943">
+            <correspDesc ref="http://www.weber-gesamtausgabe.de/A044943" source="#f5055f00-9182-4728-8f81-a0cf016b616b">
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/118629662">Weber, Carl Maria von</persName>
                     <placeName ref="http://www.geonames.org/2935022">Dresden</placeName>
@@ -58,7 +60,7 @@
                     <!-- unkown date should be skipped -->
                 </correspAction>
             </correspDesc>
-            <correspDesc ref="http://www.weber-gesamtausgabe.de/A041523">
+            <correspDesc ref="http://www.weber-gesamtausgabe.de/A041523" source="#f5055f00-9182-4728-8f81-a0cf016b616b">
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/118629662">Weber, Carl Maria von</persName>
                     <placeName ref="http://www.geonames.org/2898442">Hosterwitz</placeName>
@@ -66,7 +68,7 @@
                 </correspAction>
                 <correspAction type="received">
                     <persName>Pastenaci, E.</persName>
-                    <!-- persons without an authority file ID (GND, VIAF, LC etc.) could (and should) also be noted, 
+                    <!-- persons without an authority file ID (GND, VIAF, LC etc.) should also be noted, 
                             but be aware that it's very difficult to query them automatically in web services etc. --> 
                 </correspAction>
             </correspDesc>
