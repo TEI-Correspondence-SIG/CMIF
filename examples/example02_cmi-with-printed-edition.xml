@@ -14,10 +14,10 @@
                 book available, i.e. you have to use a "classic" reference with bibliographic information
                 (sourceDesc/bibl) and the identification number of the letter (noted in every correspDesc/@key). 
                 
-                For an example with letters from a *digital* edition see example13_cmi.xml.
+                For an example with letters from a *digital* edition see example01_cmi.xml.
                 
                 If you provide such a file online for your edition, it can be retrieved by other digital 
-                scholarly editions and web services, e.g. http://correspSearch.bbaw.de.
+                scholarly editions and web services, e.g. http://correspSearch.net.
             -->
             <publicationStmt>
                 <publisher>
@@ -25,14 +25,14 @@
                         Literatur Mainz</ref>
                 </publisher>
                 <idno type="url">https://raw.githubusercontent.com/TEI-Correspondence-SIG/CMIF/master/examples/example02_cmi-with-printed-edition.xml</idno>
-                <date when="2015-02-11T13:47:49.11+02:00"/>
+                <!-- URL of the CMIF file itself -->
+                <date when="2018-03-30T13:47:49.11+02:00"/>
                 <availability>
-                    <licence target="https://creativecommons.org/licenses/by/3.0/">CC-BY
-                        3.0</licence>
+                    <licence target="http://creativecommons.org/licenses/by/4.0/">This file is licensed under the terms of the Creative Commons Licence CC BY 4.0</licence>
                 </availability>
             </publicationStmt>
             <sourceDesc>
-                <bibl type="print">Samuel Thomas Soemmerring. Briefwechsel November 1792 – April 1805. Hrsg. u.
+                <bibl type="print" xml:id="e21a8353-5089-441f-a5b2-acd347f1f2aa">Samuel Thomas Soemmerring. Briefwechsel November 1792 – April 1805. Hrsg. u.
                     erl. v. Franz Dumont. Basel 2001 (= Samuel Thomas Soemmerring. Werke, begr. v.
                     Gunter Mann, hrsg. v. Jost Benedum u. Werner Friedrich Kümmel, Bd. 20).</bibl>
             </sourceDesc>
@@ -40,7 +40,8 @@
         <profileDesc>
             <!-- Note that in case of correspDesc list retrodigitalized from print editions you have to use 
                 @key for the letter ID (instead of @ref) -->
-            <correspDesc key="631">
+            <correspDesc key="631" source="#e21a8353-5089-441f-a5b2-acd347f1f2aa">
+                <!-- @source references to bibl/@xml:id; as identifier an UUID should be used -->
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/118805193">Samuel Thomas Soemmerring</persName>
                     <placeName ref="http://www.geonames.org/2874225">Mainz</placeName>
@@ -52,7 +53,7 @@
                     <date when="1792-12-26" cert="high"/>
                 </correspAction>
             </correspDesc>
-            <correspDesc key="632">
+            <correspDesc key="632" source="#e21a8353-5089-441f-a5b2-acd347f1f2aa">
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/11855073X">Christian Gottlob Heyne</persName>
                     <placeName ref="http://www.geonames.org/2918632">Göttingen</placeName>
@@ -63,7 +64,7 @@
                     <placeName ref="http://www.geonames.org/2874225">Mainz</placeName>
                 </correspAction>
             </correspDesc>
-            <correspDesc key="633">
+            <correspDesc key="633" source="#e21a8353-5089-441f-a5b2-acd347f1f2aa">
                 <correspAction type="sent">
                     <persName ref="http://d-nb.info/gnd/11855073X">Christian Gottlob Heyne</persName>
                     <placeName ref="http://www.geonames.org/2918632">Göttingen</placeName>
