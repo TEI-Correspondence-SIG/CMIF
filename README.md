@@ -12,7 +12,7 @@ The CMI format is the underlying data format for the web service ‘[correspSear
 
 ## How-to
 
-* [Documentation of the CMIF](documentation/documentation-en.md)
+* [Documentation of the CMIF](doc/documentation-en.md)
 * [Template files](templates/)
 * [Example files](examples/)
 
