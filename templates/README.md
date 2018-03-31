@@ -2,8 +2,8 @@
 
 Here you will find templates for files according to the Correspondence Metadata Interchange format to make metadata of a scholarly editions of letters available digitally. There are two templates available, but they differ only slightly: 
 
-* CMIF template for printed editions
-* CMIF template for digital editions. 
+* [CMIF template for printed editions](cmif-printed-edition.xml)
+* [CMIF template for digital editions](cmif-digital-edition.xml). 
 
 The template files do not validate because placeholders have been inserted instead of the real values. These placeholders briefly describe which values are to be entered here. 
 
