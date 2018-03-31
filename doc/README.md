@@ -1,3 +1,3 @@
 # Documentation
 
-Die Dokumentation des Correspondence Metadata Interchange Formats (CMIF) wird als [TEI-XML-Dokument](https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/doc/documentation-en.xml) gepflegt. Zwecks leichterer Zugänglichkeit in GitHub wird die Dokumentation per Konvertierung zusätzlich als [Markdown-Dokument](https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/doc/documentation-en.md) vorgehalten.
+The documentation of the Correspondence Metadata Interchange Format (CMIF) is maintained as a TEI XML document. For easier accessibility in GitHub, the documentation is also provided as a markdown document (via conversion).
