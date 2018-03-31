@@ -1,0 +1,59 @@
+<?xml-model href="https://raw.githubusercontent.com/TEI-Correspondence-SIG/CMIF/master/schema/cmi-customization.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <!-- 
+      IMPORTANT:
+      This is a template file for the Correspondence Metadata Interchange Format, 
+      please read https://github.com/TEI-Correspondence-SIG/CMIF/tree/master/templates 
+      for further information! 
+    --> 
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>[Title of the Correspondence Index]</title>
+                <editor>[Name of the person, who is responsible for this file (not the edition) <email>[email address of this person]</email>
+                </editor>
+            </titleStmt>
+            <!-- Template for a TEI XML file according to the Corrspondence Metadata Interchange Format (CMIF) -->
+            <publicationStmt>
+                <publisher>
+                    <ref target="[URL of the publisher]">[Name of the Publisher. IMPORTANT: This name will be used as CC BY attribution]</ref>
+                </publisher>
+                <!-- multiple publisher are possible -->
+                <idno type="url">[URL of this CMIF file]</idno>
+                <date when="[timestamp of last change]"/>
+                <availability>
+                    <!-- The CC BY 4.0 license is mandatory -->
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">This file is licensed under the terms of the Creative-Commons-License CC-BY 4.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl type="[online, print or hybrid]" xml:id="[UUID]">
+                    <!-- For more information about the UUID see the CMIF documentation -->
+                    [Full bibliographical statement of the scholarly edition or repository where this file points to]
+                </bibl>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <correspDesc key="[ID of the letter as noted in edition, if available]" ref="[URL of the letter]" source="#[UUID]">
+                <!-- bibl/@xml:id is referenced from correspDesc by @source="#UUID" -->
+                <correspAction type="sent">
+                    <persName ref="[Authority controlled ID like VIAF, GND etc. for sender]">[Name of the sender in the manner you want to show it]</persName>
+                    <placeName ref="[Authority controlled ID, i.e. GeoNames for senders place]">[Name of senders place in the manner you want to show it]</placeName>
+                    <date when="1825-05-07"/>
+                    <!-- the date has to be note as YYYY-MM-DD, YYYY-MM or YYYY. Attributes @when, @from, @to, @notBefore, @notAfter are possible -->
+                </correspAction>
+                <correspAction type="received">
+                    <persName ref="[Authority controlled ID like VIAF, GND etc. for addressee]">[Name of the addressee in the manner you want to show it]</persName>
+                    <placeName ref="[Authority controlled ID, i.e. GeoNames for addressees place]">[Name of addressees place in the manner you want to show it]</placeName>
+                    <!-- unkown date should be skipped -->
+                </correspAction>
+            </correspDesc>
+            <!-- more correspDesc elements (as many as letters, postcards etc. are available in the scholarly edition -->
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p/>
+        </body>
+    </text>
+</TEI>
