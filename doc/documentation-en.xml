@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Correspondence Metadata Interchange Format (CMIF)</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <ref target="http://www.tei-c.org/Activities/SIG/Correspondence/">TEI Correspondence SIG</ref>
+                </publisher>
+                <idno type="url">https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/doc/cmif-documentation_en.xml</idno>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">This file is licensed under the
+                        terms of the Creative Commons License CC-BY 4.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born digital</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div>
+                <head>Correspondence Metadata Interchange Format (CMIF) - Documentation</head>
+                    <div>
+                        <head>Introduction</head>
+                        <p>The "Correspondence Metadata Interchange Format" (CMIF) enables scholars to create digital indexes
+                            of letters from their scholarly editions and provide them online. The CMIF has been developed by the 
+                            TEI Correspondence SIG and is a highly reduced and restricted subset of the TEI Guidelines which is
+                            based mainly on the TEI element <hi rend="code">correspDesc</hi>. </p>
+                        <p>The Basis of a digital index of letters according to the CMI format is a
+                            TEI-XML file. You can download <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/master/examples"
+                                >templates with short descriptions here</ref>.</p>
+                    </div>
+                    <div>
+                        <head>Overview</head>
+                        <p>The TEI-XML file contains as many <hi rend="code">correspDesc</hi>
+                            elements as the provider have letters, postcards, etc. in his scholarly edition.
+                            A particular <hi rend="code">correspDesc</hi> element in CMI format is
+                            more restrictive and reduced with regard to its vocabulary than the TEI
+                            Guidlines generally allow. This enables interchange between the
+                            respective TEI documents.</p>
+                        <figure>
+                            <!--<graphic url="files/correspDesc_EN.png" rend="img" mimeType="image/png"
+                                width="595px"/>-->
+                            <head>The image shows schematically the different parts of a <hi
+                                    rend="code">correspDesc</hi> element in the CMI format. The
+                                addressee and sender are documented the same way. The example
+                                originates from an <ref
+                                    target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/examples/example01_basic.xml"
+                                    >example provided by the TEI Correspondence SIG</ref>.</head>
+                        </figure>
+                        <p>For persons and places in the "correspondence description" (sender, addresssee, senders place etc.) an ID 
+                            from an authority file should be provided to identify these entities across projects and to use the
+                            correspondence metadata in network analysis or web services (e.g. <ref target="http://correspsearch.net">correspSearch</ref>). 
+                            Possible authority files for persons could
+                            be:</p>
+                        <list>
+                            <item><ref target="http://viaf.org">Virtual Authority File (VIAF)</ref></item>
+                            <item><ref target="http://www.dnb.de/gnd">Gemeinsame Normdatei (GND)</ref>, Deutsche Nationalbibliothek</item>
+                            <item><ref target="http://catalogue.bnf.fr/recherche-autorite.do">Autorités, Bibliothèque nationale de France</ref> (BNF)</item>
+                            <item><ref target="http://authorities.loc.gov/">Library of Congress Authorities (LC)</ref></item>
+                            <item><ref target="http://id.ndl.go.jp/auth/ndla">Web NDL Authorities</ref>, National Diet Library (NDL), Japan</item>  
+                        </list>
+                        <p>For places the TEI Correspondence SIG recommends to use the free licensed geographical database <ref target="http://www.geonames.org">GeoNames</ref>.</p>
+                    </div>
+                    <div>
+                        <head>Details</head>
+                            <div>
+                            <head>Correspondence Metadata</head>
+                            <p>The following table offers detailed information about the particular
+                                parts of a <hi rend="code">correspDesc</hi> element in the CMI
+                                format:</p>
+                            <table>
+                                <row role="label">
+                                    <cell>XPath (relative to <hi rend="code">correspDesc</hi>)</cell>
+                                    <cell>Description</cell>
+                                    <cell>Value(s) and Notes</cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction</cell>
+                                    <cell>Includes the data related to the sending/receiving process of
+                                        a letter, postcard etc.</cell>
+                                    <cell>Only the following child elements (no text allowed): persName, orgName, placeName, date</cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/@type</cell>
+                                    <cell>Type of the correspondence action</cell>
+                                    <cell>Allowed: <hi rend="code">"sent", "received"</hi>
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/persName</cell>
+                                    <cell>Personal name of sender or addressee</cell>
+                                    <cell>Mandatory; if the sender or addressee is unknown please
+                                        indicate this by the string <hi rend="code">"Unknown"</hi>
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/persName/@ref</cell>
+                                    <cell>Authority controlled ID of sender or addressee</cell>
+                                    <cell>Strongly recommended, if available. 
+                                        Possible authority files: VIAF, GND, LC, BNF and NDL (see above) 
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/orgName</cell>
+                                    <cell>Name of institution, company etc.</cell>
+                                    <cell>Optional, if <hi rend="code">persName</hi> is not
+                                        applicable</cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/placeName</cell>
+                                    <cell>Name of the place a letter was sent from or where it is being
+                                        sent to</cell>
+                                    <cell>If available</cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/placeName/@ref</cell>
+                                    <cell>Authority controlled ID of the place a letter was sent from or
+                                        where it is being sent to</cell>
+                                    <cell>Strongly recommende, if available. Possible authority files: GeoNames (see above)</cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/date</cell>
+                                    <cell>Machine-readable date of when the letter was sent or
+                                        received</cell>
+                                    <cell>If available. The CMIF supports the attributes <hi
+                                            rend="code">@when, @from, @to, @notBefore</hi> and <hi
+                                            rend="code">@notAfter</hi>. To facilitate the interchange, the
+                                        CMIF supports (unlike the TEI Guidelines) only the following date formats: <list
+                                            type="unordered">
+                                            <item>YYYY-MM-DD, e.g. 1804-03-01</item>
+                                            <item>YYYY-MM, e.g. 1804-03</item>
+                                            <item>YYYY, e.g. 1808</item>
+                                        </list></cell>
+                                </row>
+                            </table>
+                            <p>The <hi rend="code">correspDesc</hi> elements are noted inside <hi
+                                    rend="code">TEI/teiHeader/profileDesc</hi> - as described in the TEI Guidelines.</p>
+                    </div>
+                    <div>
+                        <head>Information <hi rend="italic">about</hi> the digital index of
+                            letters</head>
+                        <p>Besides the correspondence metadata, the provider have to include some
+                            information about the CMIF file and the digital index of letters itself in the <hi rend="code"
+                                >teiHeader/fileDesc</hi> element. All elements there are mandatory
+                            if not stated otherwise.</p>
+                        <table>
+                            <row role="label">
+                                <cell>XPath</cell>
+                                <cell>Description</cell>
+                                <cell>Value(s) and Notes</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//titleStmt/title</cell>
+                                <cell>Title of the digital index of letters</cell>
+                                <cell>Free text field</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//titleStmt/editor</cell>
+                                <cell>Contact person concerning the digital index of letters</cell>
+                                <cell>If available with an e-mail address in <hi rend="code"
+                                        >editor/email</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//publicationStmt/publisher</cell>
+                                <cell>Originator of the letter metadata as defined in the Creative
+                                    Commons Licence CC-BY 4.0</cell>
+                                <cell>Free text field</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//publicationStmt/availability/licence</cell>
+                                <cell>Licence statement</cell>
+                                <cell>Mandatory: <hi rend="code">"This file is licensed under the
+                                        terms of the Creative Commons License CC-BY 4.0"</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code"
+                                    >//publicationStmt/availability/licence/@target</cell>
+                                <cell>URL of the licence</cell>
+                                <cell>Mandatory: <hi rend="code"
+                                        >"https://creativecommons.org/licenses/by/4.0/"</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//publicationStmt/date/@when</cell>
+                                <cell>Timestamp of the last update of this file</cell>
+                                <cell>Format: xsd:dateTime</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//publicationStmt/idno</cell>
+                                <cell>URL of this digital index of letters</cell>
+                                <cell>The URL serves as a unique identifier for the CMIF file and ensures that the file can always
+                                traced back to their origin</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//publicationStmt/idno/@type</cell>
+                                <cell>Type of the above mentioned identifier</cell>
+                                <cell>Mandatory: <hi rend="code">"URL"</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//sourceDesc/bibl</cell>
+                                <cell>Bibliographic information about the scholarly edition from
+                                    which the correspondence metadata is derived from.</cell>
+                                <cell>No specifications.</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">//sourceDesc/bibl/@type</cell>
+                                <cell>Type of scholarly edition</cell>
+                                <cell>The following values are allowed: <hi rend="code">"print",
+                                        "online"</hi>
+                                </cell>
+                            </row>
+                        </table>
+                    </div>
+                    </div>
+            </div>
+        </body>
+    </text>
+</TEI>
