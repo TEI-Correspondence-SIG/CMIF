@@ -5,21 +5,21 @@
 
 The "Correspondence Metadata Interchange Format" (CMIF) enables scholars to create digital indexes of letters from their scholarly editions and provide them online. The CMIF has been developed by the TEI Correspondence SIG and is a highly reduced and restricted subset of the TEI Guidelines which is based mainly on the TEI element `correspDesc`.
 
-The Basis of a digital index of letters according to the CMI format is a TEI-XML file. You can download templates with short descriptions here.
+The Basis of a digital index of letters according to the CMI format is a TEI-XML file. You can download [templates with short descriptions here](https://github.com/TEI-Correspondence-SIG/CMIF/tree/master/examples).
 
 ## Overview
 
 The TEI-XML file contains as many `correspDesc` elements as the provider have letters, postcards, etc. in his scholarly edition. A particular `correspDesc` element in CMI format is more restrictive and reduced with regard to its vocabulary than the TEI Guidlines generally allow. This enables interchange between the respective TEI documents.
 
-For persons and places in the "correspondence description" (sender, addresssee, senders place etc.) an ID from an authority file should be provided to identify these entities across projects and to use the correspondence metadata in network analysis or web services (e.g. correspSearch). Possible authority files for persons could be:
+For persons and places in the "correspondence description" (sender, addresssee, senders place etc.) an ID from an authority file should be provided to identify these entities across projects and to use the correspondence metadata in network analysis or web services (e.g. [correspSearch](http://correspsearch.net)). Possible authority files for persons could be:
 
-* Virtual Authority File (VIAF)
-* Gemeinsame Normdatei (GND), Deutsche Nationalbibliothek
-* Autorités, Bibliothèque nationale de France (BNF)
-* Library of Congress Authorities (LC)
-* Web NDL Authorities, National Diet Library (NDL), Japan
+* [Virtual Authority File (VIAF)](http://viaf.org)
+* [Gemeinsame Normdatei (GND)](http://www.dnb.de/gnd), Deutsche Nationalbibliothek
+* [Autorités, Bibliothèque nationale de France](http://catalogue.bnf.fr/recherche-autorite.do) (BNF)
+* [Library of Congress Authorities (LC)](http://authorities.loc.gov/)
+* [Web NDL Authorities](http://id.ndl.go.jp/auth/ndla), National Diet Library (NDL), Japan
 
-For places the TEI Correspondence SIG recommends to use the free licensed geographical database GeoNames.
+For places the TEI Correspondence SIG recommends to use the free licensed geographical database [GeoNames](http://www.geonames.org).
 
 ## Details
 
