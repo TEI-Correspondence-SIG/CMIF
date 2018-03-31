@@ -1,6 +1,6 @@
 # CMIF – Correspondence Metadata Interchange Format
 
-by TEI Correspondence SIG 2015-2018 ([license](#license)
+by TEI Correspondence SIG 2015-2018 ([see license](#license))
 
 ## About
 
@@ -29,5 +29,7 @@ For discussion of the CMIF, please use the section ["Issues"](https://github.com
 - Stefan Dumont, « correspSearch – Connecting Scholarly Editions of Letters », Journal of the Text Encoding Initiative \[Online\], Issue 10 | 2016, Online since 14 February 2018. URL: http://journals.openedition.org/jtei/1742; DOI: 10.4000/jtei.1742  
 
 ## License
+
+© TEI Correspondence SIG 2015-2018
 
 This work is available under dual license: [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) and [Creative Commons Attribution 4.0 License (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
