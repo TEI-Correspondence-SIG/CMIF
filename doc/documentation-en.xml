@@ -43,8 +43,8 @@
                             Guidlines generally allow. This enables interchange between the
                             respective TEI documents.</p>
                         <figure>
-                            <!--<graphic url="files/correspDesc_EN.png" rend="img" mimeType="image/png"
-                                width="595px"/>-->
+                            <graphic url="images/correspDesc-en.png" rend="img" mimeType="image/png"
+                                width="595px"/>
                             <head>The image shows schematically the different parts of a <hi
                                     rend="code">correspDesc</hi> element in the CMI format. The
                                 addressee and sender are documented the same way. The example
