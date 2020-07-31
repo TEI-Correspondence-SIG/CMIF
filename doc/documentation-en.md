@@ -9,12 +9,12 @@ The Basis of a digital index of letters according to the CMI format is a TEI-XML
 
 ## Overview
 
-The TEI-XML file contains as many `correspDesc` elements as the provider have letters, postcards, etc. in his scholarly edition. A particular `correspDesc` element in CMI format is more restrictive and reduced with regard to its vocabulary than the TEI Guidlines generally allow. This enables interchange between the respective TEI documents.
+The TEI-XML file contains as many `correspDesc` elements as the provider have letters, postcards, etc. in his scholarly edition. A particular `correspDesc` element in CMI format is more restrictive and reduced with regard to its vocabulary than the TEI Guidelines generally allow. This enables interchange between the respective TEI documents.
 
 ![alt text](images/correspDesc-en.png)
 *The image shows schematically the different parts of a `correspDesc` element in the CMI format. The addressee and sender are documented the same way. The example originates from [this example](https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/examples/example01_basic.xml)*
 
-For persons and places in the "correspondence description" (sender, addresssee, senders place etc.) an ID from an authority file should be provided to identify these entities across projects and to use the correspondence metadata in network analysis or web services (e.g. [correspSearch](http://correspsearch.net)). Possible authority files for persons could be:
+For persons and places in the "correspondence description" (sender, addressee, senders place etc.) an ID from an authority file should be provided to identify these entities across projects and to use the correspondence metadata in network analysis or web services (e.g. [correspSearch](http://correspsearch.net)). Possible authority files for persons could be:
 
 * [Virtual Authority File (VIAF)](http://viaf.org)
 * [Gemeinsame Normdatei (GND)](http://www.dnb.de/gnd), Deutsche Nationalbibliothek
