@@ -9,7 +9,7 @@
                 <publisher>
                     <ref target="http://www.tei-c.org/Activities/SIG/Correspondence/">TEI Correspondence SIG</ref>
                 </publisher>
-                <idno type="url">https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/doc/cmif-documentation_en.xml</idno>
+                <idno type="url">https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/doc/cmif-documentation_en.xml</idno>
                 <availability>
                     <licence target="https://creativecommons.org/licenses/by/4.0/">This file is licensed under the
                         terms of the Creative Commons License CC-BY 4.0</licence>
@@ -31,7 +31,7 @@
                             TEI Correspondence SIG and is a highly reduced and restricted subset of the TEI Guidelines which is
                             based mainly on the TEI element <hi rend="code">correspDesc</hi>. </p>
                         <p>The Basis of a digital index of letters according to the CMI format is a
-                            TEI-XML file. You can download <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/master/examples"
+                            TEI-XML file. You can download <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples"
                                 >templates with short descriptions here</ref>.</p>
                     </div>
                     <div>
@@ -40,7 +40,7 @@
                             elements as the provider have letters, postcards, etc. in his scholarly edition.
                             A particular <hi rend="code">correspDesc</hi> element in CMI format is
                             more restrictive and reduced with regard to its vocabulary than the TEI
-                            Guidlines generally allow. This enables interchange between the
+                            Guidelines generally allow. This enables interchange between the
                             respective TEI documents.</p>
                         <figure>
                             <graphic url="images/correspDesc-en.png" rend="img" mimeType="image/png"
@@ -48,11 +48,11 @@
                             <head>The image shows schematically the different parts of a <hi
                                     rend="code">correspDesc</hi> element in the CMI format. The
                                 addressee and sender are documented the same way. The example
-                                originates from an <ref
-                                    target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/master/examples/example01_basic.xml"
+                                originates from this <ref
+                                    target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/examples/example01_basic.xml"
                                     >example provided by the TEI Correspondence SIG</ref>.</head>
                         </figure>
-                        <p>For persons and places in the "correspondence description" (sender, addresssee, senders place etc.) an ID 
+                        <p>For persons and places in the "correspondence description" (sender, addressee, senders place etc.) an ID 
                             from an authority file should be provided to identify these entities across projects and to use the
                             correspondence metadata in network analysis or web services (e.g. <ref target="http://correspsearch.net">correspSearch</ref>). 
                             Possible authority files for persons could
@@ -139,7 +139,7 @@
                                     <cell rend="code">/correspAction/placeName/@ref</cell>
                                     <cell>Authority controlled ID of the place a letter was sent from or
                                         where it is being sent to</cell>
-                                    <cell>Strongly recommende, if available. Possible authority files: GeoNames (see above)</cell>
+                                    <cell>Strongly recommended, if available. Possible authority files: GeoNames (see above)</cell>
                                 </row>
                                 <row>
                                     <cell rend="code">/correspAction/date</cell>
