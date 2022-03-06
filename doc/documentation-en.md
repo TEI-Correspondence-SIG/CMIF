@@ -5,7 +5,7 @@
 
 The "Correspondence Metadata Interchange Format" (CMIF) enables scholars to create digital indexes of letters from their scholarly editions and provide them online. The CMIF has been developed by the TEI Correspondence SIG and is a highly reduced and restricted subset of the TEI Guidelines which is based mainly on the TEI element `correspDesc`.
 
-The Basis of a digital index of letters according to the CMI format is a TEI-XML file. You can download [templates with short descriptions here](https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples).
+The Basis of a digital index of letters according to the CMI format is a TEI-XML file. You can download [templates with short descriptions here](https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples). An [RNG schema](https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/schema/cmi-customization.rng), which you can use to validate your CMIF file, is also available.
 
 ## Overview
 

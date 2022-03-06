@@ -32,7 +32,7 @@
                             based mainly on the TEI element <hi rend="code">correspDesc</hi>. </p>
                         <p>The Basis of a digital index of letters according to the CMI format is a
                             TEI-XML file. You can download <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples"
-                                >templates with short descriptions here</ref>.</p>
+                                >templates with short descriptions here</ref>. An <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/schema/cmi-customization.rng">RNG schema</ref>, which you can use to validate your CMIF file, is also available.</p>
                     </div>
                     <div>
                         <head>Overview</head>
