@@ -133,12 +133,6 @@
                             </egXML>
                         </exemplum>
                     </elementSpec>
-                    
-                    <elementSpec ident="correspDesc" mode="change" module="header">
-                        <classes mode="change">
-                            <memberOf key="att.source" mode="add"/>
-                        </classes>
-                    </elementSpec>
                                       
                 </schemaSpec>
             </div>
