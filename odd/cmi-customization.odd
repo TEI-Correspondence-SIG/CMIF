@@ -108,7 +108,9 @@
                             <memberOf key="att.global.responsibility"/>
                             <memberOf key="model.correspActionPart"/>
                         </classes>
-                        <content/>
+                        <content>
+                            <empty/>
+                        </content>
                     </elementSpec>
                     
                     <elementSpec ident="idno" mode="replace" module="header">
