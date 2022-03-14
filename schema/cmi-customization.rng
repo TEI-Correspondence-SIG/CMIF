@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-03-14T15:24:45Z. .
+Schema generated from ODD source 2022-03-14T15:39:14Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -754,6 +754,7 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          <ref name="name"/>
          <ref name="orgName"/>
          <ref name="persName"/>
+         <ref name="placeName"/>
       </choice>
    </define>
    <define name="model.nameLike.agent_alternation">
@@ -761,12 +762,14 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          <ref name="name"/>
          <ref name="orgName"/>
          <ref name="persName"/>
+         <ref name="placeName"/>
       </choice>
    </define>
    <define name="model.nameLike.agent_sequence">
       <ref name="name"/>
       <ref name="orgName"/>
       <ref name="persName"/>
+      <ref name="placeName"/>
    </define>
    <define name="model.nameLike.agent_sequenceOptional">
       <optional>
@@ -777,6 +780,9 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       </optional>
       <optional>
          <ref name="persName"/>
+      </optional>
+      <optional>
+         <ref name="placeName"/>
       </optional>
    </define>
    <define name="model.nameLike.agent_sequenceOptionalRepeatable">
@@ -789,6 +795,9 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       <zeroOrMore>
          <ref name="persName"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="placeName"/>
+      </zeroOrMore>
    </define>
    <define name="model.nameLike.agent_sequenceRepeatable">
       <oneOrMore>
@@ -799,6 +808,9 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       </oneOrMore>
       <oneOrMore>
          <ref name="persName"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="placeName"/>
       </oneOrMore>
    </define>
    <define name="model.segLike">
@@ -1178,32 +1190,22 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       </choice>
    </define>
    <define name="model.placeNamePart">
-      <choice>
-         <ref name="placeName"/>
-      </choice>
+      <notAllowed/>
    </define>
    <define name="model.placeNamePart_alternation">
-      <choice>
-         <ref name="placeName"/>
-      </choice>
+      <notAllowed/>
    </define>
    <define name="model.placeNamePart_sequence">
-      <ref name="placeName"/>
+      <empty/>
    </define>
    <define name="model.placeNamePart_sequenceOptional">
-      <optional>
-         <ref name="placeName"/>
-      </optional>
+      <empty/>
    </define>
    <define name="model.placeNamePart_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="placeName"/>
-      </zeroOrMore>
+      <empty/>
    </define>
    <define name="model.placeNamePart_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="placeName"/>
-      </oneOrMore>
+      <notAllowed/>
    </define>
    <define name="model.placeStateLike">
       <choice>
@@ -2345,36 +2347,51 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
    <define name="orgName">
       <element name="orgName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(organization name) contains an organizational name. [13.2.2. Organizational Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.datable.attributes"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.personal.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <text/>
+         <optional>
+            <attribute name="ref">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
    <define name="persName">
       <element name="persName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.datable.attributes"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.personal.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <text/>
+         <optional>
+            <attribute name="ref">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
    <define name="placeName">
       <element name="placeName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.datable.attributes"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.personal.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <text/>
+         <optional>
+            <attribute name="ref">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI"/>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>

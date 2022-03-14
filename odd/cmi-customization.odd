@@ -144,6 +144,48 @@
                             <attDef ident="source" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
+                    
+                    <elementSpec ident="persName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="orgName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="placeName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
                                       
                 </schemaSpec>
             </div>
