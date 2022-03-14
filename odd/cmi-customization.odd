@@ -99,6 +99,11 @@
                                     </valItem>
                                 </valList>
                             </attDef>
+                            <attDef ident="xml:id" mode="change" usage="req">
+                                <desc>Should contain a UUID, which is static, i.e. doesn't change when the CMIF
+                                is change and/or regenerated. Be aware that the UUID have to begin with
+                                a letter, since the definition of @xml:id requires that.</desc>
+                            </attDef>
                         </attList>
                     </elementSpec>
                     
@@ -116,9 +121,9 @@
                     <elementSpec ident="idno" mode="replace" module="header">
                         <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
                         <content>
-                            <rng:ref name="data.pointer"/>
-                            <!-- Doesn't work at present -->
-                            <!--<dataRef key="teidata.pointer"/>-->
+<!--                            <rng:ref name="data.pointer"/>-->
+                            <!-- seems rng:ref doesn't work anymore?  -->
+                            <dataRef key="teidata.pointer"/>
                         </content>
                         <attList>
                             <attDef ident="type" mode="add" usage="req">
@@ -132,6 +137,12 @@
                                 <idno type="url">http://weber-gesamtausgabe.de/correspDesc.xml</idno>
                             </egXML>
                         </exemplum>
+                    </elementSpec>
+                    
+                    <elementSpec ident="correspDesc" mode="change" module="header">
+                        <attList>
+                            <attDef ident="source" mode="change" usage="req"/>
+                        </attList>
                     </elementSpec>
                                       
                 </schemaSpec>
