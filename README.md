@@ -18,6 +18,10 @@ The CMI format is the underlying data format for the web service ‘[correspSear
 
 The research project "correspSearch" provides a [tutorial](http://correspsearch.net/index.xql?id=participate_steps&l=en) and an online tool, the [CMIF Creator](http://correspsearch.net/creator/index.xql), which allows scholars to create and edit CMIF files without any knowledge of TEI-XML.  
 
+There are various ways of extracting CMIF from existing TEI collections via XSL-T or XQuery. Reusable examples include: 
+
+* <https://github.com/QHOD/qhodCMIFxquery> a basic XQuery for the [QhoD project](https://qhod.net)
+
 ## Discussion &  further development
 
 See ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://listserv.brown.edu/archives/cgi-bin/wa?A0=TEI-CORRESP-SIG) of the TEI Correspondence SIG. 
@@ -28,6 +32,7 @@ See ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html)
 - Stefan Dumont, « Perspectives of the further development of the Correspondence Metadata Interchange Format (CMIF) — digiversity », 10.2015, URL: https://digiversity.net/2015/perspectives-of-the-further-development-of-the-correspondence-metadata-interchange-format-cmif/.
 - Stefan Dumont, « correspSearch – Connecting Scholarly Editions of Letters », Journal of the Text Encoding Initiative 10 (2016). URL: http://journals.openedition.org/jtei/1742; DOI: 10.4000/jtei.1742 
 - Stefan Dumont, Ingo Börner, Dominik Leipold, Jonas Müller-Laackman, Gerlinde Schneider: Corresponde Metadata Interchange Format, in: Encoding Correspondence. A Manual for Encoding Letters and Postcards in TEI-XML and DTABf, edited by Stefan Dumont, Susanne Haaf and Sabine Seifert. Berlin 2019. https://encoding-correspondence.bbaw.de/v1/CMIF.html  
+- Stephan Kurz, « Correspondence Metadata Interchange Format (CMIF) », KONDE Weißbuch. Hrsg. v. Helmut W. Klug unter Mitarbeit von Selina Galka und Elisabeth Steiner im HRSM-Projekt Kompetenznetzwerk Digitale Edition. Graz 2021. https://hdl.handle.net/11471/562.50.42. 
 
 ## License
 
