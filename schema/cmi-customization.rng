@@ -5,52 +5,48 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-03-14T15:39:14Z. .
-TEI Edition: Version 4.3.0. Last updated on
-        31st August 2021, revision b4f72b1ff
-TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
+Schema generated from ODD source 2023-05-08T14:32:04Z. .
+TEI Edition: Version 4.6.0. Last updated on
+        4th April 2023, revision f18deffba
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
   
 --><!--CC+BY and BSD-2 licences-->
-   <define name="macro.paraContent">
+   <define name="tei_macro.paraContent">
       <zeroOrMore>
          <choice>
             <text/>
-            <ref name="model.gLike"/>
-            <ref name="model.phrase"/>
-            <ref name="model.inter"/>
-            <ref name="model.global"/>
-            <ref name="model.lLike"/>
+            <ref name="tei_model.paraPart"/>
          </choice>
       </zeroOrMore>
    </define>
-   <define name="macro.phraseSeq">
+   <define name="tei_macro.phraseSeq">
       <zeroOrMore>
          <choice>
             <text/>
-            <ref name="model.gLike"/>
-            <ref name="model.attributable"/>
-            <ref name="model.phrase"/>
-            <ref name="model.global"/>
+            <ref name="tei_model.gLike"/>
+            <ref name="tei_model.attributable"/>
+            <ref name="tei_model.phrase"/>
+            <ref name="tei_model.global"/>
          </choice>
       </zeroOrMore>
    </define>
-   <define name="macro.specialPara">
+   <define name="tei_macro.specialPara">
       <zeroOrMore>
          <choice>
             <text/>
-            <ref name="model.gLike"/>
-            <ref name="model.phrase"/>
-            <ref name="model.inter"/>
-            <ref name="model.divPart"/>
-            <ref name="model.global"/>
+            <ref name="tei_model.gLike"/>
+            <ref name="tei_model.phrase"/>
+            <ref name="tei_model.inter"/>
+            <ref name="tei_model.divPart"/>
+            <ref name="tei_model.global"/>
          </choice>
       </zeroOrMore>
    </define>
-   <define name="att.anchoring.attributes">
-      <ref name="att.anchoring.attribute.anchored"/>
-      <ref name="att.anchoring.attribute.targetEnd"/>
+   <define name="tei_att.anchoring.attributes">
+      <ref name="tei_att.anchoring.attribute.anchored"/>
+      <ref name="tei_att.anchoring.attribute.targetEnd"/>
    </define>
-   <define name="att.anchoring.attribute.anchored">
+   <define name="tei_att.anchoring.attribute.anchored">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="anchored"
@@ -60,23 +56,25 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.anchoring.attribute.targetEnd">
+   <define name="tei_att.anchoring.attribute.targetEnd">
       <optional>
          <attribute name="targetEnd">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(target end) points to the end of the span to which the note is attached, if the note is not embedded in the text at that point.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.canonical.attributes">
-      <ref name="att.canonical.attribute.key"/>
-      <ref name="att.canonical.attribute.ref"/>
+   <define name="tei_att.canonical.attributes">
+      <ref name="tei_att.canonical.attribute.key"/>
+      <ref name="tei_att.canonical.attribute.ref"/>
    </define>
-   <define name="att.canonical.attribute.key">
+   <define name="tei_att.canonical.attribute.key">
       <optional>
          <attribute name="key">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.</a:documentation>
@@ -84,33 +82,37 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.canonical.attribute.ref">
+   <define name="tei_att.canonical.attribute.ref">
       <optional>
          <attribute name="ref">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.written.attributes">
-      <ref name="att.written.attribute.hand"/>
+   <define name="tei_att.written.attributes">
+      <ref name="tei_att.written.attribute.hand"/>
    </define>
-   <define name="att.written.attribute.hand">
+   <define name="tei_att.written.attribute.hand">
       <optional>
          <attribute name="hand">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a <code xmlns="http://www.w3.org/1999/xhtml">&lt;handNote&gt;</code> element describing the hand considered responsible for the content of the element concerned.</a:documentation>
-            <data type="anyURI"/>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
          </attribute>
       </optional>
    </define>
-   <define name="att.cReferencing.attributes">
-      <ref name="att.cReferencing.attribute.cRef"/>
+   <define name="tei_att.cReferencing.attributes">
+      <ref name="tei_att.cReferencing.attribute.cRef"/>
    </define>
-   <define name="att.cReferencing.attribute.cRef">
+   <define name="tei_att.cReferencing.attribute.cRef">
       <optional>
          <attribute name="cRef">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(canonical reference) specifies the destination of the pointer by supplying a canonical reference expressed using the scheme defined in a <code xmlns="http://www.w3.org/1999/xhtml">&lt;refsDecl&gt;</code> element in the TEI header</a:documentation>
@@ -118,14 +120,14 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.w3c.attributes">
-      <ref name="att.datable.w3c.attribute.when"/>
-      <ref name="att.datable.w3c.attribute.notBefore"/>
-      <ref name="att.datable.w3c.attribute.notAfter"/>
-      <ref name="att.datable.w3c.attribute.from"/>
-      <ref name="att.datable.w3c.attribute.to"/>
+   <define name="tei_att.datable.w3c.attributes">
+      <ref name="tei_att.datable.w3c.attribute.when"/>
+      <ref name="tei_att.datable.w3c.attribute.notBefore"/>
+      <ref name="tei_att.datable.w3c.attribute.notAfter"/>
+      <ref name="tei_att.datable.w3c.attribute.from"/>
+      <ref name="tei_att.datable.w3c.attribute.to"/>
    </define>
-   <define name="att.datable.w3c.attribute.when">
+   <define name="tei_att.datable.w3c.attribute.when">
       <optional>
          <attribute name="when">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of the date or time in a standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -142,7 +144,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.w3c.attribute.notBefore">
+   <define name="tei_att.datable.w3c.attribute.notBefore">
       <optional>
          <attribute name="notBefore">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -159,7 +161,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.w3c.attribute.notAfter">
+   <define name="tei_att.datable.w3c.attribute.notAfter">
       <optional>
          <attribute name="notAfter">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -176,7 +178,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.w3c.attribute.from">
+   <define name="tei_att.datable.w3c.attribute.from">
       <optional>
          <attribute name="from">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -193,7 +195,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.w3c.attribute.to">
+   <define name="tei_att.datable.w3c.attribute.to">
       <optional>
          <attribute name="to">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -217,7 +219,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[@when]">
-         <sch:report test="@notBefore|@notAfter|@from|@to" role="nonfatal">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
+        <sch:report role="nonfatal" test="@notBefore|@notAfter|@from|@to">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -227,7 +229,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[@from]">
-         <sch:report test="@notBefore" role="nonfatal">The @from and @notBefore attributes cannot be used together.</sch:report>
+        <sch:report role="nonfatal" test="@notBefore">The @from and @notBefore attributes cannot be used together.</sch:report>
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -237,23 +239,25 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[@to]">
-         <sch:report test="@notAfter" role="nonfatal">The @to and @notAfter attributes cannot be used together.</sch:report>
+        <sch:report role="nonfatal" test="@notAfter">The @to and @notAfter attributes cannot be used together.</sch:report>
       </sch:rule>
    </pattern>
-   <define name="att.datable.attributes">
-      <ref name="att.datable.w3c.attributes"/>
-      <ref name="att.datable.iso.attributes"/>
-      <ref name="att.datable.custom.attributes"/>
-      <ref name="att.datable.attribute.calendar"/>
-      <ref name="att.datable.attribute.period"/>
+   <define name="tei_att.datable.attributes">
+      <ref name="tei_att.datable.w3c.attributes"/>
+      <ref name="tei_att.datable.iso.attributes"/>
+      <ref name="tei_att.datable.custom.attributes"/>
+      <ref name="tei_att.datable.attribute.calendar"/>
+      <ref name="tei_att.datable.attribute.period"/>
    </define>
-   <define name="att.datable.attribute.calendar">
+   <define name="tei_att.datable.attribute.calendar">
       <optional>
          <attribute name="calendar">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates one or more systems or calendars to which the date represented by the content of this element belongs.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -266,27 +270,29 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[@calendar]">
-         <sch:assert test="string-length(.) gt 0"> @calendar indicates one or more systems or calendars to
-              which the date represented by the content of this element belongs, but this
-              <sch:name/> element has no textual content.</sch:assert>
-      </sch:rule>
+            <sch:assert test="string-length( normalize-space(.) ) gt 0"> @calendar indicates one or more
+            systems or calendars to which the date represented by the content of this element belongs,
+            but this <sch:name/> element has no textual content.</sch:assert>
+          </sch:rule>
    </pattern>
-   <define name="att.datable.attribute.period">
+   <define name="tei_att.datable.attribute.period">
       <optional>
          <attribute name="period">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies pointers to one or more definitions of named periods of time (typically <code xmlns="http://www.w3.org/1999/xhtml">&lt;category&gt;</code>s or <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code>s) within which the datable item is understood to have occurred.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.declarable.attributes">
-      <ref name="att.declarable.attribute.default"/>
+   <define name="tei_att.declarable.attributes">
+      <ref name="tei_att.declarable.attribute.default"/>
    </define>
-   <define name="att.declarable.attribute.default">
+   <define name="tei_att.declarable.attribute.default">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="default"
@@ -301,25 +307,27 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.declaring.attributes">
-      <ref name="att.declaring.attribute.decls"/>
+   <define name="tei_att.declaring.attributes">
+      <ref name="tei_att.declaring.attribute.decls"/>
    </define>
-   <define name="att.declaring.attribute.decls">
+   <define name="tei_att.declaring.attribute.decls">
       <optional>
          <attribute name="decls">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies one or more declarable elements within the header, which are understood to apply to the element bearing this attribute and its content.</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(declarations) identifies one or more declarable elements within the header, which are understood to apply to the element bearing this attribute and its content.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.fragmentable.attributes">
-      <ref name="att.fragmentable.attribute.part"/>
+   <define name="tei_att.fragmentable.attributes">
+      <ref name="tei_att.fragmentable.attribute.part"/>
    </define>
-   <define name="att.fragmentable.attribute.part">
+   <define name="tei_att.fragmentable.attribute.part">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="part"
@@ -340,10 +348,10 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="att.docStatus.attributes">
-      <ref name="att.docStatus.attribute.status"/>
+   <define name="tei_att.docStatus.attributes">
+      <ref name="tei_att.docStatus.attribute.status"/>
    </define>
-   <define name="att.docStatus.attribute.status">
+   <define name="tei_att.docStatus.attribute.status">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="status"
@@ -356,11 +364,11 @@ Sample values include: 1] approved; 2] candidate; 3] cleared; 4] deprecated; 5] 
          </attribute>
       </optional>
    </define>
-   <define name="att.global.responsibility.attributes">
-      <ref name="att.global.responsibility.attribute.cert"/>
-      <ref name="att.global.responsibility.attribute.resp"/>
+   <define name="tei_att.global.responsibility.attributes">
+      <ref name="tei_att.global.responsibility.attribute.cert"/>
+      <ref name="tei_att.global.responsibility.attribute.resp"/>
    </define>
-   <define name="att.global.responsibility.attribute.cert">
+   <define name="tei_att.global.responsibility.attribute.cert">
       <optional>
          <attribute name="cert">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(certainty) signifies the degree of certainty associated with the intervention or interpretation.</a:documentation>
@@ -380,23 +388,25 @@ Sample values include: 1] approved; 2] candidate; 3] cleared; 4] deprecated; 5] 
          </attribute>
       </optional>
    </define>
-   <define name="att.global.responsibility.attribute.resp">
+   <define name="tei_att.global.responsibility.attribute.resp">
       <optional>
          <attribute name="resp">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.editLike.attributes">
-      <ref name="att.editLike.attribute.evidence"/>
-      <ref name="att.editLike.attribute.instant"/>
+   <define name="tei_att.editLike.attributes">
+      <ref name="tei_att.editLike.attribute.evidence"/>
+      <ref name="tei_att.editLike.attribute.instant"/>
    </define>
-   <define name="att.editLike.attribute.evidence">
+   <define name="tei_att.editLike.attribute.evidence">
       <optional>
          <attribute name="evidence">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the nature of the evidence supporting the reliability or accuracy of the intervention or interpretation.
@@ -419,7 +429,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.editLike.attribute.instant">
+   <define name="tei_att.editLike.attribute.instant">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="instant"
@@ -437,12 +447,12 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.rendition.attributes">
-      <ref name="att.global.rendition.attribute.rend"/>
-      <ref name="att.global.rendition.attribute.style"/>
-      <ref name="att.global.rendition.attribute.rendition"/>
+   <define name="tei_att.global.rendition.attributes">
+      <ref name="tei_att.global.rendition.attribute.rend"/>
+      <ref name="tei_att.global.rendition.attribute.style"/>
+      <ref name="tei_att.global.rendition.attribute.rendition"/>
    </define>
-   <define name="att.global.rendition.attribute.rend">
+   <define name="tei_att.global.rendition.attribute.rend">
       <optional>
          <attribute name="rend">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rendition) indicates how the element in question was rendered or presented in the source text.</a:documentation>
@@ -456,7 +466,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.rendition.attribute.style">
+   <define name="tei_att.global.rendition.attribute.style">
       <optional>
          <attribute name="style">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text</a:documentation>
@@ -464,44 +474,63 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.rendition.attribute.rendition">
+   <define name="tei_att.global.rendition.attribute.rendition">
       <optional>
          <attribute name="rendition">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a description of the rendering or presentation used for this element in the source text.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.global.source.attributes">
-      <ref name="att.global.source.attribute.source"/>
+   <define name="tei_att.global.source.attributes">
+      <ref name="tei_att.global.source.attribute.source"/>
    </define>
-   <define name="att.global.source.attribute.source">
+   <define name="tei_att.global.source.attribute.source">
       <optional>
          <attribute name="source">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the source from which some aspect of this element is drawn.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.global.attributes">
-      <ref name="att.global.rendition.attributes"/>
-      <ref name="att.global.responsibility.attributes"/>
-      <ref name="att.global.source.attributes"/>
-      <ref name="att.global.attribute.xmlid"/>
-      <ref name="att.global.attribute.n"/>
-      <ref name="att.global.attribute.xmllang"/>
-      <ref name="att.global.attribute.xmlbase"/>
-      <ref name="att.global.attribute.xmlspace"/>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="cmi-customization-att.global.source-source-only_1_ODD_source-constraint-rule-5">
+      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                context="tei:*[@source]">
+            <sch:let name="srcs" value="tokenize( normalize-space(@source),' ')"/>
+            <sch:report test="( self::tei:classRef               | self::tei:dataRef               | self::tei:elementRef               | self::tei:macroRef               | self::tei:moduleRef               | self::tei:schemaSpec )               and               $srcs[2]">
+              When used on a schema description element (like
+              <sch:value-of select="name(.)"/>), the @source attribute
+              should have only 1 value. (This one has <sch:value-of select="count($srcs)"/>.)
+            </sch:report>
+          </sch:rule>
+   </pattern>
+   <define name="tei_att.global.attributes">
+      <ref name="tei_att.global.rendition.attributes"/>
+      <ref name="tei_att.global.responsibility.attributes"/>
+      <ref name="tei_att.global.source.attributes"/>
+      <ref name="tei_att.global.attribute.xmlid"/>
+      <ref name="tei_att.global.attribute.n"/>
+      <ref name="tei_att.global.attribute.xmllang"/>
+      <ref name="tei_att.global.attribute.xmlbase"/>
+      <ref name="tei_att.global.attribute.xmlspace"/>
    </define>
-   <define name="att.global.attribute.xmlid">
+   <define name="tei_att.global.attribute.xmlid">
       <optional>
          <attribute name="xml:id">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
@@ -509,7 +538,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.attribute.n">
+   <define name="tei_att.global.attribute.n">
       <optional>
          <attribute name="n">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(number) gives a number (or other label) for an element, which is not necessarily unique within the document.</a:documentation>
@@ -517,7 +546,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.attribute.xmllang">
+   <define name="tei_att.global.attribute.xmllang">
       <optional>
          <attribute name="xml:lang">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(language) indicates the language of the element content using a tag generated according to <a xmlns="http://www.w3.org/1999/xhtml"
@@ -532,15 +561,17 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.global.attribute.xmlbase">
+   <define name="tei_att.global.attribute.xmlbase">
       <optional>
          <attribute name="xml:base">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides a base URI reference with which applications can resolve relative URI references into absolute URI references.</a:documentation>
-            <data type="anyURI"/>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
          </attribute>
       </optional>
    </define>
-   <define name="att.global.attribute.xmlspace">
+   <define name="tei_att.global.attribute.xmlspace">
       <optional>
          <attribute name="xml:space">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">signals an intention about how white space should be managed by applications.</a:documentation>
@@ -553,10 +584,10 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.internetMedia.attributes">
-      <ref name="att.internetMedia.attribute.mimeType"/>
+   <define name="tei_att.internetMedia.attributes">
+      <ref name="tei_att.internetMedia.attribute.mimeType"/>
    </define>
-   <define name="att.internetMedia.attribute.mimeType">
+   <define name="tei_att.internetMedia.attribute.mimeType">
       <optional>
          <attribute name="mimeType">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type</a:documentation>
@@ -570,12 +601,12 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.naming.attributes">
-      <ref name="att.canonical.attributes"/>
-      <ref name="att.naming.attribute.role"/>
-      <ref name="att.naming.attribute.nymRef"/>
+   <define name="tei_att.naming.attributes">
+      <ref name="tei_att.canonical.attributes"/>
+      <ref name="tei_att.naming.attribute.role"/>
+      <ref name="tei_att.naming.attribute.nymRef"/>
    </define>
-   <define name="att.naming.attribute.role">
+   <define name="tei_att.naming.attribute.role">
       <optional>
          <attribute name="role">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.</a:documentation>
@@ -589,22 +620,24 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          </attribute>
       </optional>
    </define>
-   <define name="att.naming.attribute.nymRef">
+   <define name="tei_att.naming.attribute.nymRef">
       <optional>
          <attribute name="nymRef">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.placement.attributes">
-      <ref name="att.placement.attribute.place"/>
+   <define name="tei_att.placement.attributes">
+      <ref name="tei_att.placement.attribute.place"/>
    </define>
-   <define name="att.placement.attribute.place">
+   <define name="tei_att.placement.attribute.place">
       <optional>
          <attribute name="place">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies where this item is placed.
@@ -645,11 +678,11 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="att.typed.attributes">
-      <ref name="att.typed.attribute.type"/>
-      <ref name="att.typed.attribute.subtype"/>
+   <define name="tei_att.typed.attributes">
+      <ref name="tei_att.typed.attribute.type"/>
+      <ref name="tei_att.typed.attribute.subtype"/>
    </define>
-   <define name="att.typed.attribute.type">
+   <define name="tei_att.typed.attribute.type">
       <optional>
          <attribute name="type">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
@@ -659,7 +692,7 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="att.typed.attribute.subtype">
+   <define name="tei_att.typed.attribute.subtype">
       <optional>
          <attribute name="subtype">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(subtype) provides a sub-categorization of the element, if needed</a:documentation>
@@ -670,21 +703,21 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="cmi-customization-att.typed-subtypeTyped-constraint-rule-5">
+            id="cmi-customization-att.typed-subtypeTyped-constraint-rule-6">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[@subtype]">
-         <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
+        <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
       </sch:rule>
    </pattern>
-   <define name="att.pointing.attributes">
-      <ref name="att.pointing.attribute.targetLang"/>
-      <ref name="att.pointing.attribute.target"/>
-      <ref name="att.pointing.attribute.evaluate"/>
+   <define name="tei_att.pointing.attributes">
+      <ref name="tei_att.pointing.attribute.targetLang"/>
+      <ref name="tei_att.pointing.attribute.target"/>
+      <ref name="tei_att.pointing.attribute.evaluate"/>
    </define>
-   <define name="att.pointing.attribute.targetLang">
+   <define name="tei_att.pointing.attribute.targetLang">
       <optional>
          <attribute name="targetLang">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the language of the content to be found at the destination referenced by <code xmlns="http://www.w3.org/1999/xhtml">@target</code>, using a language tag generated according to <a xmlns="http://www.w3.org/1999/xhtml"
@@ -700,28 +733,30 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="cmi-customization-att.pointing-targetLang-targetLang-constraint-rule-6">
+            id="cmi-customization-att.pointing-targetLang-targetLang-constraint-rule-7">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 context="tei:*[not(self::tei:schemaSpec)][@targetLang]">
-         <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
-      </sch:rule>
+            <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
+          </sch:rule>
    </pattern>
-   <define name="att.pointing.attribute.target">
+   <define name="tei_att.pointing.attribute.target">
       <optional>
          <attribute name="target">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the destination of the reference by supplying one or more URI References</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
-   <define name="att.pointing.attribute.evaluate">
+   <define name="tei_att.pointing.attribute.evaluate">
       <optional>
          <attribute name="evaluate">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(evaluate) specifies the intended meaning when the target of a pointer is itself a pointer.</a:documentation>
@@ -736,10 +771,10 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="att.sortable.attributes">
-      <ref name="att.sortable.attribute.sortKey"/>
+   <define name="tei_att.sortable.attributes">
+      <ref name="tei_att.sortable.attribute.sortKey"/>
    </define>
-   <define name="att.sortable.attribute.sortKey">
+   <define name="tei_att.sortable.attribute.sortKey">
       <optional>
          <attribute name="sortKey">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the sort key for this element in an index, list or group which contains it.</a:documentation>
@@ -749,776 +784,1090 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="model.nameLike.agent">
+   <define name="tei_model.nameLike.agent">
       <choice>
-         <ref name="name"/>
-         <ref name="orgName"/>
-         <ref name="persName"/>
-         <ref name="placeName"/>
+         <ref name="tei_name"/>
+         <ref name="tei_orgName"/>
+         <ref name="tei_persName"/>
+         <ref name="tei_placeName"/>
       </choice>
    </define>
-   <define name="model.nameLike.agent_alternation">
+   <define name="tei_model.nameLike.agent_alternation">
       <choice>
-         <ref name="name"/>
-         <ref name="orgName"/>
-         <ref name="persName"/>
-         <ref name="placeName"/>
+         <ref name="tei_name"/>
+         <ref name="tei_orgName"/>
+         <ref name="tei_persName"/>
+         <ref name="tei_placeName"/>
       </choice>
    </define>
-   <define name="model.nameLike.agent_sequence">
-      <ref name="name"/>
-      <ref name="orgName"/>
-      <ref name="persName"/>
-      <ref name="placeName"/>
+   <define name="tei_model.nameLike.agent_sequence">
+      <ref name="tei_name"/>
+      <ref name="tei_orgName"/>
+      <ref name="tei_persName"/>
+      <ref name="tei_placeName"/>
    </define>
-   <define name="model.nameLike.agent_sequenceOptional">
+   <define name="tei_model.nameLike.agent_sequenceOptional">
       <optional>
-         <ref name="name"/>
+         <ref name="tei_name"/>
       </optional>
       <optional>
-         <ref name="orgName"/>
+         <ref name="tei_orgName"/>
       </optional>
       <optional>
-         <ref name="persName"/>
+         <ref name="tei_persName"/>
       </optional>
       <optional>
-         <ref name="placeName"/>
+         <ref name="tei_placeName"/>
       </optional>
    </define>
-   <define name="model.nameLike.agent_sequenceOptionalRepeatable">
+   <define name="tei_model.nameLike.agent_sequenceOptionalRepeatable">
       <zeroOrMore>
-         <ref name="name"/>
+         <ref name="tei_name"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="orgName"/>
+         <ref name="tei_orgName"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="persName"/>
+         <ref name="tei_persName"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="placeName"/>
+         <ref name="tei_placeName"/>
       </zeroOrMore>
    </define>
-   <define name="model.nameLike.agent_sequenceRepeatable">
+   <define name="tei_model.nameLike.agent_sequenceRepeatable">
       <oneOrMore>
-         <ref name="name"/>
+         <ref name="tei_name"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="orgName"/>
+         <ref name="tei_orgName"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="persName"/>
+         <ref name="tei_persName"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="placeName"/>
+         <ref name="tei_placeName"/>
       </oneOrMore>
    </define>
-   <define name="model.segLike">
+   <define name="tei_model.segLike">
       <notAllowed/>
    </define>
-   <define name="model.hiLike">
+   <define name="tei_model.segLike_alternation">
       <notAllowed/>
    </define>
-   <define name="model.hiLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.hiLike_sequence">
+   <define name="tei_model.segLike_sequence">
       <empty/>
    </define>
-   <define name="model.hiLike_sequenceOptional">
+   <define name="tei_model.segLike_sequenceOptional">
       <empty/>
    </define>
-   <define name="model.hiLike_sequenceOptionalRepeatable">
+   <define name="tei_model.segLike_sequenceOptionalRepeatable">
       <empty/>
    </define>
-   <define name="model.hiLike_sequenceRepeatable">
+   <define name="tei_model.segLike_sequenceRepeatable">
       <notAllowed/>
    </define>
-   <define name="model.emphLike">
+   <define name="tei_model.hiLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike">
       <choice>
-         <ref name="title"/>
+         <ref name="tei_title"/>
       </choice>
    </define>
-   <define name="model.emphLike_alternation">
+   <define name="tei_model.emphLike_alternation">
       <choice>
-         <ref name="title"/>
+         <ref name="tei_title"/>
       </choice>
    </define>
-   <define name="model.emphLike_sequence">
-      <ref name="title"/>
+   <define name="tei_model.emphLike_sequence">
+      <ref name="tei_title"/>
    </define>
-   <define name="model.emphLike_sequenceOptional">
+   <define name="tei_model.emphLike_sequenceOptional">
       <optional>
-         <ref name="title"/>
+         <ref name="tei_title"/>
       </optional>
    </define>
-   <define name="model.emphLike_sequenceOptionalRepeatable">
+   <define name="tei_model.emphLike_sequenceOptionalRepeatable">
       <zeroOrMore>
-         <ref name="title"/>
+         <ref name="tei_title"/>
       </zeroOrMore>
    </define>
-   <define name="model.emphLike_sequenceRepeatable">
+   <define name="tei_model.emphLike_sequenceRepeatable">
       <oneOrMore>
-         <ref name="title"/>
+         <ref name="tei_title"/>
       </oneOrMore>
    </define>
-   <define name="model.highlighted">
+   <define name="tei_model.highlighted">
       <choice>
-         <ref name="model.hiLike"/>
-         <ref name="model.emphLike"/>
+         <ref name="tei_model.hiLike"/>
+         <ref name="tei_model.emphLike"/>
       </choice>
    </define>
-   <define name="model.dateLike">
-      <notAllowed/>
-   </define>
-   <define name="model.dateLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.dateLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.dateLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.dateLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.dateLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.measureLike">
-      <notAllowed/>
-   </define>
-   <define name="model.measureLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.measureLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.measureLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.measureLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.measureLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.egLike">
-      <notAllowed/>
-   </define>
-   <define name="model.egLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.egLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.egLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.egLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.egLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.graphicLike">
-      <notAllowed/>
-   </define>
-   <define name="model.offsetLike">
-      <notAllowed/>
-   </define>
-   <define name="model.offsetLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.offsetLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.offsetLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.offsetLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.offsetLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.msdesc">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.editorial">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.editorial_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.editorial_sequence">
-      <empty/>
-   </define>
-   <define name="model.pPart.editorial_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.pPart.editorial_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.pPart.editorial_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.transcriptional">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.transcriptional_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.transcriptional_sequence">
-      <empty/>
-   </define>
-   <define name="model.pPart.transcriptional_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.pPart.transcriptional_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.pPart.transcriptional_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.pPart.edit">
+   <define name="tei_model.highlighted_alternation">
       <choice>
-         <ref name="model.pPart.editorial"/>
-         <ref name="model.pPart.transcriptional"/>
+         <ref name="tei_model.hiLike_alternation"/>
+         <ref name="tei_model.emphLike_alternation"/>
       </choice>
    </define>
-   <define name="model.ptrLike">
-      <choice>
-         <ref name="ref"/>
-      </choice>
+   <define name="tei_model.highlighted_sequence">
+      <ref name="tei_model.hiLike_sequence"/>
+      <ref name="tei_model.emphLike_sequence"/>
    </define>
-   <define name="model.lPart">
-      <notAllowed/>
-   </define>
-   <define name="model.global.meta">
-      <notAllowed/>
-   </define>
-   <define name="model.milestoneLike">
-      <notAllowed/>
-   </define>
-   <define name="model.gLike">
-      <notAllowed/>
-   </define>
-   <define name="model.oddDecl">
-      <notAllowed/>
-   </define>
-   <define name="model.oddDecl_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.oddDecl_sequence">
-      <empty/>
-   </define>
-   <define name="model.oddDecl_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.oddDecl_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.oddDecl_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.phrase.xml">
-      <notAllowed/>
-   </define>
-   <define name="model.specDescLike">
-      <notAllowed/>
-   </define>
-   <define name="model.biblLike">
-      <choice>
-         <ref name="bibl"/>
-      </choice>
-   </define>
-   <define name="model.biblLike_alternation">
-      <choice>
-         <ref name="bibl"/>
-      </choice>
-   </define>
-   <define name="model.biblLike_sequence">
-      <ref name="bibl"/>
-   </define>
-   <define name="model.biblLike_sequenceOptional">
+   <define name="tei_model.highlighted_sequenceOptional">
       <optional>
-         <ref name="bibl"/>
-      </optional>
-   </define>
-   <define name="model.biblLike_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="bibl"/>
-      </zeroOrMore>
-   </define>
-   <define name="model.biblLike_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="bibl"/>
-      </oneOrMore>
-   </define>
-   <define name="model.headLike">
-      <notAllowed/>
-   </define>
-   <define name="model.headLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.headLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.headLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.headLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.headLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.labelLike">
-      <notAllowed/>
-   </define>
-   <define name="model.labelLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.labelLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.labelLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.labelLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.labelLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.listLike">
-      <notAllowed/>
-   </define>
-   <define name="model.listLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.listLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.listLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.listLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.listLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.noteLike">
-      <choice>
-         <ref name="note"/>
-      </choice>
-   </define>
-   <define name="model.lLike">
-      <notAllowed/>
-   </define>
-   <define name="model.lLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.lLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.lLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.lLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.lLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.pLike">
-      <choice>
-         <ref name="p"/>
-      </choice>
-   </define>
-   <define name="model.pLike_alternation">
-      <choice>
-         <ref name="p"/>
-      </choice>
-   </define>
-   <define name="model.pLike_sequence">
-      <ref name="p"/>
-   </define>
-   <define name="model.pLike_sequenceOptional">
-      <optional>
-         <ref name="p"/>
-      </optional>
-   </define>
-   <define name="model.pLike_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="p"/>
-      </zeroOrMore>
-   </define>
-   <define name="model.pLike_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="p"/>
-      </oneOrMore>
-   </define>
-   <define name="model.stageLike">
-      <notAllowed/>
-   </define>
-   <define name="model.stageLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.stageLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.stageLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.stageLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.stageLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.global.edit">
-      <notAllowed/>
-   </define>
-   <define name="model.divPart">
-      <choice>
-         <ref name="model.lLike"/>
-         <ref name="model.pLike"/>
-      </choice>
-   </define>
-   <define name="model.placeNamePart">
-      <notAllowed/>
-   </define>
-   <define name="model.placeNamePart_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.placeNamePart_sequence">
-      <empty/>
-   </define>
-   <define name="model.placeNamePart_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.placeNamePart_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.placeNamePart_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.placeStateLike">
-      <choice>
-         <ref name="model.placeNamePart"/>
-      </choice>
-   </define>
-   <define name="model.placeStateLike_alternation">
-      <choice>
-         <ref name="model.placeNamePart_alternation"/>
-      </choice>
-   </define>
-   <define name="model.placeStateLike_sequence">
-      <ref name="model.placeNamePart_sequence"/>
-   </define>
-   <define name="model.placeStateLike_sequenceOptional">
-      <optional>
-         <ref name="model.placeNamePart_sequenceOptional"/>
-      </optional>
-   </define>
-   <define name="model.placeStateLike_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="model.placeNamePart_sequenceOptionalRepeatable"/>
-      </zeroOrMore>
-   </define>
-   <define name="model.placeStateLike_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="model.placeNamePart_sequenceRepeatable"/>
-      </oneOrMore>
-   </define>
-   <define name="model.availabilityPart">
-      <choice>
-         <ref name="licence"/>
-      </choice>
-   </define>
-   <define name="model.quoteLike">
-      <notAllowed/>
-   </define>
-   <define name="model.quoteLike_alternation">
-      <notAllowed/>
-   </define>
-   <define name="model.quoteLike_sequence">
-      <empty/>
-   </define>
-   <define name="model.quoteLike_sequenceOptional">
-      <empty/>
-   </define>
-   <define name="model.quoteLike_sequenceOptionalRepeatable">
-      <empty/>
-   </define>
-   <define name="model.quoteLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="model.attributable">
-      <choice>
-         <ref name="model.quoteLike"/>
-      </choice>
-   </define>
-   <define name="model.attributable_alternation">
-      <choice>
-         <ref name="model.quoteLike_alternation"/>
-      </choice>
-   </define>
-   <define name="model.attributable_sequence">
-      <ref name="model.quoteLike_sequence"/>
-   </define>
-   <define name="model.attributable_sequenceOptional">
-      <optional>
-         <ref name="model.quoteLike_sequenceOptional"/>
-      </optional>
-   </define>
-   <define name="model.attributable_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="model.quoteLike_sequenceOptionalRepeatable"/>
-      </zeroOrMore>
-   </define>
-   <define name="model.attributable_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="model.quoteLike_sequenceRepeatable"/>
-      </oneOrMore>
-   </define>
-   <define name="model.respLike">
-      <choice>
-         <ref name="editor"/>
-      </choice>
-   </define>
-   <define name="model.divWrapper">
-      <notAllowed/>
-   </define>
-   <define name="model.divTopPart">
-      <choice>
-         <ref name="model.headLike"/>
-      </choice>
-   </define>
-   <define name="model.divTop">
-      <choice>
-         <ref name="model.divWrapper"/>
-         <ref name="model.divTopPart"/>
-      </choice>
-   </define>
-   <define name="model.divBottomPart">
-      <notAllowed/>
-   </define>
-   <define name="model.divBottom">
-      <choice>
-         <ref name="model.divWrapper"/>
-         <ref name="model.divBottomPart"/>
-      </choice>
-   </define>
-   <define name="model.imprintPart">
-      <choice>
-         <ref name="publisher"/>
-      </choice>
-   </define>
-   <define name="model.addressLike">
-      <choice>
-         <ref name="email"/>
-      </choice>
-   </define>
-   <define name="model.addressLike_alternation">
-      <choice>
-         <ref name="email"/>
-      </choice>
-   </define>
-   <define name="model.addressLike_sequence">
-      <ref name="email"/>
-   </define>
-   <define name="model.addressLike_sequenceOptional">
-      <optional>
-         <ref name="email"/>
-      </optional>
-   </define>
-   <define name="model.addressLike_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="email"/>
-      </zeroOrMore>
-   </define>
-   <define name="model.addressLike_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="email"/>
-      </oneOrMore>
-   </define>
-   <define name="model.nameLike">
-      <choice>
-         <ref name="model.nameLike.agent"/>
-         <ref name="model.offsetLike"/>
-         <ref name="model.placeStateLike"/>
-         <ref name="model.persNamePart"/>
-      </choice>
-   </define>
-   <define name="model.nameLike_alternation">
-      <choice>
-         <ref name="model.nameLike.agent_alternation"/>
-         <ref name="model.offsetLike_alternation"/>
-         <ref name="model.placeStateLike_alternation"/>
-         <ref name="model.persNamePart_alternation"/>
-      </choice>
-   </define>
-   <define name="model.nameLike_sequence">
-      <ref name="model.nameLike.agent_sequence"/>
-      <ref name="model.offsetLike_sequence"/>
-      <ref name="model.placeStateLike_sequence"/>
-      <ref name="model.persNamePart_sequence"/>
-   </define>
-   <define name="model.nameLike_sequenceOptional">
-      <optional>
-         <ref name="model.nameLike.agent_sequenceOptional"/>
+         <ref name="tei_model.hiLike_sequenceOptional"/>
       </optional>
       <optional>
-         <ref name="model.offsetLike_sequenceOptional"/>
+         <ref name="tei_model.emphLike_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.highlighted_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.hiLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.emphLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.highlighted_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.hiLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.emphLike_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.dateLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.egLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.egLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.egLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.egLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.egLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.egLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.graphicLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.graphicLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.graphicLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.graphicLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.graphicLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.graphicLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.msdesc">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.msdesc_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.msdesc_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.msdesc_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.msdesc_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.msdesc_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.edit">
+      <choice>
+         <ref name="tei_model.pPart.editorial"/>
+         <ref name="tei_model.pPart.transcriptional"/>
+      </choice>
+   </define>
+   <define name="tei_model.pPart.edit_alternation">
+      <choice>
+         <ref name="tei_model.pPart.editorial_alternation"/>
+         <ref name="tei_model.pPart.transcriptional_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.pPart.edit_sequence">
+      <ref name="tei_model.pPart.editorial_sequence"/>
+      <ref name="tei_model.pPart.transcriptional_sequence"/>
+   </define>
+   <define name="tei_model.pPart.edit_sequenceOptional">
+      <optional>
+         <ref name="tei_model.pPart.editorial_sequenceOptional"/>
       </optional>
       <optional>
-         <ref name="model.placeStateLike_sequenceOptional"/>
+         <ref name="tei_model.pPart.transcriptional_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.pPart.edit_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.pPart.editorial_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.pPart.transcriptional_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.pPart.edit_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.pPart.editorial_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.pPart.transcriptional_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.ptrLike">
+      <choice>
+         <ref name="tei_ref"/>
+      </choice>
+   </define>
+   <define name="tei_model.ptrLike_alternation">
+      <choice>
+         <ref name="tei_ref"/>
+      </choice>
+   </define>
+   <define name="tei_model.ptrLike_sequence">
+      <ref name="tei_ref"/>
+   </define>
+   <define name="tei_model.ptrLike_sequenceOptional">
+      <optional>
+         <ref name="tei_ref"/>
+      </optional>
+   </define>
+   <define name="tei_model.ptrLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_ref"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.ptrLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_ref"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.lPart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.lPart_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.lPart_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.lPart_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.lPart_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.lPart_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.meta">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.meta_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.meta_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.global.meta_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.global.meta_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.global.meta_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.milestoneLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.milestoneLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.milestoneLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.milestoneLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.milestoneLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.milestoneLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.gLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.oddDecl">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.oddDecl_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.oddDecl_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.oddDecl_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.oddDecl_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.oddDecl_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.phrase.xml">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.phrase.xml_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.phrase.xml_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.phrase.xml_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.phrase.xml_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.phrase.xml_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.specDescLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.specDescLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.specDescLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.specDescLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.specDescLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.specDescLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.biblLike">
+      <choice>
+         <ref name="tei_bibl"/>
+      </choice>
+   </define>
+   <define name="tei_model.biblLike_alternation">
+      <choice>
+         <ref name="tei_bibl"/>
+      </choice>
+   </define>
+   <define name="tei_model.biblLike_sequence">
+      <ref name="tei_bibl"/>
+   </define>
+   <define name="tei_model.biblLike_sequenceOptional">
+      <optional>
+         <ref name="tei_bibl"/>
+      </optional>
+   </define>
+   <define name="tei_model.biblLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_bibl"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.biblLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_bibl"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.headLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.headLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.headLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.headLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.headLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.headLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.labelLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.labelLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.labelLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.labelLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.labelLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.labelLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.listLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.listLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.listLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.listLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.listLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.listLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.noteLike">
+      <choice>
+         <ref name="tei_note"/>
+      </choice>
+   </define>
+   <define name="tei_model.noteLike_alternation">
+      <choice>
+         <ref name="tei_note"/>
+      </choice>
+   </define>
+   <define name="tei_model.noteLike_sequence">
+      <ref name="tei_note"/>
+   </define>
+   <define name="tei_model.noteLike_sequenceOptional">
+      <optional>
+         <ref name="tei_note"/>
+      </optional>
+   </define>
+   <define name="tei_model.noteLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_note"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.noteLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_note"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.lLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.lLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.lLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.lLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.lLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.lLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pLike">
+      <choice>
+         <ref name="tei_p"/>
+      </choice>
+   </define>
+   <define name="tei_model.pLike_alternation">
+      <choice>
+         <ref name="tei_p"/>
+      </choice>
+   </define>
+   <define name="tei_model.pLike_sequence">
+      <ref name="tei_p"/>
+   </define>
+   <define name="tei_model.pLike_sequenceOptional">
+      <optional>
+         <ref name="tei_p"/>
+      </optional>
+   </define>
+   <define name="tei_model.pLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_p"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.pLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_p"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.stageLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.stageLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.stageLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.stageLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.stageLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.stageLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.edit">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.edit_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.edit_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.global.edit_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.global.edit_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.global.edit_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.divPart">
+      <choice>
+         <ref name="tei_model.lLike"/>
+         <ref name="tei_model.pLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeNamePart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.placeNamePart_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.placeNamePart_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.placeStateLike">
+      <choice>
+         <ref name="tei_model.placeNamePart"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_alternation">
+      <choice>
+         <ref name="tei_model.placeNamePart_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_sequence">
+      <ref name="tei_model.placeNamePart_sequence"/>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.placeNamePart_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.placeNamePart_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.placeNamePart_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.availabilityPart">
+      <choice>
+         <ref name="tei_licence"/>
+      </choice>
+   </define>
+   <define name="tei_model.quoteLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.attributable">
+      <choice>
+         <ref name="tei_model.quoteLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.attributable_alternation">
+      <choice>
+         <ref name="tei_model.quoteLike_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.attributable_sequence">
+      <ref name="tei_model.quoteLike_sequence"/>
+   </define>
+   <define name="tei_model.attributable_sequenceOptional">
+      <optional>
+         <ref name="tei_model.quoteLike_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.attributable_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.quoteLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.attributable_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.quoteLike_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.respLike">
+      <choice>
+         <ref name="tei_editor"/>
+      </choice>
+   </define>
+   <define name="tei_model.divWrapper">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.divTopPart">
+      <choice>
+         <ref name="tei_model.headLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.divTop">
+      <choice>
+         <ref name="tei_model.divWrapper"/>
+         <ref name="tei_model.divTopPart"/>
+      </choice>
+   </define>
+   <define name="tei_model.divBottomPart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.divBottom">
+      <choice>
+         <ref name="tei_model.divWrapper"/>
+         <ref name="tei_model.divBottomPart"/>
+      </choice>
+   </define>
+   <define name="tei_model.imprintPart">
+      <choice>
+         <ref name="tei_publisher"/>
+      </choice>
+   </define>
+   <define name="tei_model.addressLike">
+      <choice>
+         <ref name="tei_email"/>
+      </choice>
+   </define>
+   <define name="tei_model.addressLike_alternation">
+      <choice>
+         <ref name="tei_email"/>
+      </choice>
+   </define>
+   <define name="tei_model.addressLike_sequence">
+      <ref name="tei_email"/>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptional">
+      <optional>
+         <ref name="tei_email"/>
+      </optional>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_email"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.addressLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_email"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.nameLike">
+      <choice>
+         <ref name="tei_model.nameLike.agent"/>
+         <ref name="tei_model.offsetLike"/>
+         <ref name="tei_model.placeStateLike"/>
+         <ref name="tei_model.persNamePart"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_alternation">
+      <choice>
+         <ref name="tei_model.nameLike.agent_alternation"/>
+         <ref name="tei_model.offsetLike_alternation"/>
+         <ref name="tei_model.placeStateLike_alternation"/>
+         <ref name="tei_model.persNamePart_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_sequence">
+      <ref name="tei_model.nameLike.agent_sequence"/>
+      <ref name="tei_model.offsetLike_sequence"/>
+      <ref name="tei_model.placeStateLike_sequence"/>
+      <ref name="tei_model.persNamePart_sequence"/>
+   </define>
+   <define name="tei_model.nameLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.nameLike.agent_sequenceOptional"/>
       </optional>
       <optional>
-         <ref name="model.persNamePart_sequenceOptional"/>
+         <ref name="tei_model.offsetLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.placeStateLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.persNamePart_sequenceOptional"/>
       </optional>
    </define>
-   <define name="model.nameLike_sequenceOptionalRepeatable">
+   <define name="tei_model.nameLike_sequenceOptionalRepeatable">
       <zeroOrMore>
-         <ref name="model.nameLike.agent_sequenceOptionalRepeatable"/>
+         <ref name="tei_model.nameLike.agent_sequenceOptionalRepeatable"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="model.offsetLike_sequenceOptionalRepeatable"/>
+         <ref name="tei_model.offsetLike_sequenceOptionalRepeatable"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="model.placeStateLike_sequenceOptionalRepeatable"/>
+         <ref name="tei_model.placeStateLike_sequenceOptionalRepeatable"/>
       </zeroOrMore>
       <zeroOrMore>
-         <ref name="model.persNamePart_sequenceOptionalRepeatable"/>
+         <ref name="tei_model.persNamePart_sequenceOptionalRepeatable"/>
       </zeroOrMore>
    </define>
-   <define name="model.nameLike_sequenceRepeatable">
+   <define name="tei_model.nameLike_sequenceRepeatable">
       <oneOrMore>
-         <ref name="model.nameLike.agent_sequenceRepeatable"/>
+         <ref name="tei_model.nameLike.agent_sequenceRepeatable"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="model.offsetLike_sequenceRepeatable"/>
+         <ref name="tei_model.offsetLike_sequenceRepeatable"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="model.placeStateLike_sequenceRepeatable"/>
+         <ref name="tei_model.placeStateLike_sequenceRepeatable"/>
       </oneOrMore>
       <oneOrMore>
-         <ref name="model.persNamePart_sequenceRepeatable"/>
+         <ref name="tei_model.persNamePart_sequenceRepeatable"/>
       </oneOrMore>
    </define>
-   <define name="model.global">
+   <define name="tei_model.global">
       <choice>
-         <ref name="model.global.meta"/>
-         <ref name="model.milestoneLike"/>
-         <ref name="model.noteLike"/>
-         <ref name="model.global.edit"/>
+         <ref name="tei_model.global.meta"/>
+         <ref name="tei_model.milestoneLike"/>
+         <ref name="tei_model.noteLike"/>
+         <ref name="tei_model.global.edit"/>
       </choice>
    </define>
-   <define name="model.biblPart">
+   <define name="tei_model.biblPart">
       <choice>
-         <ref name="model.respLike"/>
-         <ref name="model.imprintPart"/>
-         <ref name="bibl"/>
-         <ref name="availability"/>
+         <ref name="tei_model.respLike"/>
+         <ref name="tei_model.imprintPart"/>
+         <ref name="tei_bibl"/>
+         <ref name="tei_availability"/>
       </choice>
    </define>
-   <define name="model.pPart.data">
+   <define name="tei_model.pPart.data">
       <choice>
-         <ref name="model.dateLike"/>
-         <ref name="model.measureLike"/>
-         <ref name="model.addressLike"/>
-         <ref name="model.nameLike"/>
+         <ref name="tei_model.dateLike"/>
+         <ref name="tei_model.measureLike"/>
+         <ref name="tei_model.addressLike"/>
+         <ref name="tei_model.nameLike"/>
       </choice>
    </define>
-   <define name="model.inter">
+   <define name="tei_model.pPart.data_alternation">
       <choice>
-         <ref name="model.egLike"/>
-         <ref name="model.oddDecl"/>
-         <ref name="model.biblLike"/>
-         <ref name="model.labelLike"/>
-         <ref name="model.listLike"/>
-         <ref name="model.stageLike"/>
-         <ref name="model.attributable"/>
+         <ref name="tei_model.dateLike_alternation"/>
+         <ref name="tei_model.measureLike_alternation"/>
+         <ref name="tei_model.addressLike_alternation"/>
+         <ref name="tei_model.nameLike_alternation"/>
       </choice>
    </define>
-   <define name="model.common">
+   <define name="tei_model.pPart.data_sequence">
+      <ref name="tei_model.dateLike_sequence"/>
+      <ref name="tei_model.measureLike_sequence"/>
+      <ref name="tei_model.addressLike_sequence"/>
+      <ref name="tei_model.nameLike_sequence"/>
+   </define>
+   <define name="tei_model.pPart.data_sequenceOptional">
+      <optional>
+         <ref name="tei_model.dateLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.measureLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.addressLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.nameLike_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.pPart.data_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.dateLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.measureLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.addressLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.nameLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.pPart.data_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.dateLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.measureLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.addressLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.nameLike_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.inter">
       <choice>
-         <ref name="model.divPart"/>
-         <ref name="model.inter"/>
+         <ref name="tei_model.egLike"/>
+         <ref name="tei_model.oddDecl"/>
+         <ref name="tei_model.biblLike"/>
+         <ref name="tei_model.labelLike"/>
+         <ref name="tei_model.listLike"/>
+         <ref name="tei_model.stageLike"/>
+         <ref name="tei_model.attributable"/>
       </choice>
    </define>
-   <define name="model.phrase">
+   <define name="tei_model.common">
       <choice>
-         <ref name="model.segLike"/>
-         <ref name="model.highlighted"/>
-         <ref name="model.graphicLike"/>
-         <ref name="model.pPart.msdesc"/>
-         <ref name="model.pPart.edit"/>
-         <ref name="model.ptrLike"/>
-         <ref name="model.lPart"/>
-         <ref name="model.phrase.xml"/>
-         <ref name="model.specDescLike"/>
-         <ref name="model.pPart.data"/>
+         <ref name="tei_model.divPart"/>
+         <ref name="tei_model.inter"/>
       </choice>
    </define>
-   <define name="model.divLike">
+   <define name="tei_model.phrase">
+      <choice>
+         <ref name="tei_model.segLike"/>
+         <ref name="tei_model.highlighted"/>
+         <ref name="tei_model.graphicLike"/>
+         <ref name="tei_model.pPart.msdesc"/>
+         <ref name="tei_model.pPart.edit"/>
+         <ref name="tei_model.ptrLike"/>
+         <ref name="tei_model.lPart"/>
+         <ref name="tei_model.phrase.xml"/>
+         <ref name="tei_model.specDescLike"/>
+         <ref name="tei_model.pPart.data"/>
+      </choice>
+   </define>
+   <define name="tei_model.paraPart">
+      <choice>
+         <ref name="tei_model.gLike"/>
+         <ref name="tei_model.lLike"/>
+         <ref name="tei_model.global"/>
+         <ref name="tei_model.inter"/>
+         <ref name="tei_model.phrase"/>
+      </choice>
+   </define>
+   <define name="tei_model.divLike">
       <notAllowed/>
    </define>
-   <define name="model.divGenLike">
+   <define name="tei_model.divGenLike">
       <notAllowed/>
    </define>
-   <define name="model.div1Like">
+   <define name="tei_model.div1Like">
       <notAllowed/>
    </define>
-   <define name="model.teiHeaderPart">
+   <define name="tei_model.teiHeaderPart">
       <choice>
-         <ref name="profileDesc"/>
+         <ref name="tei_profileDesc"/>
       </choice>
    </define>
-   <define name="model.profileDescPart">
+   <define name="tei_model.profileDescPart">
       <choice>
-         <ref name="correspDesc"/>
+         <ref name="tei_correspDesc"/>
       </choice>
    </define>
-   <define name="model.correspActionPart">
+   <define name="tei_model.correspActionPart">
       <choice>
-         <ref name="model.dateLike"/>
-         <ref name="model.addressLike"/>
-         <ref name="model.nameLike"/>
-         <ref name="date"/>
-         <ref name="note"/>
+         <ref name="tei_model.dateLike"/>
+         <ref name="tei_model.addressLike"/>
+         <ref name="tei_model.nameLike"/>
+         <ref name="tei_date"/>
+         <ref name="tei_note"/>
       </choice>
    </define>
-   <define name="model.correspContextPart">
+   <define name="tei_model.correspContextPart">
       <choice>
-         <ref name="model.ptrLike"/>
-         <ref name="model.pLike"/>
-         <ref name="note"/>
+         <ref name="tei_model.ptrLike"/>
+         <ref name="tei_model.pLike"/>
+         <ref name="tei_note"/>
       </choice>
    </define>
-   <define name="model.correspDescPart">
+   <define name="tei_model.correspDescPart">
       <choice>
-         <ref name="note"/>
-         <ref name="correspAction"/>
-         <ref name="correspContext"/>
+         <ref name="tei_note"/>
+         <ref name="tei_correspAction"/>
+         <ref name="tei_correspContext"/>
       </choice>
    </define>
-   <define name="model.resource">
+   <define name="tei_model.resource">
       <choice>
-         <ref name="text"/>
+         <ref name="tei_text"/>
       </choice>
    </define>
-   <define name="att.personal.attributes">
-      <ref name="att.naming.attributes"/>
-      <ref name="att.personal.attribute.full"/>
-      <ref name="att.personal.attribute.sort"/>
+   <define name="tei_att.personal.attributes">
+      <ref name="tei_att.naming.attributes"/>
+      <ref name="tei_att.personal.attribute.full"/>
+      <ref name="tei_att.personal.attribute.sort"/>
    </define>
-   <define name="att.personal.attribute.full">
+   <define name="tei_att.personal.attribute.full">
       <optional>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="full"
@@ -1535,7 +1884,7 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="att.personal.attribute.sort">
+   <define name="tei_att.personal.attribute.sort">
       <optional>
          <attribute name="sort">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sort) specifies the sort order of the name component in relation to others within the name.</a:documentation>
@@ -1543,116 +1892,121 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          </attribute>
       </optional>
    </define>
-   <define name="p">
+   <define name="tei_p">
       <element name="p">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
-         <ref name="macro.paraContent"/>
+         <ref name="tei_macro.paraContent"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="cmi-customization-p-abstractModel-structure-p-constraint-report-4">
+                  id="cmi-customization-p-abstractModel-structure-p-in-ab-or-p-constraint-report-5">
             <rule context="tei:p">
-               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                       test="not(ancestor::tei:floatingText) and (ancestor::tei:p or ancestor::tei:ab)          and not(parent::tei:exemplum                |parent::tei:item                |parent::tei:note                |parent::tei:q                |parent::tei:quote                |parent::tei:remarks                |parent::tei:said                |parent::tei:sp                |parent::tei:stage                |parent::tei:cell                |parent::tei:figure                )">
+               <sch:report xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           test="(ancestor::tei:ab or ancestor::tei:p) and not( ancestor::tei:floatingText |parent::tei:exemplum |parent::tei:item |parent::tei:note |parent::tei:q |parent::tei:quote |parent::tei:remarks |parent::tei:said |parent::tei:sp |parent::tei:stage |parent::tei:cell |parent::tei:figure )">
         Abstract model violation: Paragraphs may not occur inside other paragraphs or ab elements.
-      </report>
+      </sch:report>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="cmi-customization-p-abstractModel-structure-l-constraint-report-5">
+                  id="cmi-customization-p-abstractModel-structure-p-in-l-or-lg-constraint-report-6">
             <rule context="tei:p">
-               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                       test="(ancestor::tei:l or ancestor::tei:lg) and not(parent::tei:figure or parent::tei:note or ancestor::tei:floatingText)">
+               <sch:report xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           test="(ancestor::tei:l or ancestor::tei:lg) and not( ancestor::tei:floatingText |parent::tei:figure |parent::tei:note )">
         Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.
-      </report>
+      </sch:report>
             </rule>
          </pattern>
-         <ref name="att.global.attributes"/>
-         <ref name="att.declaring.attributes"/>
-         <ref name="att.fragmentable.attributes"/>
-         <ref name="att.written.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.declaring.attributes"/>
+         <ref name="tei_att.fragmentable.attributes"/>
+         <ref name="tei_att.written.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="name">
+   <define name="tei_name">
       <element name="name">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(name, proper noun) contains a proper noun or noun phrase. [3.6.1. Referring Strings]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.personal.attributes"/>
-         <ref name="att.datable.attributes"/>
-         <ref name="att.editLike.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.personal.attributes"/>
+         <ref name="tei_att.datable.attributes"/>
+         <ref name="tei_att.editLike.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="email">
+   <define name="tei_email">
       <element name="email">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(electronic mail address) contains an email address identifying a location to which email messages can be delivered. [3.6.2. Addresses]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="date">
+   <define name="tei_date">
       <element name="date">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contains a date in any format. [3.6.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.12.2.4. Imprint, Size of a Document, and Reprint Information 15.2.3. The Setting Description 13.4. Dates]</a:documentation>
          <empty/>
-         <ref name="att.datable.w3c.attributes"/>
-         <ref name="att.global.responsibility.attributes"/>
+         <ref name="tei_att.datable.w3c.attributes"/>
+         <ref name="tei_att.editLike.attributes"/>
+         <ref name="tei_att.global.responsibility.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="ref">
+   <define name="tei_ref">
       <element name="ref">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) defines a reference to another location, possibly modified by additional text or comment. [3.7. Simple Links and Cross-References 16.1. Links]</a:documentation>
-         <ref name="macro.paraContent"/>
+         <ref name="tei_macro.paraContent"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="cmi-customization-ref-refAtts-constraint-report-6">
+                  id="cmi-customization-ref-refAtts-constraint-report-7">
             <rule context="tei:ref">
                <report xmlns:rng="http://relaxng.org/ns/structure/1.0" test="@target and @cRef">Only one of the
 	attributes @target' and @cRef' may be supplied on <name/>
                </report>
             </rule>
          </pattern>
-         <ref name="att.cReferencing.attributes"/>
-         <ref name="att.declaring.attributes"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.internetMedia.attributes"/>
-         <ref name="att.pointing.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <ref name="tei_att.cReferencing.attributes"/>
+         <ref name="tei_att.declaring.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.internetMedia.attributes"/>
+         <ref name="tei_att.pointing.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="note">
+   <define name="tei_note">
       <element name="note">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note) contains a note or annotation. [3.9.1. Notes and Simple Annotation 2.2.6. The Notes Statement 3.12.2.8. Notes and Statement of Language 9.3.5.4. Notes within Entries]</a:documentation>
-         <ref name="macro.specialPara"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.placement.attributes"/>
-         <ref name="att.pointing.attributes"/>
-         <ref name="att.typed.attributes"/>
-         <ref name="att.written.attributes"/>
-         <ref name="att.anchoring.attributes"/>
+         <ref name="tei_macro.specialPara"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.placement.attributes"/>
+         <ref name="tei_att.pointing.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
+         <ref name="tei_att.written.attributes"/>
+         <ref name="tei_att.anchoring.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="editor">
+   <define name="tei_editor">
       <element name="editor">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a secondary statement of responsibility for a bibliographic item, for example the name of an individual, institution or organization, (or of several such) acting as editor, compiler, translator, etc. [3.12.2.2. Titles, Authors, and Editors]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.naming.attributes"/>
-         <ref name="att.datable.attributes"/>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.naming.attributes"/>
+         <ref name="tei_att.datable.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="title">
+   <define name="tei_title">
       <element name="title">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(title) contains a title for any kind of work. [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.5. The Series Statement]</a:documentation>
-         <ref name="macro.paraContent"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.typed.attribute.subtype"/>
-         <ref name="att.canonical.attributes"/>
-         <ref name="att.datable.attributes"/>
+         <ref name="tei_macro.paraContent"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attribute.subtype"/>
+         <ref name="tei_att.canonical.attributes"/>
+         <ref name="tei_att.datable.attributes"/>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">classifies the title according to some convenient typology.
@@ -1682,45 +2036,45 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="publisher">
+   <define name="tei_publisher">
       <element name="publisher">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(publisher) provides the name of the organization responsible for the publication or distribution of a bibliographic item. [3.12.2.4. Imprint, Size of a Document, and Reprint Information 2.2.4. Publication, Distribution, Licensing, etc.]</a:documentation>
-         <ref name="macro.phraseSeq"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.canonical.attributes"/>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.canonical.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="bibl">
+   <define name="tei_bibl">
       <element name="bibl">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(bibliographic citation) contains a loosely-structured bibliographic citation of which the sub-components may or may not be explicitly tagged. [3.12.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements]</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
-               <ref name="model.gLike"/>
-               <ref name="model.highlighted"/>
-               <ref name="model.pPart.data"/>
-               <ref name="model.pPart.edit"/>
-               <ref name="model.segLike"/>
-               <ref name="model.ptrLike"/>
-               <ref name="model.biblPart"/>
-               <ref name="model.global"/>
+               <ref name="tei_model.gLike"/>
+               <ref name="tei_model.highlighted"/>
+               <ref name="tei_model.pPart.data"/>
+               <ref name="tei_model.pPart.edit"/>
+               <ref name="tei_model.segLike"/>
+               <ref name="tei_model.ptrLike"/>
+               <ref name="tei_model.biblPart"/>
+               <ref name="tei_model.global"/>
             </choice>
          </zeroOrMore>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.global.source.attribute.source"/>
-         <ref name="att.declarable.attributes"/>
-         <ref name="att.typed.attribute.subtype"/>
-         <ref name="att.sortable.attributes"/>
-         <ref name="att.docStatus.attributes"/>
+         <ref name="tei_att.global.attribute.n"/>
+         <ref name="tei_att.global.attribute.xmllang"/>
+         <ref name="tei_att.global.attribute.xmlbase"/>
+         <ref name="tei_att.global.attribute.xmlspace"/>
+         <ref name="tei_att.global.rendition.attribute.rend"/>
+         <ref name="tei_att.global.rendition.attribute.style"/>
+         <ref name="tei_att.global.rendition.attribute.rendition"/>
+         <ref name="tei_att.global.responsibility.attribute.cert"/>
+         <ref name="tei_att.global.responsibility.attribute.resp"/>
+         <ref name="tei_att.global.source.attribute.source"/>
+         <ref name="tei_att.declarable.attributes"/>
+         <ref name="tei_att.typed.attribute.subtype"/>
+         <ref name="tei_att.sortable.attributes"/>
+         <ref name="tei_att.docStatus.attributes"/>
          <attribute name="xml:id">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) Should contain a UUID, which is static, i.e. doesn't change when the CMIF is change and/or regenerated. Be aware that the UUID have to begin with a letter, since the definition of @xml:id requires that.</a:documentation>
             <data type="ID"/>
@@ -1739,22 +2093,22 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="TEI">
+   <define name="tei_TEI">
       <element name="TEI">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(TEI document) contains a single TEI-conformant document, combining a single TEI header with one or more members of the model.resource class. Multiple <code xmlns="http://www.w3.org/1999/xhtml">&lt;TEI&gt;</code> elements may be combined within a <code xmlns="http://www.w3.org/1999/xhtml">&lt;TEI&gt;</code> (or <code xmlns="http://www.w3.org/1999/xhtml">&lt;teiCorpus&gt;</code>) element. [4. Default Text Structure 15.1. Varieties of Composite Text]</a:documentation>
          <group>
-            <ref name="teiHeader"/>
+            <ref name="tei_teiHeader"/>
             <choice>
                <group>
                   <oneOrMore>
-                     <ref name="model.resource"/>
+                     <ref name="tei_model.resource"/>
                   </oneOrMore>
                   <zeroOrMore>
-                     <ref name="TEI"/>
+                     <ref name="tei_TEI"/>
                   </zeroOrMore>
                </group>
                <oneOrMore>
-                  <ref name="TEI"/>
+                  <ref name="tei_TEI"/>
                </oneOrMore>
             </choice>
          </group>
@@ -1773,8 +2127,13 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
                  prefix="rng"
                  uri="http://relaxng.org/ns/structure/1.0"/>
-         <ref name="att.global.attributes"/>
-         <ref name="att.typed.attributes"/>
+         <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                 prefix="rna"
+                 uri="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
          <optional>
             <attribute name="version">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the version number of the TEI Guidelines against which this document is valid.</a:documentation>
@@ -1786,108 +2145,129 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="text">
+   <define name="tei_text">
       <element name="text">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text) contains a single text of any kind, whether unitary or composite, for example a poem or drama, a collection of essays, a novel, a dictionary, or a corpus sample. [4. Default Text Structure 15.1. Varieties of Composite Text]</a:documentation>
          <group>
-            <zeroOrMore>
-               <ref name="model.global"/>
+      
+      
+        
+	           <zeroOrMore>
+               <ref name="tei_model.global"/>
             </zeroOrMore>
+      
             <choice>
-               <ref name="body"/>
+               <ref name="tei_body"/>
+        
             </choice>
-            <zeroOrMore>
-               <ref name="model.global"/>
+      
+      
+        
+	           <zeroOrMore>
+               <ref name="tei_model.global"/>
             </zeroOrMore>
+      
          </group>
-         <ref name="att.global.attributes"/>
-         <ref name="att.declaring.attributes"/>
-         <ref name="att.typed.attributes"/>
-         <ref name="att.written.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.declaring.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
+         <ref name="tei_att.written.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="body">
+   <define name="tei_body">
       <element name="body">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text body) contains the whole body of a single unitary text, excluding any front or back matter. [4. Default Text Structure]</a:documentation>
          <group>
+            
             <zeroOrMore>
-               <ref name="model.global"/>
+               <ref name="tei_model.global"/>
             </zeroOrMore>
+            
             <optional>
                <group>
-                  <ref name="model.divTop"/>
+                  <ref name="tei_model.divTop"/>
                   <zeroOrMore>
                      <choice>
-                        <ref name="model.global"/>
-                        <ref name="model.divTop"/>
+                        <ref name="tei_model.global"/>
+                        <ref name="tei_model.divTop"/>
                      </choice>
-                  </zeroOrMore>
+                  </zeroOrMore>          
                </group>
             </optional>
+            
             <optional>
                <group>
-                  <ref name="model.divGenLike"/>
+                  <ref name="tei_model.divGenLike"/>
                   <zeroOrMore>
                      <choice>
-                        <ref name="model.global"/>
-                        <ref name="model.divGenLike"/>
+                        <ref name="tei_model.global"/>
+                        <ref name="tei_model.divGenLike"/>
                      </choice>
-                  </zeroOrMore>
+                  </zeroOrMore>          
                </group>
             </optional>
+      
             <choice>
+                  
                <oneOrMore>
                   <group>
-                     <ref name="model.divLike"/>
+                     <ref name="tei_model.divLike"/>
                      <zeroOrMore>
                         <choice>
-                           <ref name="model.global"/>
-                           <ref name="model.divGenLike"/>
+                           <ref name="tei_model.global"/>
+                           <ref name="tei_model.divGenLike"/>
                         </choice>
                      </zeroOrMore>
                   </group>
                </oneOrMore>
+        
                <oneOrMore>
                   <group>
-                     <ref name="model.div1Like"/>
+                     <ref name="tei_model.div1Like"/>
                      <zeroOrMore>
                         <choice>
-                           <ref name="model.global"/>
-                           <ref name="model.divGenLike"/>
+                           <ref name="tei_model.global"/>
+                           <ref name="tei_model.divGenLike"/>
                         </choice>
                      </zeroOrMore>
                   </group>
                </oneOrMore>
+        
                <group>
                   <oneOrMore>
                      <group>
-                        <ref name="model.common"/>
+                        <choice>
+              
+                           <ref name="tei_model.common"/>
+                        </choice>
                         <zeroOrMore>
-                           <ref name="model.global"/>
+                           <ref name="tei_model.global"/>
                         </zeroOrMore>
                      </group>
                   </oneOrMore>
                   <optional>
                      <choice>
+            
                         <oneOrMore>
                            <group>
-                              <ref name="model.divLike"/>
+                              <ref name="tei_model.divLike"/>
                               <zeroOrMore>
                                  <choice>
-                                    <ref name="model.global"/>
-                                    <ref name="model.divGenLike"/>
+                                    <ref name="tei_model.global"/>
+                                    <ref name="tei_model.divGenLike"/>
                                  </choice>
                               </zeroOrMore>
                            </group>
                         </oneOrMore>
+            
                         <oneOrMore>
                            <group>
-                              <ref name="model.div1Like"/>
+                              <ref name="tei_model.div1Like"/>
                               <zeroOrMore>
                                  <choice>
-                                    <ref name="model.global"/>
-                                    <ref name="model.divGenLike"/>
+                                    <ref name="tei_model.global"/>
+                                    <ref name="tei_model.divGenLike"/>
                                  </choice>
                               </zeroOrMore>
                            </group>
@@ -1896,77 +2276,96 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
                   </optional>
                </group>
             </choice>
+      
+      
             <zeroOrMore>
                <group>
-                  <ref name="model.divBottom"/>
+                  <ref name="tei_model.divBottom"/>
                   <zeroOrMore>
-                     <ref name="model.global"/>
+                     <ref name="tei_model.global"/>
                   </zeroOrMore>
                </group>
             </zeroOrMore>
          </group>
-         <ref name="att.global.attributes"/>
-         <ref name="att.declaring.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.declaring.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="teiHeader">
+   <define name="tei_teiHeader">
       <element name="teiHeader">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(TEI header) supplies descriptive and declarative metadata associated with a digital resource or set of resources. [2.1.1. The TEI Header and Its Components 15.1. Varieties of Composite Text]</a:documentation>
          <group>
-            <ref name="fileDesc"/>
+            <ref name="tei_fileDesc"/>
             <zeroOrMore>
-               <ref name="model.teiHeaderPart"/>
+               <ref name="tei_model.teiHeaderPart"/>
             </zeroOrMore>
+      
          </group>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="fileDesc">
+   <define name="tei_fileDesc">
       <element name="fileDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(file description) contains a full bibliographic description of an electronic file. [2.2. The File Description 2.1.1. The TEI Header and Its Components]</a:documentation>
          <group>
             <group>
-               <ref name="titleStmt"/>
-               <ref name="publicationStmt"/>
+               <ref name="tei_titleStmt"/>
+        
+          
+        
+        
+          
+        
+               <ref name="tei_publicationStmt"/>
+        
+          
+        
+        
+          
+        
             </group>
+      
             <oneOrMore>
-               <ref name="sourceDesc"/>
+               <ref name="tei_sourceDesc"/>
             </oneOrMore>
+      
          </group>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="titleStmt">
+   <define name="tei_titleStmt">
       <element name="titleStmt">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(title statement) groups information about the title of a work and those responsible for its content. [2.2.1. The Title Statement 2.2. The File Description]</a:documentation>
-         <ref name="title"/>
+         <ref name="tei_title"/>
          <oneOrMore>
-            <ref name="editor"/>
+            <ref name="tei_editor"/>
          </oneOrMore>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="publicationStmt">
+   <define name="tei_publicationStmt">
       <element name="publicationStmt">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(publication statement) groups information concerning the publication or distribution of an electronic or other text. [2.2.4. Publication, Distribution, Licensing, etc. 2.2. The File Description]</a:documentation>
          <oneOrMore>
-            <ref name="publisher"/>
+            <ref name="tei_publisher"/>
          </oneOrMore>
-         <ref name="idno"/>
-         <ref name="date"/>
-         <ref name="availability"/>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_idno"/>
+         <ref name="tei_date"/>
+         <ref name="tei_availability"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="idno">
+   <define name="tei_idno">
       <element name="idno">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Provides the URL of the CMI file</a:documentation>
-         <data type="anyURI"/>
+         <data type="anyURI">
+            <param name="pattern">\S+</param>
+         </data>
          <attribute name="type">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
@@ -1977,17 +2376,17 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="availability">
+   <define name="tei_availability">
       <element name="availability">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(availability) supplies information about the availability of a text, for example any restrictions on its use or distribution, its copyright status, any licence applying to it, etc. [2.2.4. Publication, Distribution, Licensing, etc.]</a:documentation>
          <oneOrMore>
             <choice>
-               <ref name="model.availabilityPart"/>
-               <ref name="model.pLike"/>
+               <ref name="tei_model.availabilityPart"/>
+               <ref name="tei_model.pLike"/>
             </choice>
          </oneOrMore>
-         <ref name="att.global.attributes"/>
-         <ref name="att.declarable.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.declarable.attributes"/>
          <optional>
             <attribute name="status">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(status) supplies a code identifying the current availability of the text.</a:documentation>
@@ -2004,92 +2403,80 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="licence">
+   <define name="tei_licence">
       <element name="licence">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains information about a licence or other legal agreement applicable to the text. [2.2.4. Publication, Distribution, Licensing, etc.]</a:documentation>
-         <ref name="macro.specialPara"/>
+         <ref name="tei_macro.specialPara"/>
          <attribute name="target">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the destination of the reference by supplying one or more URI References</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
          <empty/>
       </element>
    </define>
-   <define name="sourceDesc">
+   <define name="tei_sourceDesc">
       <element name="sourceDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(source description) describes the source(s) from which an electronic text was derived or generated, typically a bibliographic description in the case of a digitized text, or a phrase such as "born digital" for a text which has no previous existence. [2.2.7. The Source Description]</a:documentation>
          <oneOrMore>
-            <ref name="bibl"/>
+            <ref name="tei_bibl"/>
          </oneOrMore>
-         <ref name="att.global.attributes"/>
-         <ref name="att.declarable.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="profileDesc">
+   <define name="tei_profileDesc">
       <element name="profileDesc">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the languages and sublanguages used, the situation in which it was produced, the participants and their setting. [2.4. The Profile Description 2.1.1. The TEI Header and Its Components]</a:documentation>
          <zeroOrMore>
-            <ref name="model.profileDescPart"/>
+            <ref name="tei_model.profileDescPart"/>
          </zeroOrMore>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="correspDesc">
+   <define name="tei_correspDesc">
       <element name="correspDesc">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspondence
-    description) contains a description of the actions related to one act of correspondence. [2.4.6. Correspondence Description]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspondence description) contains a description of the actions related to one act of correspondence. [2.4.6. Correspondence Description]</a:documentation>
          <choice>
+      
             <oneOrMore>
-               <ref name="model.correspDescPart"/>
+               <ref name="tei_model.correspDescPart"/>
             </oneOrMore>
+      
+      
             <oneOrMore>
-               <ref name="model.pLike"/>
+               <ref name="tei_model.pLike"/>
             </oneOrMore>
+      
          </choice>
-         <ref name="att.declarable.attributes"/>
-         <ref name="att.canonical.attributes"/>
-         <ref name="att.global.attribute.xmlid"/>
-         <ref name="att.global.attribute.n"/>
-         <ref name="att.global.attribute.xmllang"/>
-         <ref name="att.global.attribute.xmlbase"/>
-         <ref name="att.global.attribute.xmlspace"/>
-         <ref name="att.global.rendition.attribute.rend"/>
-         <ref name="att.global.rendition.attribute.style"/>
-         <ref name="att.global.rendition.attribute.rendition"/>
-         <ref name="att.global.responsibility.attribute.cert"/>
-         <ref name="att.global.responsibility.attribute.resp"/>
-         <ref name="att.typed.attributes"/>
-         <attribute name="source">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the source from which some aspect of this element is drawn.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
-         </attribute>
+         <ref name="tei_att.declarable.attributes"/>
+         <ref name="tei_att.canonical.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="correspAction">
+   <define name="tei_correspAction">
       <element name="correspAction">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspondence action) contains a structured description of the place, the name of a person/organization and the date related to the sending/receiving of a message or any other action related to the correspondence. [2.4.6. Correspondence Description]</a:documentation>
          <choice>
             <oneOrMore>
-               <ref name="model.correspActionPart"/>
+               <ref name="tei_model.correspActionPart"/>
             </oneOrMore>
             <oneOrMore>
-               <ref name="model.pLike"/>
+               <ref name="tei_model.pLike"/>
             </oneOrMore>
          </choice>
-         <ref name="att.global.attributes"/>
-         <ref name="att.typed.attribute.subtype"/>
-         <ref name="att.sortable.attributes"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attribute.subtype"/>
+         <ref name="tei_att.sortable.attributes"/>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes the nature of the action.
@@ -2114,26 +2501,26 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          <empty/>
       </element>
    </define>
-   <define name="correspContext">
+   <define name="tei_correspContext">
       <element name="correspContext">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspondence context) provides references to preceding or following correspondence related to this piece of correspondence. [2.4.6. Correspondence Description]</a:documentation>
          <oneOrMore>
-            <ref name="model.correspContextPart"/>
+            <ref name="tei_model.correspContextPart"/>
          </oneOrMore>
-         <ref name="att.global.attributes"/>
+         <ref name="tei_att.global.attributes"/>
          <empty/>
       </element>
    </define>
-   <define name="att.datable.custom.attributes">
-      <ref name="att.datable.custom.attribute.when-custom"/>
-      <ref name="att.datable.custom.attribute.notBefore-custom"/>
-      <ref name="att.datable.custom.attribute.notAfter-custom"/>
-      <ref name="att.datable.custom.attribute.from-custom"/>
-      <ref name="att.datable.custom.attribute.to-custom"/>
-      <ref name="att.datable.custom.attribute.datingPoint"/>
-      <ref name="att.datable.custom.attribute.datingMethod"/>
+   <define name="tei_att.datable.custom.attributes">
+      <ref name="tei_att.datable.custom.attribute.when-custom"/>
+      <ref name="tei_att.datable.custom.attribute.notBefore-custom"/>
+      <ref name="tei_att.datable.custom.attribute.notAfter-custom"/>
+      <ref name="tei_att.datable.custom.attribute.from-custom"/>
+      <ref name="tei_att.datable.custom.attribute.to-custom"/>
+      <ref name="tei_att.datable.custom.attribute.datingPoint"/>
+      <ref name="tei_att.datable.custom.attribute.datingMethod"/>
    </define>
-   <define name="att.datable.custom.attribute.when-custom">
+   <define name="tei_att.datable.custom.attribute.when-custom">
       <optional>
          <attribute name="when-custom">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in some custom standard form.</a:documentation>
@@ -2147,7 +2534,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.notBefore-custom">
+   <define name="tei_att.datable.custom.attribute.notBefore-custom">
       <optional>
          <attribute name="notBefore-custom">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in some custom standard form.</a:documentation>
@@ -2161,7 +2548,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.notAfter-custom">
+   <define name="tei_att.datable.custom.attribute.notAfter-custom">
       <optional>
          <attribute name="notAfter-custom">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in some custom standard form.</a:documentation>
@@ -2175,7 +2562,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.from-custom">
+   <define name="tei_att.datable.custom.attribute.from-custom">
       <optional>
          <attribute name="from-custom">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in some custom standard form.</a:documentation>
@@ -2189,7 +2576,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.to-custom">
+   <define name="tei_att.datable.custom.attribute.to-custom">
       <optional>
          <attribute name="to-custom">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in some custom standard form.</a:documentation>
@@ -2203,48 +2590,52 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.datingPoint">
+   <define name="tei_att.datable.custom.attribute.datingPoint">
       <optional>
          <attribute name="datingPoint">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred</a:documentation>
-            <data type="anyURI"/>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.custom.attribute.datingMethod">
+   <define name="tei_att.datable.custom.attribute.datingMethod">
       <optional>
          <attribute name="datingMethod">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to a <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code> element or other means of interpreting the values of the custom dating attributes.</a:documentation>
-            <data type="anyURI"/>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
          </attribute>
       </optional>
    </define>
-   <define name="model.persNamePart">
+   <define name="tei_model.persNamePart">
       <notAllowed/>
    </define>
-   <define name="model.persNamePart_alternation">
+   <define name="tei_model.persNamePart_alternation">
       <notAllowed/>
    </define>
-   <define name="model.persNamePart_sequence">
+   <define name="tei_model.persNamePart_sequence">
       <empty/>
    </define>
-   <define name="model.persNamePart_sequenceOptional">
+   <define name="tei_model.persNamePart_sequenceOptional">
       <empty/>
    </define>
-   <define name="model.persNamePart_sequenceOptionalRepeatable">
+   <define name="tei_model.persNamePart_sequenceOptionalRepeatable">
       <empty/>
    </define>
-   <define name="model.persNamePart_sequenceRepeatable">
+   <define name="tei_model.persNamePart_sequenceRepeatable">
       <notAllowed/>
    </define>
-   <define name="att.datable.iso.attributes">
-      <ref name="att.datable.iso.attribute.when-iso"/>
-      <ref name="att.datable.iso.attribute.notBefore-iso"/>
-      <ref name="att.datable.iso.attribute.notAfter-iso"/>
-      <ref name="att.datable.iso.attribute.from-iso"/>
-      <ref name="att.datable.iso.attribute.to-iso"/>
+   <define name="tei_att.datable.iso.attributes">
+      <ref name="tei_att.datable.iso.attribute.when-iso"/>
+      <ref name="tei_att.datable.iso.attribute.notBefore-iso"/>
+      <ref name="tei_att.datable.iso.attribute.notAfter-iso"/>
+      <ref name="tei_att.datable.iso.attribute.from-iso"/>
+      <ref name="tei_att.datable.iso.attribute.to-iso"/>
    </define>
-   <define name="att.datable.iso.attribute.when-iso">
+   <define name="tei_att.datable.iso.attribute.when-iso">
       <optional>
          <attribute name="when-iso">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in a standard form.</a:documentation>
@@ -2264,7 +2655,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.iso.attribute.notBefore-iso">
+   <define name="tei_att.datable.iso.attribute.notBefore-iso">
       <optional>
          <attribute name="notBefore-iso">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -2284,7 +2675,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.iso.attribute.notAfter-iso">
+   <define name="tei_att.datable.iso.attribute.notAfter-iso">
       <optional>
          <attribute name="notAfter-iso">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
@@ -2304,7 +2695,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.iso.attribute.from-iso">
+   <define name="tei_att.datable.iso.attribute.from-iso">
       <optional>
          <attribute name="from-iso">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in standard form.</a:documentation>
@@ -2324,7 +2715,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="att.datable.iso.attribute.to-iso">
+   <define name="tei_att.datable.iso.attribute.to-iso">
       <optional>
          <attribute name="to-iso">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in standard form.</a:documentation>
@@ -2344,16 +2735,20 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          </attribute>
       </optional>
    </define>
-   <define name="orgName">
+   <define name="tei_orgName">
       <element name="orgName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(organization name) contains an organizational name. [13.2.2. Organizational Names]</a:documentation>
          <text/>
+         <ref name="tei_att.editLike.attributes"/>
+         <ref name="tei_att.global.responsibility.attributes"/>
          <optional>
             <attribute name="ref">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
                <list>
                   <oneOrMore>
-                     <data type="anyURI"/>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
                   </oneOrMore>
                </list>
             </attribute>
@@ -2361,16 +2756,20 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          <empty/>
       </element>
    </define>
-   <define name="persName">
+   <define name="tei_persName">
       <element name="persName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
          <text/>
+         <ref name="tei_att.editLike.attributes"/>
+         <ref name="tei_att.global.responsibility.attributes"/>
          <optional>
             <attribute name="ref">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
                <list>
                   <oneOrMore>
-                     <data type="anyURI"/>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
                   </oneOrMore>
                </list>
             </attribute>
@@ -2378,16 +2777,20 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
          <empty/>
       </element>
    </define>
-   <define name="placeName">
+   <define name="tei_placeName">
       <element name="placeName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
          <text/>
+         <ref name="tei_att.editLike.attributes"/>
+         <ref name="tei_att.global.responsibility.attributes"/>
          <optional>
             <attribute name="ref">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
                <list>
                   <oneOrMore>
-                     <data type="anyURI"/>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
                   </oneOrMore>
                </list>
             </attribute>
@@ -2397,7 +2800,7 @@ Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5
    </define>
    <start>
       <choice>
-         <ref name="TEI"/>
+         <ref name="tei_TEI"/>
       </choice>
    </start>
 </grammar>
