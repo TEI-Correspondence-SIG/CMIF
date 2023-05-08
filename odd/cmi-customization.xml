@@ -5,6 +5,7 @@
         <fileDesc>
             <titleStmt>
                 <title>Correspondence Metadata Interchange Format</title>
+                <title type="version">1.0</title>
                 <author>TEI Correspondence SIG</author>
             </titleStmt>
             <publicationStmt>
@@ -44,7 +45,7 @@
         <back>
             <div>
                 <head>Formal Specification</head>
-                <schemaSpec ident="cmi-customization" start="TEI" status="unstable">
+                <schemaSpec ident="cmi-customization" start="TEI" status="stable">
                     <moduleRef key="tei"/>
                     <moduleRef key="textstructure" include="body TEI text"/>
                     <moduleRef key="core" include="bibl date editor email name note p ref title publisher"/>
@@ -109,7 +110,9 @@
                             <memberOf key="att.global.responsibility"/>
                             <memberOf key="model.correspActionPart"/>
                         </classes>
-                        <content/>
+                        <content>
+                            <empty/>
+                        </content>
                     </elementSpec>
                     
                     <elementSpec ident="idno" mode="replace" module="header">
