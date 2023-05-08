@@ -20,6 +20,10 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2023-05-08">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Add editorial attributes to children of correspAction.</desc>
+            </change>
             <change when="2015-02-18">
                 <persName>Peter Stadler</persName>
                 <desc>Updated CIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
@@ -111,6 +115,7 @@
                     <elementSpec ident="date" mode="change" module="core">
                         <classes mode="replace">
                             <memberOf key="att.datable.w3c"/>
+                            <memberOf key="att.editLike"/>
                             <memberOf key="att.global.responsibility"/>
                             <memberOf key="model.correspActionPart"/>
                         </classes>
@@ -144,6 +149,8 @@
                         <classes mode="replace">
                             <memberOf key="model.nameLike.agent"/>
                             <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
                         </classes>
                         <content>
                             <textNode/>
@@ -158,6 +165,8 @@
                         <classes mode="replace">
                             <memberOf key="model.nameLike.agent"/>
                             <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
                         </classes>
                         <content>
                             <textNode/>
@@ -172,6 +181,8 @@
                         <classes mode="replace">
                             <memberOf key="model.nameLike.agent"/>
                             <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
                         </classes>
                         <content>
                             <textNode/>
