@@ -151,8 +151,6 @@
                     <elementSpec ident="idno" mode="replace" module="header">
                         <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
                         <content>
-<!--                            <rng:ref name="data.pointer"/>-->
-                            <!-- seems rng:ref doesn't work anymore?  -->
                             <dataRef key="teidata.pointer"/>
                         </content>
                         <attList>
