@@ -20,6 +20,10 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2023-08-05">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Restrict type of correspAction.</desc>
+            </change>
             <change when="2023-05-08">
                 <persName>Klaus Rettinghaus</persName>
                 <desc>Add editorial attributes to children of correspAction.</desc>
@@ -111,7 +115,27 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    
+
+                    <elementSpec ident="correspAction" mode="change" module="header">
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList mode="replace" type="closed">
+                                    <valItem ident="sent">
+                                        <desc versionDate="2015-02-09" xml:lang="en">information
+                                            concerning the sending or dispatch of a message.</desc>
+                                        <desc versionDate="2022-06-02" xml:lang="ja">
+                                            メッセージの送信や発送に関する情報。</desc>
+                                    </valItem>
+                                    <valItem ident="received">
+                                        <desc versionDate="2015-02-09" xml:lang="en">information
+                                            concerning the receipt of a message.</desc>
+                                        <desc versionDate="2022-06-02" xml:lang="ja">メッセージの受信に関する情報。</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+
                     <elementSpec ident="date" mode="change" module="core">
                         <classes mode="replace">
                             <memberOf key="att.datable.w3c"/>
