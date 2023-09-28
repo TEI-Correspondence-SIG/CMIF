@@ -57,14 +57,14 @@ The namespace `https://lod.academy/cmif/vocab/terms/` can be specified completel
 
 ## Vocabulary (Work in progress!)
 
-The vocabulary for the attribute `@type` and partly also for the attribute `@target` is published on [lod.academy](https://lod.academy), a service provided by the Academy of Sciences and Literature Mainz. Thus, a permanent, cross-institutional and project-independent availability is guaranteed. The official namespace https://lod.academy/cmif/vocab/terms/ can also be accessed as HTML in the browser, so that the definition of the vocabulary can be viewed directly. 
+The vocabulary for the attribute `@type` and the CMIF-specific parts of the attribute `@target` is published on [lod.academy](https://lod.academy), a service provided by the Academy of Sciences and Literature Mainz. Thus, a permanent, cross-institutional and project-independent availability is guaranteed. The official namespace https://lod.academy/cmif/vocab/terms/ can also be accessed as HTML in the browser, so that the definition of the vocabulary can be viewed directly. 
 
 At present, the vocabulary is still to be understood as a draft.
 
 ## Unresolved questions and problems
 
 * Martin Anton Müller [suggested](https://hyp.is/43z5ZpXgEeqz3V_IpQEY7w/encoding-correspondence.bbaw.de/v1/CMIF.html) that there should be the possibility to mark a publication as only partially recorded in a CMIF file
-* Jakub Šimek [noted](https://hyp.is/J6-lyDbtEeqzned__Y4vpQ/encoding-correspondence.bbaw.de/v1/CMIF.html) that ref/@type is not explicitly provided for URIs. 
+* Jakub Šimek [noted](https://hyp.is/J6-lyDbtEeqzned__Y4vpQ/encoding-correspondence.bbaw.de/v1/CMIF.html) that ref/@type is not explicitly suited for URIs. 
 * Klaus Rettinghaus [noted](https://hyp.is/ZWAyOjV1EeqS6P8uqm6cGg/encoding-correspondence.bbaw.de/v1/CMIF.html) that there could be mixed cases of the text basis, e.g. the printing of a draft 
 * Peter Stadler [noted](https://hyp.is/5qFUOO9rEe2PPuMlx9P4mA/encoding-correspondence.bbaw.de/v1/CMIF.html) that "typescript" or "computer printed letters" is missing from textbase.
 * It is useful to note the supported version of CMIF somewhere? See [Issue #31](https://github.com/TEI-Correspondence-SIG/CMIF/issues/31)
