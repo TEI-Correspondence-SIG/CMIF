@@ -1,3 +1,4 @@
+cff-version: 1.2.0
 message: "If you use this software, please cite it using these metadata."
 authors:
   - name: "TEI Correspondence SIG"
@@ -7,9 +8,8 @@ abstract: "The 'Correspondence Metadata Interchange Format' (CMIF) enables schol
 date-released: "2018-03-28"
 version: 1.0.0
 repository-code: "https://github.com/TEI-Correspondence-SIG/CMIF"
-license: "CC BY 4.0"
+license: "CC-BY-4.0"
 contact:
   - name: "TEI Correspondence SIG - Mailinglist"
     email: "tei-corresp-sig@listserv.brown.edu"
     website: "https://listserv.brown.edu/archives/cgi-bin/wa?A0=TEI-CORRESP-SIG"
-cff-version: 1.2.0
