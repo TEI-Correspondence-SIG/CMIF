@@ -121,16 +121,7 @@
                             <classRef key="model.correspActionPart" minOccurs="1" maxOccurs="unbounded"/>
                         </content>
                         <attList>
-                            <attDef ident="type" mode="replace" usage="req">
-                                <valList mode="replace" type="closed">
-                                    <valItem ident="sent">
-                                        <desc>information concerning the sending or dispatch of a message.</desc>
-                                    </valItem>
-                                    <valItem ident="received">
-                                        <desc versionDate="2015-02-09" xml:lang="en">information concerning the receipt of a message.</desc>
-                                    </valItem>
-                                </valList>
-                            </attDef>
+                            <attDef ident="type" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
 
