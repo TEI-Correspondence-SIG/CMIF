@@ -4,7 +4,7 @@
         <fileDesc>
             <titleStmt>
                 <title>Correspondence Metadata Interchange Format</title>
-                <title type="version">1.0</title>
+                <title type="version">1.1</title>
                 <author>TEI Correspondence SIG</author>
             </titleStmt>
             <publicationStmt>
@@ -120,7 +120,7 @@
                             <memberOf key="model.correspActionPart"/>
                         </classes>
                         <content>
-                            <empty/>
+                            <textNode/>
                         </content>
                     </elementSpec>
                     
