@@ -4,9 +4,11 @@
 
 To enhance the CMIF v1 slightly, we propose to introduce two encoding possibilities:
 
-* Persons, places and dates in correspAction can be marked as "conjectured" if they cannot be inferred from the letter but are based on the editor's knowledge. In printed editions, such "conjectured" (in german "erschlossen") information was often placed in square brackets. In TEI-XML, the analogous markup would be the attribute `@evidence="conjecture"`. In CMIF v1.1, the schema should allow this encoding for persName, orgName, placeName and date. In the case of dates, however, this only makes sense for exact dates (i.e. for `@when` and possibly `@from`-`@to`). The attributes `@notBefore` and `@notAfter` express per se that the date was determined by the editor. 
+* Persons, places and dates in correspAction can be marked as "conjectured" if they cannot be inferred from the letter but are based on the editor's knowledge. In printed editions, such "conjectured" (in german "erschlossen") information was often placed in square brackets. In TEI-XML, the analogous markup would be the attribute `@evidence="conjecture"`. In CMIF v1.1, the schema should allow this encoding for persName, orgName, placeName and date. In the case of dates, however, this only makes sense for exact dates (i.e. for `@when` and possibly `@from`-`@to`). The attributes `@notBefore` and `@notAfter` express per se that the date was determined by the editor.
 
-* In addition, the option should be created to classify the identification of sender, recipient and date information as uncertain. In printed editions, this was often expressed with a question mark after the name or date. In TEI-XML, it could be noted with the attribute `@cert="low"`.  
+* In addition, the option should be created to classify the identification of sender, recipient and date information as uncertain. In printed editions, this was often expressed with a question mark after the name or date. In TEI-XML, it could be noted with the attribute `@cert="low"`.
+
+* A date is sometimes difficult to encode precisely, so it can be useful to keep an additional human-readable entry, especially in cases where the date is sometimes uncertain or imprecise.
 
 ## Schematron
 
