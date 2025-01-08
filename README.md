@@ -21,7 +21,7 @@ The research project "correspSearch" provides a [tutorial](http://correspsearch.
 There are various ways of extracting CMIF from existing TEI collections via XSL-T or XQuery. Reusable examples include: 
 
 * <https://github.com/QHOD/qhodCMIFxquery> a basic XQuery for the [QhoD project](https://qhod.net)
-* [correspDesc.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/correspDesc.xml). 
+* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif.xml). 
 
 ## Discussion &  further development
 
