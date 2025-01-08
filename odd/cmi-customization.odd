@@ -4,7 +4,7 @@
         <fileDesc>
             <titleStmt>
                 <title>Correspondence Metadata Interchange Format</title>
-                <title type="version">1.0</title>
+                <title type="version">1.1</title>
                 <author>TEI Correspondence SIG</author>
             </titleStmt>
             <publicationStmt>
@@ -20,17 +20,21 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2024-10-18">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Allow text content in date.</desc>
+            </change>
             <change when="2023-05-08">
                 <persName>Klaus Rettinghaus</persName>
                 <desc>Add editorial attributes to children of correspAction.</desc>
             </change>
             <change when="2015-02-18">
                 <persName>Peter Stadler</persName>
-                <desc>Updated CIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
+                <desc>Updated CMIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
             </change>
             <change when="2015-02-11">
                 <persName>Stefan Dumont</persName>
-                <desc>Updated CIF to current state of proposal and correspSearch. teiHeader//titleStmt/respStmt replaces editor.</desc>
+                <desc>Updated CMIF to current state of proposal and correspSearch. teiHeader//titleStmt/respStmt replaces editor.</desc>
             </change>
             <change when="2014-07-02">
                 <persName>Peter Stadler</persName>
@@ -40,10 +44,8 @@
     </teiHeader>
     <text>
         <body>
-            <p>This customization builds on the correspDesc proposal as described at <ref
-                    target="https://github.com/TEI-Correspondence-SIG/correspDesc"
-                    >https://github.com/TEI-Correspondence-SIG/correspDesc</ref>. It aims to define
-                an interchange format for correspondence projects. </p>
+            <p>This customization builds on the correspDesc element. 
+                It aims to define an interchange format for correspondence projects. </p>
         </body>
         <back>
             <div>
@@ -120,7 +122,7 @@
                             <memberOf key="model.correspActionPart"/>
                         </classes>
                         <content>
-                            <empty/>
+                            <textNode/>
                         </content>
                     </elementSpec>
                     
