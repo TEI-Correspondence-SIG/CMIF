@@ -5,10 +5,9 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-10-16T16:33:23Z. . 
-TEI Edition: P5 Version 4.8.0. Last updated on 8th July 2024, revision 1f9891a87 
-TEI Edition Location: https://www.tei-c.org/Vault/P5/4.8.0/ 
-  
+Schema generated from ODD source 2024-11-06T15:11:56Z. . 
+TEI Edition: P5 Version 4.8.1. Last updated on 1st November 2024, revision 0a2bff95a 
+TEI Edition Location: https://www.tei-c.org/Vault/P5/4.8.1/ 
 --><!--CC+BY and BSD-2 licences-->
    <define name="tei_macro.paraContent">
       <zeroOrMore>
@@ -1997,11 +1996,10 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
    <define name="tei_date">
       <element name="date">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contains a date in any format. [3.6.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.12.2.4. Imprint, Size of a Document, and Reprint Information 16.2.3. The Setting Description 14.4. Dates]</a:documentation>
-         <empty/>
          <ref name="tei_att.datable.w3c.attributes"/>
          <ref name="tei_att.editLike.attributes"/>
          <ref name="tei_att.global.responsibility.attributes"/>
-         <empty/>
+         <text/>
       </element>
    </define>
    <define name="tei_ref">

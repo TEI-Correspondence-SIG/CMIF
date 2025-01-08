@@ -1,6 +1,6 @@
 # CMIF – Correspondence Metadata Interchange Format
 
-by TEI Correspondence SIG 2015-2018 ([see license](#license) and [see citation](#citation))
+by TEI Correspondence SIG 2015-2024 ([see license](#license) and [see citation](#citation))
 
 ## About
 
@@ -21,7 +21,7 @@ The research project "correspSearch" provides a [tutorial](http://correspsearch.
 There are various ways of extracting CMIF from existing TEI collections via XSL-T or XQuery. Reusable examples include: 
 
 * <https://github.com/QHOD/qhodCMIFxquery> a basic XQuery for the [QhoD project](https://qhod.net)
-* [correspDesc.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/correspDesc.xml). 
+* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif.xml). 
 
 ## Discussion &  further development
 
@@ -41,6 +41,6 @@ TEI Correspondence SIG. 2018. Correspondence Metadata Interchange Format (CMIF).
 
 ## License
 
-© TEI Correspondence SIG 2015-2018
+© TEI Correspondence SIG 2015-2024
 
 This work is available under dual license: [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) and [Creative Commons Attribution 4.0 License (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
