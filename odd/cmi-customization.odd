@@ -20,6 +20,10 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2025-01-08">
+                <persName>Stefan Dumont</persName>
+                <desc>Restrict correspAction/@type to sent/received.</desc>
+            </change>
             <change when="2024-10-18">
                 <persName>Klaus Rettinghaus</persName>
                 <desc>Allow text content in date.</desc>
@@ -123,7 +127,16 @@
                             <classRef key="model.correspActionPart" minOccurs="1" maxOccurs="unbounded"/>
                         </content>
                         <attList>
-                            <attDef ident="type" mode="change" usage="req"/>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList mode="replace" type="closed">
+                                    <valItem ident="sent">
+                                        <desc>information concerning the sending or dispatch of a message.</desc>
+                                    </valItem>
+                                    <valItem ident="received">
+                                        <desc>information concerning the receipt of a message.</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
                         </attList>
                     </elementSpec>
 
