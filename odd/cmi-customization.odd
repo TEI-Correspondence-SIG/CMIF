@@ -24,6 +24,10 @@
                 <persName>Klaus Rettinghaus</persName>
                 <desc>Allow text content in date.</desc>
             </change>
+            <change when="2023-08-05">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Restrict type of correspAction.</desc>
+            </change>
             <change when="2023-05-08">
                 <persName>Klaus Rettinghaus</persName>
                 <desc>Add editorial attributes to children of correspAction.</desc>
@@ -113,7 +117,16 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    
+
+                    <elementSpec ident="correspAction" mode="change" module="header">
+                        <content>
+                            <classRef key="model.correspActionPart" minOccurs="1" maxOccurs="unbounded"/>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+
                     <elementSpec ident="date" mode="change" module="core">
                         <classes mode="replace">
                             <memberOf key="att.datable.w3c"/>
@@ -129,8 +142,6 @@
                     <elementSpec ident="idno" mode="replace" module="header">
                         <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
                         <content>
-<!--                            <rng:ref name="data.pointer"/>-->
-                            <!-- seems rng:ref doesn't work anymore?  -->
                             <dataRef key="teidata.pointer"/>
                         </content>
                         <attList>

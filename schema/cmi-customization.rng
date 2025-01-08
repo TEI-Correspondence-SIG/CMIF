@@ -8,7 +8,6 @@
 Schema generated from ODD source 2024-11-06T15:11:56Z. . 
 TEI Edition: P5 Version 4.8.1. Last updated on 1st November 2024, revision 0a2bff95a 
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.8.1/ 
-  
 --><!--CC+BY and BSD-2 licences-->
    <define name="tei_macro.paraContent">
       <zeroOrMore>
@@ -1997,11 +1996,10 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
    <define name="tei_date">
       <element name="date">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contains a date in any format. [3.6.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.12.2.4. Imprint, Size of a Document, and Reprint Information 16.2.3. The Setting Description 14.4. Dates]</a:documentation>
-         <text/>
          <ref name="tei_att.datable.w3c.attributes"/>
          <ref name="tei_att.editLike.attributes"/>
          <ref name="tei_att.global.responsibility.attributes"/>
-         <empty/>
+         <text/>
       </element>
    </define>
    <define name="tei_ref">
@@ -2086,8 +2084,7 @@ Suggested values include: 1] top; 2] bottom; 3] margin; 4] opposite; 5] overleaf
          <ref name="tei_att.cmc.attributes"/>
          <optional>
             <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">classifies the title according to some convenient typology.
-Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] short; 5] desc (descriptive)</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">classifies the title according to some convenient typology.</a:documentation>
                <data type="token">
                   <param name="pattern">[^\p{C}\p{Z}]+</param>
                </data>
@@ -2575,38 +2572,27 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
    <define name="tei_correspAction">
       <element name="correspAction">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(correspondence action) contains a structured description of the place, the name of a person/organization and the date related to the sending/receiving of a message or any other action related to the correspondence. [2.4.6. Correspondence Description]</a:documentation>
-         <choice>
-            <oneOrMore>
-               <ref name="tei_model.correspActionPart"/>
-            </oneOrMore>
-            <oneOrMore>
-               <ref name="tei_model.pLike"/>
-            </oneOrMore>
-         </choice>
+         <oneOrMore>
+            <ref name="tei_model.correspActionPart"/>
+         </oneOrMore>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.typed.attribute.subtype"/>
          <ref name="tei_att.sortable.attributes"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes the nature of the action.
-Suggested values include: 1] sent; 2] received; 3] transmitted; 4] redirected; 5] forwarded</a:documentation>
-               <choice>
-                  <value>sent</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the sending or dispatch of a message.</a:documentation>
-                  <value>received</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the receipt of a message.</a:documentation>
-                  <value>transmitted</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the transmission of a message, i.e. between the dispatch and the next receipt, redirect or forwarding.</a:documentation>
-                  <value>redirected</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the redirection of an unread message.</a:documentation>
-                  <value>forwarded</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the forwarding of a message.</a:documentation>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </choice>
-            </attribute>
-         </optional>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes the nature of the action.</a:documentation>
+            <choice>
+               <value>sent</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the sending or dispatch of a message.</a:documentation>
+               <value>received</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the receipt of a message.</a:documentation>
+               <value>transmitted</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the transmission of a message, i.e. between the dispatch and the next receipt, redirect or forwarding.</a:documentation>
+               <value>redirected</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the redirection of an unread message.</a:documentation>
+               <value>forwarded</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">information concerning the forwarding of a message.</a:documentation>
+            </choice>
+         </attribute>
          <empty/>
       </element>
    </define>
