@@ -21,7 +21,7 @@ The research project "correspSearch" provides a [tutorial](https://correspsearch
 There are various ways of extracting CMIF from existing TEI collections via XSL-T or XQuery. Reusable examples include: 
 
 * <https://github.com/QHOD/qhodCMIFxquery> a basic XQuery for the [QhoD project](https://qhod.net)
-* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/cmif.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif.xml).
+* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/cmif.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif_v2.xml).
 * [CMIFerator](https://github.com/digicademy/cmiferator/), an app for eXistdb based digital editions 
 * [CSV2CMI](https://github.com/saw-leipzig/csv2cmi), for transforming CSV tables of letters to CMIF
 
