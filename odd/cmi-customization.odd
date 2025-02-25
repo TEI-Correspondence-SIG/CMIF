@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
-    xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title>Correspondence Metadata Interchange Format</title>
-                <title type="version">1.0</title>
+                <title type="version">1.1</title>
                 <author>TEI Correspondence SIG</author>
             </titleStmt>
             <publicationStmt>
@@ -21,13 +20,29 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2025-01-08">
+                <persName>Stefan Dumont</persName>
+                <desc>Restrict correspAction/@type to sent/received.</desc>
+            </change>
+            <change when="2024-10-18">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Allow text content in date.</desc>
+            </change>
+            <change when="2023-08-05">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Restrict type of correspAction.</desc>
+            </change>
+            <change when="2023-05-08">
+                <persName>Klaus Rettinghaus</persName>
+                <desc>Add editorial attributes to children of correspAction.</desc>
+            </change>
             <change when="2015-02-18">
                 <persName>Peter Stadler</persName>
-                <desc>Updated CIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
+                <desc>Updated CMIF to build on the latest Jenkins P5 build. Proposal namespaces are gone.</desc>
             </change>
             <change when="2015-02-11">
                 <persName>Stefan Dumont</persName>
-                <desc>Updated CIF to current state of proposal and correspSearch. teiHeader//titleStmt/respStmt replaces editor.</desc>
+                <desc>Updated CMIF to current state of proposal and correspSearch. teiHeader//titleStmt/respStmt replaces editor.</desc>
             </change>
             <change when="2014-07-02">
                 <persName>Peter Stadler</persName>
@@ -37,10 +52,8 @@
     </teiHeader>
     <text>
         <body>
-            <p>This customization builds on the correspDesc proposal as described at <ref
-                    target="https://github.com/TEI-Correspondence-SIG/correspDesc"
-                    >https://github.com/TEI-Correspondence-SIG/correspDesc</ref>. It aims to define
-                an interchange format for correspondence projects. </p>
+            <p>This customization builds on the correspDesc element. 
+                It aims to define an interchange format for correspondence projects. </p>
         </body>
         <back>
             <div>
@@ -101,26 +114,48 @@
                                     </valItem>
                                 </valList>
                             </attDef>
+                            <attDef ident="xml:id" mode="change" usage="req">
+                                <desc>Should contain a UUID, which is static, i.e. doesn't change when the CMIF
+                                is change and/or regenerated. Be aware that the UUID have to begin with
+                                a letter, since the definition of @xml:id requires that.</desc>
+                            </attDef>
                         </attList>
                     </elementSpec>
-                    
+
+                    <elementSpec ident="correspAction" mode="change" module="header">
+                        <content>
+                            <classRef key="model.correspActionPart" minOccurs="1" maxOccurs="unbounded"/>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList mode="replace" type="closed">
+                                    <valItem ident="sent">
+                                        <desc>information concerning the sending or dispatch of a message.</desc>
+                                    </valItem>
+                                    <valItem ident="received">
+                                        <desc>information concerning the receipt of a message.</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+
                     <elementSpec ident="date" mode="change" module="core">
                         <classes mode="replace">
                             <memberOf key="att.datable.w3c"/>
+                            <memberOf key="att.editLike"/>
                             <memberOf key="att.global.responsibility"/>
                             <memberOf key="model.correspActionPart"/>
                         </classes>
                         <content>
-                            <empty/>
+                            <textNode/>
                         </content>
                     </elementSpec>
                     
                     <elementSpec ident="idno" mode="replace" module="header">
                         <desc xml:lang="en" versionDate="2015-10-16">Provides the URL of the CMI file</desc>
                         <content>
-                            <rng:ref name="data.pointer"/>
-                            <!-- Doesn't work at present -->
-                            <!--<dataRef key="teidata.pointer"/>-->
+                            <dataRef key="teidata.pointer"/>
                         </content>
                         <attList>
                             <attDef ident="type" mode="add" usage="req">
@@ -136,10 +171,52 @@
                         </exemplum>
                     </elementSpec>
                     
-                    <elementSpec ident="correspDesc" mode="change" module="header">
-                        <classes mode="change">
-                            <memberOf key="att.source" mode="add"/>
+                    <elementSpec ident="persName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
                         </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="orgName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="placeName" mode="change" module="namesdates">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.editLike"/>
+                            <memberOf key="att.global.responsibility"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="change" usage="rec"/>
+                        </attList>
                     </elementSpec>
                                       
                 </schemaSpec>
