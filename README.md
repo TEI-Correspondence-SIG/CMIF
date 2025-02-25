@@ -4,11 +4,11 @@ by TEI Correspondence SIG 2015-2025 ([see license](#license) and [see citation](
 
 ## About
 
-The CMI format has been developed by the [TEI Correspondence SIG](http://www.tei-c.org/Activities/SIG/Correspondence/index.xml), and makes a standardized comparison of letter metadata possible. It does this by reducing the index to only the most essential elements—the sender, addressee, date, and location of a letter—as well as by regulating the inputted data. In addition to the benefits of TEI-XML encoding, this is greatly aided through authority files. Sender, addressee, and locations are identifiable independently of the specific project (for example through the [GND number from the German National Library](http://www.dnb.de/gnd)) and thus can be linked together. Finally, in CMI the individual letter is referenced for print editions by the letter identification number or bibliographical information and for digital editions by the URL.
+The CMIF has been developed by the [TEI Correspondence SIG](https://www.tei-c.org/Activities/SIG/Correspondence/index.html), and makes a standardized comparison of letter metadata possible. It does this by reducing the index to only the most essential elements—the sender, addressee, date, and location of a letter—as well as by regulating the inputted data. In addition to the benefits of TEI-XML encoding, this is greatly aided through authority files. Sender, addressee, and locations are identifiable independently of the specific project (for example through the [GND number from the German National Library](https://www.dnb.de/gnd)) and thus can be linked together. Finally, in CMI the individual letter is referenced for print editions by the letter identification number or bibliographical information and for digital editions by the URL.
 
-The CMI format is based essentially on the TEI extension ‘[correspDesc](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correspDesc.html)’ (Correspondence Description), a part of the [Text Encoding Initiative guidelines](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html). The element correspDesc was developed by the TEI Correspondence Special Interest Group in order to record correspondence-specific metadata from letters, postcards, etc., in TEI-based editions. In April 2015 ‘correspDesc’ was officially added to the version 2.8 of TEI P5.
+The CMIF is based essentially on the TEI extension ‘[correspDesc](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-correspDesc.html)’ (Correspondence Description), a part of the [Text Encoding Initiative guidelines](https://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html). The element correspDesc was developed by the TEI Correspondence Special Interest Group in order to record correspondence-specific metadata from letters, postcards, etc., in TEI-based editions. In April 2015 ‘correspDesc’ was officially added to the version 2.8 of TEI P5.
 
-The CMI format is the underlying data format for the web service ‘[correspSearch](http://correspsearch.net/)’ (funded by the German Research Foundation) which enables scholars to search across diverse distributed scholarly editions of letters (both printed and digital). 
+The CMIF is the underlying data format for the web service ‘[correspSearch](https://correspsearch.net/)’ (funded by the German Research Foundation) which enables scholars to search across diverse distributed scholarly editions of correspondence (both printed and digital). 
 
 ## How-to
 
@@ -16,17 +16,19 @@ The CMI format is the underlying data format for the web service ‘[correspSear
 * [Template files](templates/)
 * [Example files](examples/)
 
-The research project "correspSearch" provides a [tutorial](http://correspsearch.net/index.xql?id=participate_steps&l=en) and an online tool, the [CMIF Creator](http://correspsearch.net/creator/index.xql), which allows scholars to create and edit CMIF files without any knowledge of TEI-XML.  
+The research project "correspSearch" provides a [tutorial](https://correspsearch.net/en/manual.html) and an online tool, the [CMIF Creator](https://correspsearch.net/en/cmif-creator.html), which allows scholars to create and edit CMIF files without any knowledge of TEI-XML.  
 
 There are various ways of extracting CMIF from existing TEI collections via XSL-T or XQuery. Reusable examples include: 
 
 * <https://github.com/QHOD/qhodCMIFxquery> a basic XQuery for the [QhoD project](https://qhod.net)
-* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif.xml). 
+* [cmif.xql](https://github.com/Edirom/WeGA-WebApp/blob/develop/modules/correspDesc.xql): an XQuery script used within the [WeGA-WebApp](https://github.com/Edirom/WeGA-WebApp) for creating its [CMIF file](http://weber-gesamtausgabe.de/cmif.xml).
+* [CMIFerator](https://github.com/digicademy/cmiferator/), an app for eXistdb based digital editions 
+* [CSV2CMI](https://github.com/saw-leipzig/csv2cmi), for transforming CSV tables of letters to CMIF
 
 ## Discussion &  further development
 
 * [Proposal of CMIF v2](proposals/CMIFv2_proposal.md) in this repository.
-* See also ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://listserv.brown.edu/archives/cgi-bin/wa?A0=TEI-CORRESP-SIG) of the TEI Correspondence SIG. 
+* See also ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://lists.psu.edu/cgi-bin/wa?SUBED1=TEI-CORRESP-SIG&A=1) of the TEI Correspondence SIG. 
 
 ## Changelog 
 
