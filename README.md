@@ -38,7 +38,6 @@ There are various ways of extracting CMIF from existing TEI collections via XSL-
 * Restrict: `persName` & Co, `correspAction/@type` and content of `correspAction`  
 * Allow @cert and @evidence for `persName` & Co
 * Allow text in `correspAction/date` 
-
 * Introduce additional Schematron file for CMIF 
 * Proposals for CMIF v1.1 and CMIF v2
 * Updated documentation
