@@ -1,6 +1,6 @@
 # CMIF – Correspondence Metadata Interchange Format
 
-by TEI Correspondence SIG 2015-2024 ([see license](#license) and [see citation](#citation))
+by TEI Correspondence SIG 2015-2025 ([see license](#license) and [see citation](#citation))
 
 ## About
 
@@ -25,7 +25,22 @@ There are various ways of extracting CMIF from existing TEI collections via XSL-
 
 ## Discussion &  further development
 
-See ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://listserv.brown.edu/archives/cgi-bin/wa?A0=TEI-CORRESP-SIG) of the TEI Correspondence SIG. 
+* [Proposal of CMIF v2](proposals/CMIFv2_proposal.md) in this repository.
+* See also ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://listserv.brown.edu/archives/cgi-bin/wa?A0=TEI-CORRESP-SIG) of the TEI Correspondence SIG. 
+
+## Changelog 
+
+### Version 1.1 (2025-02-25)
+
+* `bibl/@xml:id` is now mandatory
+* Restrict: `persName` & Co, `correspAction/@type` and content of `correspAction`  
+* Allow @cert and @evidence for `persName` & Co
+* Allow text in `correspAction/date` 
+
+* Introduce additional Schematron file for CMIF 
+* Proposals for CMIF v1.1 and CMIF v2
+* Updated documentation
+* Minor Bugfixes & adjustments to current TEI Guidelines 
 
 ## Literature
 
@@ -37,10 +52,10 @@ See ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html)
 
 ## Citation
 
-TEI Correspondence SIG. 2018. Correspondence Metadata Interchange Format (CMIF). v1.0.0. https://github.com/TEI-Correspondence-SIG/CMIF
+TEI Correspondence SIG. 2025. Correspondence Metadata Interchange Format (CMIF). v1.1.0. https://github.com/TEI-Correspondence-SIG/CMIF
 
 ## License
 
-© TEI Correspondence SIG 2015-2024
+© TEI Correspondence SIG 2015-2025
 
 This work is available under dual license: [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) and [Creative Commons Attribution 4.0 License (CC BY 4.0)](http://creativecommons.org/licenses/by/4.0/)
