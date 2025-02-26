@@ -20,6 +20,10 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2025-02-26">
+                <persName>Stefan Dumont</persName>
+                <desc>Restrict @evidence to "conjecture" and @cert to "low"</desc>
+            </change>
             <change when="2025-01-08">
                 <persName>Stefan Dumont</persName>
                 <desc>Restrict correspAction/@type to sent/received.</desc>
@@ -65,6 +69,28 @@
                     <moduleRef key="header" include="availability correspDesc correspAction correspContext fileDesc idno licence profileDesc publicationStmt sourceDesc teiHeader titleStmt"/>
                     <moduleRef key="namesdates" include="persName orgName placeName" />
                     
+                    <classSpec ident="att.editLike" module="tei" type="atts" mode="replace">
+                        <attList>
+                            <attDef ident="evidence" usage="opt">
+                                <desc>The indication of a person, place or date has been inferred and is not directly documented in the source itself.</desc>
+                                <valList type="closed">
+                                    <valItem ident="conjecture"/>  
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </classSpec>
+                    
+                    <classSpec ident="att.global.responsibility" module="tei" type="atts" mode="replace">
+                        <attList>
+                            <attDef ident="cert" usage="opt">
+                                <desc>The attribution of this person, place or date to this letter is uncertain.</desc>
+                                <valList type="closed">
+                                    <valItem ident="low"></valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </classSpec>
+                                        
                     <elementSpec ident="titleStmt" mode="change" module="header">
                         <content>
                             <elementRef key="title"/>
