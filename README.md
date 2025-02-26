@@ -2,6 +2,8 @@
 
 by TEI Correspondence SIG 2015-2025 ([see license](#license) and [see citation](#citation))
 
+Current Version: 1.1.0 (26 January 2025)
+
 ## About
 
 The CMIF has been developed by the [TEI Correspondence SIG](https://www.tei-c.org/Activities/SIG/Correspondence/index.html), and makes a standardized comparison of letter metadata possible. It does this by reducing the index to only the most essential elements—the sender, addressee, date, and location of a letter—as well as by regulating the inputted data. In addition to the benefits of TEI-XML encoding, this is greatly aided through authority files. Sender, addressee, and locations are identifiable independently of the specific project (for example through the [GND number from the German National Library](https://www.dnb.de/gnd)) and thus can be linked together. Finally, in CMI the individual letter is referenced for print editions by the letter identification number or bibliographical information and for digital editions by the URL.
@@ -32,7 +34,7 @@ There are various ways of extracting CMIF from existing TEI collections via XSL-
 
 ## Changelog 
 
-### Version 1.1 (2025-02-25)
+### Version 1.1 (2025-02-26)
 
 * `bibl/@xml:id` is now mandatory
 * Restrict: `persName` & Co, `correspAction/@type` and content of `correspAction`  

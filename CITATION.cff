@@ -5,7 +5,7 @@ authors:
     website: "https://tei-c.org/activities/sig/correspondence/"
 title: "Correspondence Metadata Interchange Format (CMIF)"
 abstract: "The 'Correspondence Metadata Interchange Format' (CMIF) enables scholars to create digital indexes of letters from their scholarly editions and provide them online. CMIF is a highly reduced and restricted subset of the TEI Guidelines which is based mainly on the TEI element correspDesc."
-date-released: "2025-02-25"
+date-released: "2025-02-26"
 version: 1.1.0
 repository-code: "https://github.com/TEI-Correspondence-SIG/CMIF"
 license: "CC-BY-4.0"
