@@ -19,6 +19,12 @@
                 <p>Born digital</p>
             </sourceDesc>
         </fileDesc>
+        <revisionDesc>
+            <change when="2025-02-26">
+                <persName>Stefan Dumont</persName>
+                <desc>Add: persName/(@cert|@evidence); minor updates</desc>
+            </change>
+        </revisionDesc>
     </teiHeader>
     <text>
         <body>
@@ -124,16 +130,26 @@
                                     </cell>
                                 </row>
                                 <row>
+                                    <cell rend="code">/correspAction/persName/@evidence</cell>
+                                    <cell>The person is not stated in the source itself, but is based on the knowledge/research of the scholar.</cell>
+                                    <cell><hi rend="code">conjecture</hi></cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/persName/@cert</cell>
+                                    <cell>The attribution of this person to this letter is uncertain.</cell>
+                                    <cell><hi rend="code">low</hi></cell>
+                                </row>
+                                <row>
                                     <cell rend="code">/correspAction/orgName</cell>
-                                    <cell>Name of institution, company etc.</cell>
+                                    <cell>Name of institution, company etc. The attributes @evidence and @cert are applicable, see <hi rend="code">persName</hi> for details.</cell>
                                     <cell>Optional, if <hi rend="code">persName</hi> is not
                                         applicable</cell>
                                 </row>
                                 <row>
                                     <cell rend="code">/correspAction/placeName</cell>
                                     <cell>Name of the place a letter was sent from or where it is being
-                                        sent to</cell>
-                                    <cell>If available</cell>
+                                        sent to. The attributes @evidence and @cert are applicable, see <hi rend="code">persName</hi> for details.</cell>
+                                    <cell>If available.</cell>
                                 </row>
                                 <row>
                                     <cell rend="code">/correspAction/placeName/@ref</cell>
@@ -154,6 +170,15 @@
                                             <item>YYYY-MM, e.g. 1804-03</item>
                                             <item>YYYY, e.g. 1808</item>
                                         </list></cell>
+                                </row>
+                                <row>
+                                    <cell rend="code">/correspAction/date/text()</cell>
+                                    <cell>Human readable date of when the letter was sent or
+                                        received. The date should only be provided in text form  
+                                        if it contains information that cannot be clearly 
+                                        or only partially reproduced in the (recommended) machine-readable form.
+                                        However, please always include a machine-readable date (see above).</cell>
+                                    <cell>Any date</cell>
                                 </row>
                             </table>
                             <p>The <hi rend="code">correspDesc</hi> elements are noted inside <hi
@@ -203,6 +228,8 @@
                                 <cell>URL of the licence</cell>
                                 <cell>Mandatory: <hi rend="code"
                                         >"https://creativecommons.org/licenses/by/4.0/"</hi>
+                                    or <hi rend="code"
+                                        >"https://creativecommons.org/publicdomain/zero/1.0/"</hi>
                                 </cell>
                             </row>
                             <row>

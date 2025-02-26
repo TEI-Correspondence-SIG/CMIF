@@ -72,7 +72,7 @@
                     <classSpec ident="att.editLike" module="tei" type="atts" mode="replace">
                         <attList>
                             <attDef ident="evidence" usage="opt">
-                                <desc>The indication of a person, place or date has been inferred and is not directly documented in the source itself.</desc>
+                                <desc>The person is not stated in the source itself, but is based on the knowledge/research of the scholar.</desc>
                                 <valList type="closed">
                                     <valItem ident="conjecture"/>  
                                 </valList>

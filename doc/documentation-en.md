@@ -10,10 +10,7 @@ The Basis of a digital index of letters according to the CMI format is a TEI-XML
 ## Overview
 
 The TEI-XML file contains as many `correspDesc` elements as the provider have letters, postcards, etc. in his scholarly edition. A particular `correspDesc` element in CMI format is more restrictive and reduced with regard to its vocabulary than the TEI Guidelines generally allow. This enables interchange between the respective TEI documents.
-    
-![alt text](images/correspDesc-en.png)
-*The image shows schematically the different parts of a `correspDesc` element in the CMI format. The addressee and sender are documented the same way. The example originates from this [example provided by the TEI Correspondence SIG](https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/examples/example01_basic.xml).*    
-  
+
 For persons and places in the "correspondence description" (sender, addressee, senders place etc.) an ID from an authority file should be provided to identify these entities across projects and to use the correspondence metadata in network analysis or web services (e.g. [correspSearch](http://correspsearch.net)). Possible authority files for persons could be:
 
 * [Virtual Authority File (VIAF)](http://viaf.org)
@@ -39,10 +36,13 @@ The following table offers detailed information about the particular parts of a 
 |/correspAction/@type|Type of the correspondence action|Allowed: `"sent", "received"`|
 |/correspAction/persName|Personal name of sender or addressee|Mandatory; if the sender or addressee is unknown please indicate this by the string `"Unknown"`|
 |/correspAction/persName/@ref|Authority controlled ID of sender or addressee|Strongly recommended, if available. Possible authority files: VIAF, GND, LC, BNF and NDL (see above) |
-|/correspAction/orgName|Name of institution, company etc.|Optional, if `persName` is not applicable|
-|/correspAction/placeName|Name of the place a letter was sent from or where it is being sent to|If available|
+|/correspAction/persName/@evidence|The person is not stated in the source itself, but is based on the knowledge/research of the scholar.|`conjecture`|
+|/correspAction/persName/@cert|The attribution of this person to this letter is uncertain.|`low`|
+|/correspAction/orgName|Name of institution, company etc. The attributes @evidence and @cert are applicable, see `persName` for details.|Optional, if `persName` is not applicable|
+|/correspAction/placeName|Name of the place a letter was sent from or where it is being sent to. The attributes @evidence and @cert are applicable, see `persName` for details.|If available.|
 |/correspAction/placeName/@ref|Authority controlled ID of the place a letter was sent from or where it is being sent to|Strongly recommended, if available. Possible authority files: GeoNames (see above)|
 |/correspAction/date|Machine-readable date of when the letter was sent or received|If available. The CMIF supports the attributes `@when, @from, @to, @notBefore` and `@notAfter`. To facilitate the interchange, the CMIF supports (unlike the TEI Guidelines) only the following date formats: YYYY-MM-DD, e.g. 1804-03-01; YYYY-MM, e.g. 1804-03; YYYY, e.g. 1808; |
+|/correspAction/date/text()|Human readable date of when the letter was sent or received. The date should only be provided in text form if it contains information that cannot be clearly or only partially reproduced in the (recommended) machine-readable form. However, please always include a machine-readable date (see above).|Any date|
 
 The `correspDesc` elements are noted inside `TEI/teiHeader/profileDesc` - as described in the TEI Guidelines.
 
@@ -56,7 +56,7 @@ Besides the correspondence metadata, the provider have to include some informati
 |//titleStmt/editor|Contact person concerning the digital index of letters|If available with an e-mail address in `editor/email`|
 |//publicationStmt/publisher|Originator of the letter metadata as defined in the Creative Commons Licence CC-BY 4.0|Free text field|
 |//publicationStmt/availability/licence|Licence statement|Mandatory: `"This file is licensed under the terms of the Creative Commons License CC-BY 4.0"`|
-|//publicationStmt/availability/licence/@target|URL of the licence|Mandatory: `"https://creativecommons.org/licenses/by/4.0/"`|
+|//publicationStmt/availability/licence/@target|URL of the licence|Mandatory: `"https://creativecommons.org/licenses/by/4.0/"` or `"https://creativecommons.org/publicdomain/zero/1.0/"`|
 |//publicationStmt/date/@when|Timestamp of the last update of this file|Format: xsd:dateTime|
 |//publicationStmt/idno|URL of this digital index of letters|The URL serves as a unique identifier for the CMIF file and ensures that the file can always traced back to their origin|
 |//publicationStmt/idno/@type|Type of the above mentioned identifier|Mandatory: `"URL"`|
