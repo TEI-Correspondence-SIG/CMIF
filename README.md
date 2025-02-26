@@ -2,7 +2,7 @@
 
 by TEI Correspondence SIG 2015-2025 ([see license](#license) and [see citation](#citation))
 
-Current Version: 1.1.0 (26 January 2025)
+Current Version: 1.1.0 (26 February 2025)
 
 ## About
 
