@@ -1,0 +1,93 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <!-- Correspondence Metadata Interchange Format (CMIF) v2 example
+                
+                This example illustrates the additional information and their encoding 
+                that comes with the version 2 of the CMIF. For further details please 
+                have a look in the documentation and the CMIF v2 vocabulary.
+                
+                The example is taken from the scholary edition project "Buber-Korrespondenzen Digital". 
+                Their CMIF metadata is created using CMIFerator, an XQuery library for eXistdb. See
+                https://github.com/digicademy/cmiferator for details.
+            -->
+
+            <!-- Information about the CMIF files itself, as previously in CMIF v1. Still valid and necessary. -->
+            <titleStmt>
+                <title>CMIF v2 examples from Buber-Korrespondenzen Digital</title>
+                <editor>Julian Jarosch, Thomas Kollatz, Lea Müller-Dannhausen
+                    <email>bkd@adwmainz.de</email></editor>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <ref target="http://www.adwmainz.de/">Akademie der Wissenschaften
+                        und der Literatur | Mainz</ref>
+                </publisher>
+                <idno type="url"
+                    >https://gitlab.rlp.net/adwmainz/digicademy/bkd/cmif/-/raw/main/cmif-module-4.xml</idno>
+                <date when="2025-06-10"/>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">This file is
+                        licensed under the terms of the Creative-Commons-License CC BY
+                        4.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl type="online" xml:id="ae451a0a-2186-450c-ae5d-72024981937c"
+                    >Buber-Korrespondenzen Digital: Das Dialogische Prinzip in Martin Bubers
+                    Gelehrten- und Intellektuellennetzwerken im 20. Jahrhundert. <ref
+                        target="https://buber-korrespondenzen.digital"
+                        >https://buber-korrespondenzen.digital</ref></bibl>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <correspDesc source="#ae451a0a-2186-450c-ae5d-72024981937c"
+                ref="https://lod.academy/bkd/id/BKD06626.19291217.01.S">
+                <!-- Communication metadata as previously in CMIF v1. Still valid and necessary. -->
+                <correspAction type="sent">
+                    <persName ref="https://d-nb.info/gnd/118516477">Buber, Martin</persName>
+                    <placeName ref="https://www.geonames.org/2906268">Heppenheim an der Bergstraße</placeName>
+                    <date when="1929-12-17"/>
+                </correspAction>
+                <correspAction type="received">
+                    <orgName>Selbstwehr (Redaktion)</orgName>
+                    <persName ref="https://d-nb.info/gnd/117279234">Weltsch,
+                        Felix</persName>
+                    <placeName ref="https://www.geonames.org/3067696">Prag |
+                        Praha</placeName>
+                </correspAction>
+                <!-- Additional information about the letter and its content, introduced with CMIF v2 -->
+                <note>
+                    <!-- Mentioned person -->
+                    <ref type="https://lod.academy/cmif/vocab/terms#mentionsPerson"
+                        target="https://d-nb.info/gnd/118602802">Rosenzweig, Franz</ref>
+                    <!-- Mentioned places -->
+                    <ref type="https://lod.academy/cmif/vocab/terms#mentionsPlace"
+                        target="https://www.geonames.org/2925533">Frankfurt am Main</ref>
+                    <ref type="https://lod.academy/cmif/vocab/terms#mentionsPlace"
+                        target="https://www.geonames.org/3067696">Prag</ref>
+                    <!-- Language in which the letter was mainly written -->
+                    <ref type="cmif:hasLanguage" target="de" />
+                    <!-- "text base": The type of primary source or sources that serve 
+                        as the basis for the letters's transcription, annotation, and presentation -->
+                    <ref type="https://lod.academy/cmif/vocab/terms#hasTextBase"
+                        target="https://lod.academy/cmif/vocab/terms#Manuscript"/>
+                    <!-- URL to the TEI-XML file with the full text of the letter -->
+                    <ref type="https://lod.academy/cmif/vocab/terms#isAvailableAsTEIfile"
+                        target="https://lod.academy/bkd/id/BKD06626.19291217.01.S"/>
+                    <!-- Type of information about the letter, provided in this scholarly edition -->
+                    <ref type="https://lod.academy/cmif/vocab/terms#isPublishedWith" 
+                        target="https://lod.academy/cmif/vocab/terms#Abstract"/>
+                    <ref type="https://lod.academy/cmif/vocab/terms#isPublishedWith"
+                        target="https://lod.academy/cmif/vocab/terms#Transcription"/>
+                </note>
+            </correspDesc>
+            <!-- ... more correspDesc elements ... -->
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p/>
+        </body>
+    </text>
+</TEI>
