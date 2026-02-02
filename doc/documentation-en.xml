@@ -1,18 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Correspondence Metadata Interchange Format (CMIF)</title>
+                <title type="full">
+                    <title type="main">Correspondence Metadata Interchange format</title>
+                    <title type="sub">Documentation</title>
+                </title>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <ref target="http://www.tei-c.org/Activities/SIG/Correspondence/">TEI Correspondence SIG</ref>
+                    <ref target="http://www.tei-c.org/Activities/SIG/Correspondence/">TEI
+                        Correspondence SIG</ref>
                 </publisher>
-                <idno type="url">https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/doc/cmif-documentation_en.xml</idno>
+                <idno type="url"
+                    >https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/doc/cmif-documentation_en.xml</idno>
                 <availability>
-                    <licence target="https://creativecommons.org/licenses/by/4.0/">This file is licensed under the
-                        terms of the Creative Commons License CC-BY 4.0</licence>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">This file is
+                        licensed under the terms of the Creative Commons License CC-BY 4.0</licence>
                 </availability>
             </publicationStmt>
             <sourceDesc>
@@ -24,173 +28,246 @@
                 <persName>Stefan Dumont</persName>
                 <desc>Add: persName/(@cert|@evidence); minor updates</desc>
             </change>
+            <change when="2026-02-02">
+                <persName>Stefan Dumont</persName>
+                <desc>Add: CMIF v2 section; note about GeoNames feature classes; little
+                    improvements</desc>
+            </change>
         </revisionDesc>
     </teiHeader>
     <text>
         <body>
             <div>
-                <head>Correspondence Metadata Interchange Format (CMIF) - Documentation</head>
+                <div>
+                    <head xml:id="introduction">Introduction</head>
+                    <p>The "Correspondence Metadata Interchange Format" (CMIF) enables scholars to
+                        create digital indexes of letters from their scholarly editions and provide
+                        them online. The CMIF has been developed by the TEI Correspondence SIG and
+                        is a highly reduced and restricted subset of the TEI Guidelines which is
+                        based mainly on the TEI element <hi rend="code">correspDesc</hi>. </p>
+                    <p>The Basis of a digital index of letters according to the CMIF is a TEI-XML
+                        file. You can download <ref
+                            target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples"
+                            >templates with short descriptions here</ref>. An <ref
+                            target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/schema/cmi-customization.rng"
+                            >RNG schema</ref>, which you can use to validate your CMIF file, is also
+                        available.</p>
+                </div>
+                <div>
+                    <head xml:id="overview">Overview</head>
+                    <p>The TEI-XML file contains as many <hi rend="code">correspDesc</hi> elements
+                        as the provider have letters, postcards, etc. in his scholarly edition. A
+                        particular <hi rend="code">correspDesc</hi> element in CMI format is more
+                        restrictive and reduced with regard to its vocabulary than the TEI
+                        Guidelines generally allow. This enables interchange between the respective
+                        TEI documents.</p>
+                    <figure>
+                        <graphic url="images/correspDesc-en.png" rend="img"
+                            mimeType="image/png" width="650px"/>
+                        <head>The image shows schematically the different parts of a <hi rend="code"
+                                >correspDesc</hi> element in the CMI format. The addressee and
+                            sender are documented the same way. The example originates from this
+                                <ref
+                                target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/examples/example01_basic.xml"
+                                >example provided by the TEI Correspondence SIG</ref>.</head>
+                    </figure>
+                    <p>For persons and places in the "correspondence description" (sender,
+                        addressee, senders place etc.) an ID from an authority file should be
+                        provided to identify these entities across projects and to use the
+                        correspondence metadata in network analysis or web services (e.g. <ref
+                            target="http://correspsearch.net">correspSearch</ref>). Possible
+                        authority files for persons could be:</p>
+                    <list>
+                        <item><ref target="http://viaf.org">Virtual Authority File
+                            (VIAF)</ref></item>
+                        <item><ref target="http://www.dnb.de/gnd">Gemeinsame Normdatei (GND)</ref>,
+                            Deutsche Nationalbibliothek</item>
+                        <item><ref target="http://catalogue.bnf.fr/recherche-autorite.do">Autorités,
+                                Bibliothèque nationale de France</ref> (BNF)</item>
+                        <item><ref target="http://authorities.loc.gov/">Library of Congress
+                                Authorities (LC)</ref></item>
+                        <item><ref target="http://id.ndl.go.jp/auth/ndla">Web NDL Authorities</ref>,
+                            National Diet Library (NDL), Japan</item>
+                    </list>
+                    <p>For places the TEI Correspondence SIG recommends to use the free licensed
+                        geographical database <ref target="http://www.geonames.org"
+                        >GeoNames</ref>.</p>
+                    <p xml:id="note-geonames"><hi rend="bold">Please note:</hi> GeoNames categorises
+                        the stored locations using <ref
+                            target="https://www.geonames.org/export/codes.html">‘feature classes’ /
+                            ‘feature codes’</ref>. A place name can appear in several feature
+                        classes at the same time, which is particularly the case for larger cities.
+                        For example, Vienna appears as feature code <hi rend="code">PPL</hi>
+                        (Populated Place) in feature class "P" and as <hi rend="code">ADM1</hi>
+                        (first-order administrative division) in feature class "A". For location
+                        information such as cities and villages, the identifier of the feature class
+                        "A" should generally be used – <hi rend="bold">not</hi> from class "A". This
+                        avoids ‘duplicates’ in aggregators such as correspSearch. Special locations
+                        such as estates, castles, lakes, etc. can of course be assigned the
+                        appropriate identifier from the respective feature class. The Advanced
+                        search on GeoNames.org can be limited to teh recommended feature class "P"
+                        for cities and villages. </p>
+                </div>
+                <div>
+                    <head xml:id="details">Details</head>
                     <div>
-                        <head>Introduction</head>
-                        <p>The "Correspondence Metadata Interchange Format" (CMIF) enables scholars to create digital indexes
-                            of letters from their scholarly editions and provide them online. The CMIF has been developed by the 
-                            TEI Correspondence SIG and is a highly reduced and restricted subset of the TEI Guidelines which is
-                            based mainly on the TEI element <hi rend="code">correspDesc</hi>. </p>
-                        <p>The Basis of a digital index of letters according to the CMI format is a
-                            TEI-XML file. You can download <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/tree/main/examples"
-                                >templates with short descriptions here</ref>. An <ref target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/schema/cmi-customization.rng">RNG schema</ref>, which you can use to validate your CMIF file, is also available.</p>
-                    </div>
-                    <div>
-                        <head>Overview</head>
-                        <p>The TEI-XML file contains as many <hi rend="code">correspDesc</hi>
-                            elements as the provider have letters, postcards, etc. in his scholarly edition.
-                            A particular <hi rend="code">correspDesc</hi> element in CMI format is
-                            more restrictive and reduced with regard to its vocabulary than the TEI
-                            Guidelines generally allow. This enables interchange between the
-                            respective TEI documents.</p>
-                        <figure>
-                            <graphic url="images/correspDesc-en.png" rend="img" mimeType="image/png"
-                                width="595px"/>
-                            <head>The image shows schematically the different parts of a <hi
-                                    rend="code">correspDesc</hi> element in the CMI format. The
-                                addressee and sender are documented the same way. The example
-                                originates from this <ref
-                                    target="https://github.com/TEI-Correspondence-SIG/CMIF/blob/main/examples/example01_basic.xml"
-                                    >example provided by the TEI Correspondence SIG</ref>.</head>
-                        </figure>
-                        <p>For persons and places in the "correspondence description" (sender, addressee, senders place etc.) an ID 
-                            from an authority file should be provided to identify these entities across projects and to use the
-                            correspondence metadata in network analysis or web services (e.g. <ref target="http://correspsearch.net">correspSearch</ref>). 
-                            Possible authority files for persons could
-                            be:</p>
-                        <list>
-                            <item><ref target="http://viaf.org">Virtual Authority File (VIAF)</ref></item>
-                            <item><ref target="http://www.dnb.de/gnd">Gemeinsame Normdatei (GND)</ref>, Deutsche Nationalbibliothek</item>
-                            <item><ref target="http://catalogue.bnf.fr/recherche-autorite.do">Autorités, Bibliothèque nationale de France</ref> (BNF)</item>
-                            <item><ref target="http://authorities.loc.gov/">Library of Congress Authorities (LC)</ref></item>
-                            <item><ref target="http://id.ndl.go.jp/auth/ndla">Web NDL Authorities</ref>, National Diet Library (NDL), Japan</item>  
-                        </list>
-                        <p>For places the TEI Correspondence SIG recommends to use the free licensed geographical database <ref target="http://www.geonames.org">GeoNames</ref>.</p>
-                    </div>
-                    <div>
-                        <head>Details</head>
-                            <div>
-                            <head>Correspondence Metadata</head>
-                            <p>The following table offers detailed information about the particular
-                                parts of a <hi rend="code">correspDesc</hi> element in the CMI
-                                format:</p>
-                            <table>
-                                <row role="label">
-                                    <cell>XPath (relative to <hi rend="code">correspDesc</hi>)</cell>
-                                    <cell>Description</cell>
-                                    <cell>Value(s) and Notes</cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/@key</cell>
-                                    <cell>Number or ID of the letter in the (printed or digital) scholarly edition. To 
-                                    note the number of the letter in @key is especially recommended for printed editions.</cell>
-                                    <cell>E.g. <hi rend="code">"128"</hi></cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/@ref</cell>
-                                    <cell>URL of the letter, if available online. The URL should be an official and permanent link. If different versions of a letter
+                        <head xml:id="correspondence-metadata">Correspondence Metadata</head>
+                        <p>The following table offers detailed information about the particular
+                            parts of a <hi rend="code">correspDesc</hi> element in the CMI
+                            format:</p>
+                        <table>
+                            <row role="label">
+                                <cell>XPath (relative to <hi rend="code">correspDesc</hi>)</cell>
+                                <cell>Description</cell>
+                                <cell>Value(s) and Notes</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/@key</cell>
+                                <cell>Number of the letter in the <hi rend="bold">printed</hi>
+                                    scholarly edition. If not available, page number can be
+                                    noted.</cell>
+                                <cell>E.g. <hi rend="code">"128"</hi> (or, if not available: "p.
+                                    56")</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/@ref</cell>
+                                <cell>URL of the letter, if available online. The URL should be an
+                                    official and permanent link. If different versions of a letter
                                     are available, a canonical link should be used.</cell>
-                                    <cell>E.g. <hi rend="code">"http://edition-humboldt.de/H0002656"</hi></cell>
-                                </row>
+                                <cell>E.g. <hi rend="code"
+                                        >"http://edition-humboldt.de/H0002656"</hi></cell>
+                            </row>
+                            <!-- CMIF v2 / csRegistry 
                                 <row>
-                                    <cell rend="code">/@source</cell>
-                                    <cell>Links with the help of an UUID (prefixed by "#") to the bibliographic information (i.e. where the correspondence metadata 
-                                        comes from). Form more information see <hi rend="code">bibl/@xml:id</hi> below.</cell>
-                                    <cell>E.g. <hi rend="code">"#c3f497f0-488d-4233-9448-130ba8109bd8"</hi></cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction</cell>
-                                    <cell>Includes the data related to the sending/receiving process of
-                                        a letter, postcard etc.</cell>
-                                    <cell>Only the following child elements (no text allowed): persName, orgName, placeName, date</cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/@type</cell>
-                                    <cell>Type of the correspondence action</cell>
-                                    <cell>Allowed: <hi rend="code">"sent", "received"</hi>
-                                    </cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/persName</cell>
-                                    <cell>Personal name of sender or addressee</cell>
-                                    <cell>Mandatory; if the sender or addressee is unknown please
-                                        indicate this by the string <hi rend="code">"Unknown"</hi>
-                                    </cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/persName/@ref</cell>
-                                    <cell>Authority controlled ID of sender or addressee</cell>
-                                    <cell>Strongly recommended, if available. 
-                                        Possible authority files: VIAF, GND, LC, BNF and NDL (see above) 
-                                    </cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/persName/@evidence</cell>
-                                    <cell>The person is not stated in the source itself, but is based on the knowledge/research of the scholar.</cell>
-                                    <cell><hi rend="code">conjecture</hi></cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/persName/@cert</cell>
-                                    <cell>The attribution of this person to this letter is uncertain.</cell>
-                                    <cell><hi rend="code">low</hi></cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/orgName</cell>
-                                    <cell>Name of institution, company etc. The attributes @evidence and @cert are applicable, see <hi rend="code">persName</hi> for details.</cell>
-                                    <cell>Optional, if <hi rend="code">persName</hi> is not
-                                        applicable</cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/placeName</cell>
-                                    <cell>Name of the place a letter was sent from or where it is being
-                                        sent to. The attributes @evidence and @cert are applicable, see <hi rend="code">persName</hi> for details.</cell>
-                                    <cell>If available.</cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/placeName/@ref</cell>
-                                    <cell>Authority controlled ID of the place a letter was sent from or
-                                        where it is being sent to</cell>
-                                    <cell>Strongly recommended, if available. Possible authority files: GeoNames (see above)</cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/date</cell>
-                                    <cell>Machine-readable date of when the letter was sent or
-                                        received</cell>
-                                    <cell>If available. The CMIF supports the attributes <hi
-                                            rend="code">@when, @from, @to, @notBefore</hi> and <hi
-                                            rend="code">@notAfter</hi>. To facilitate the interchange, the
-                                        CMIF supports (unlike the TEI Guidelines) only the following date formats: <list
-                                            type="unordered">
-                                            <item>YYYY-MM-DD, e.g. 1804-03-01</item>
-                                            <item>YYYY-MM, e.g. 1804-03</item>
-                                            <item>YYYY, e.g. 1808</item>
-                                        </list></cell>
-                                </row>
-                                <row>
-                                    <cell rend="code">/correspAction/date/text()</cell>
-                                    <cell>Human readable date of when the letter was sent or
-                                        received. The date should only be provided in text form  
-                                        if it contains information that cannot be clearly 
-                                        or only partially reproduced in the (recommended) machine-readable form.
-                                        However, please always include a machine-readable date (see above).</cell>
-                                    <cell>Any date</cell>
-                                </row>
-                            </table>
-                            <p>The <hi rend="code">correspDesc</hi> elements are noted inside <hi
-                                    rend="code">TEI/teiHeader/profileDesc</hi> - as described in the TEI Guidelines.</p>
+                                <cell rend="code">/@xml:id</cell>
+                                <cell>Only necessary if no @ref attribute can be
+                                    set because it is a CMIF file of a letter edition that is only
+                                    available in printed form. Used to uniquely identify the letter
+                                    record in a machine-readable format. UUIDs (which must begin
+                                    with a letter) are recommended for this purpose.</cell>
+                                <cell>E.g. <hi rend="code"
+                                        >db5fe8a9-9945-4b6d-977b-7e3330413055</hi></cell>
+                            </row> -->
+                            <row>
+                                <cell rend="code">/@source</cell>
+                                <cell>Links with the help of an UUID (prefixed by "#") to the
+                                    bibliographic information (i.e. where the correspondence
+                                    metadata comes from). Form more information see <hi rend="code"
+                                        >bibl/@xml:id</hi> below.</cell>
+                                <cell>E.g. <hi rend="code"
+                                        >"#c3f497f0-488d-4233-9448-130ba8109bd8"</hi></cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction</cell>
+                                <cell>Includes the data related to the sending/receiving process of
+                                    a letter, postcard etc.</cell>
+                                <cell>Only the following child elements (no text allowed): persName,
+                                    orgName, placeName, date</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/@type</cell>
+                                <cell>Type of the correspondence action</cell>
+                                <cell>Allowed: <hi rend="code">"sent", "received"</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/persName</cell>
+                                <cell>Personal name of sender or addressee</cell>
+                                <cell>Mandatory; if the sender or addressee is unknown please
+                                    indicate this by the string <hi rend="code">"Unknown"</hi>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/persName/@ref</cell>
+                                <cell>Authority controlled ID of sender or addressee</cell>
+                                <cell>Strongly recommended, if available. Possible authority files:
+                                    VIAF, GND, LC, BNF and NDL (see above) </cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/persName/@evidence</cell>
+                                <cell>The person is not stated in the source itself, but is based on
+                                    the knowledge/research of the scholar.</cell>
+                                <cell><hi rend="code">conjecture</hi></cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/persName/@cert</cell>
+                                <cell>The attribution of this person to this letter is
+                                    uncertain.</cell>
+                                <cell><hi rend="code">low</hi></cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/orgName</cell>
+                                <cell>Name of institution, company etc. The attributes @evidence and
+                                    @cert are applicable, see <hi rend="code">persName</hi> for
+                                    details.</cell>
+                                <cell>Optional, if <hi rend="code">persName</hi> is not
+                                    applicable</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/placeName</cell>
+                                <cell>Name of the place a letter was sent from or where it is being
+                                    sent to. The attributes @evidence and @cert are applicable, see
+                                        <hi rend="code">persName</hi> for details.</cell>
+                                <cell>If available.</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/placeName/@ref</cell>
+                                <cell>Authority controlled ID of the place a letter was sent from or
+                                    where it is being sent to</cell>
+                                <cell>Strongly recommended, if available. Possible authority files:
+                                    GeoNames. Please use the GeoNames ID from the correct feature
+                                    class (see above for details).</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/date</cell>
+                                <cell>Machine-readable date of when the letter was sent or
+                                    received</cell>
+                                <cell>If available. The CMIF supports the attributes <hi rend="code"
+                                        >@when, @from, @to, @notBefore</hi> and <hi rend="code"
+                                        >@notAfter</hi>. To facilitate the interchange, the CMIF
+                                    supports (unlike the TEI Guidelines) only the following date
+                                    formats: <list type="unordered">
+                                        <item>YYYY-MM-DD, e.g. 1804-03-01</item>
+                                        <item>YYYY-MM, e.g. 1804-03</item>
+                                        <item>YYYY, e.g. 1808</item>
+                                    </list></cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/correspAction/date/text()</cell>
+                                <cell>Human readable date of when the letter was sent or received.
+                                    The date should only be provided in text form if it contains
+                                    information that cannot be clearly or only partially reproduced
+                                    in the (recommended) machine-readable form. However, please
+                                    always include a machine-readable date (see above).</cell>
+                                <cell>Any date</cell>
+                            </row>
+                            <row>
+                                <cell rend="code">/note/ref</cell>
+                                <cell>Here, using the CMIF v2 extension and the associated
+                                    vocabulary, additional metadata about the letter can be noted,
+                                    such as places or people mentioned in the letter text, the URL
+                                    to the TEI-XML full text, or the language used in the letter.
+                                    For encoding and vocabulary, see the section <ref
+                                        target="#cmif-v2">“CMIF v2: Additional information on the
+                                        letter and its content”</ref> below.</cell>
+                                <cell>Attribute <hi rend="code">@type</hi> with URIs from the CMIF
+                                    v2 vocab and attribute <hi rend="code">@target</hi> with URIs
+                                    from authority files (GND, Wikidata, GeoNames etc) or CMIF v2
+                                    vcoabulary. <ref target="#cmif-v2">Details see
+                                    below</ref>.</cell>
+                            </row>
+                        </table>
+                        <p>The <hi rend="code">correspDesc</hi> elements are noted inside <hi
+                                rend="code">TEI/teiHeader/profileDesc</hi> - as described in the TEI
+                            Guidelines.</p>
                     </div>
                     <div>
-                        <head>Information <hi rend="italic">about</hi> the digital index of
-                            letters</head>
+                        <head xml:id="cmif-file-metadata">Information about the digital index of
+                            letters (CMIF file)</head>
                         <p>Besides the correspondence metadata, the provider have to include some
-                            information about the CMIF file and the digital index of letters itself in the <hi rend="code"
-                                >teiHeader/fileDesc</hi> element. All elements there are mandatory
-                            if not stated otherwise.</p>
+                            information about the CMIF file and the digital index of letters itself
+                            in the <hi rend="code">teiHeader/fileDesc</hi> element. All elements
+                            there are mandatory if not stated otherwise.</p>
                         <table>
                             <row role="label">
                                 <cell>XPath</cell>
@@ -227,8 +304,8 @@
                                     >//publicationStmt/availability/licence/@target</cell>
                                 <cell>URL of the licence</cell>
                                 <cell>Mandatory: <hi rend="code"
-                                        >"https://creativecommons.org/licenses/by/4.0/"</hi>
-                                    or <hi rend="code"
+                                        >"https://creativecommons.org/licenses/by/4.0/"</hi> or <hi
+                                        rend="code"
                                         >"https://creativecommons.org/publicdomain/zero/1.0/"</hi>
                                 </cell>
                             </row>
@@ -240,8 +317,9 @@
                             <row>
                                 <cell rend="code">//publicationStmt/idno</cell>
                                 <cell>URL of this digital index of letters</cell>
-                                <cell>The URL serves as a unique identifier for the CMIF file and ensures that the file can always
-                                traced back to their origin</cell>
+                                <cell>The URL serves as a unique identifier for the CMIF file and
+                                    ensures that the file can always traced back to their
+                                    origin</cell>
                             </row>
                             <row>
                                 <cell rend="code">//publicationStmt/idno/@type</cell>
@@ -257,24 +335,136 @@
                             </row>
                             <row>
                                 <cell rend="code">//sourceDesc/bibl/@xml:id</cell>
-                                <cell>Technical ID of the bibl element, i.e. the bibliographic information. An UUID has to be used. The correspDesc items have to be
-                                referenced by this UUID (see above @source).</cell>
-                                <cell>E.g. <hi rend="code">"c3f497f0-488d-4233-9448-130ba8109bd8"</hi>. An UUID can easily be generated by 
-                                    [many online tools](https://www.google.de/search?q=uuid+generator). If the CMIF is created via a script 
-                                    (as common in digital scholarly editions), it is recommended to use a "static" UUID, i.e. which is 
-                                    not re-generated every time the CMIF data is updated.
-                                </cell>
+                                <cell>Technical ID of the bibl element, i.e. the bibliographic
+                                    information. An UUID has to be used. The correspDesc items have
+                                    to be referenced by this UUID (see above @source).</cell>
+                                <cell>E.g. <hi rend="code"
+                                        >"c3f497f0-488d-4233-9448-130ba8109bd8"</hi>. An UUID can
+                                    easily be generated by <ref
+                                        target="https://www.google.de/search?q=uuid+generator">many
+                                        online tools</ref>. If the CMIF is created via a script (as
+                                    common in digital scholarly editions), it is recommended to use
+                                    a "static" UUID, i.e. which is not re-generated every time the
+                                    CMIF data is updated. </cell>
                             </row>
                             <row>
                                 <cell rend="code">//sourceDesc/bibl/@type</cell>
                                 <cell>Type of scholarly edition</cell>
                                 <cell>The following values are allowed: <hi rend="code">"print",
-                                        "online"</hi>
+                                        "online", "hybrid".</hi>
                                 </cell>
                             </row>
                         </table>
                     </div>
+                    <div>
+                        <head xml:id="cmif-v2">CMIF v2: Additional information on the letter and its
+                            content</head>
+                        <p>With CMIF v2 the correspondence metadata described above can be enhanced.
+                            The TEI XML encoding offered by CMIF v1 is used in the same way in CMIF
+                            v2. A CMIF v2 compliant file is simply supplemented with <hi
+                                rend="italic">additional</hi> information, specifically the
+                            following (for each letter): </p>
+                        <list rend="bulleted">
+                            <item>Entities <hi rend="italic">mentioned</hi> in the letter (persons,
+                                places, etc.).</item>
+                            <item>Language(s) in which the letter was mainly written</item>
+                            <item>The textual basis of the edited letter (draft, manuscript, copy,
+                                etc.)</item>
+                            <item>Link to the TEI-XML file of the edited letter containing the full
+                                text</item>
+                            <item>What type of information is provided in the scholarly resource
+                                (metadata only, transcription, facsimile, etc.)</item>
+                            <item>References to archival documents, other editions or records of the
+                                letter</item>
+                        </list>
+                        <p>The new information added in CMIF v2 will all be encoded as <hi
+                                rend="code">ref</hi> elements in each <hi rend="code"
+                                >correspDesc/note</hi>. The ref elements each carry an attribute <hi
+                                rend="code">@type</hi> and an attribute <hi rend="code"
+                            >@target</hi>. Both attributes usually have a URI as value, but the
+                            values for <hi rend="code">@type</hi> are always taken from the
+                            vocabulary developed specifically for CMIF v2 (see next paragraph). The
+                            attribute <hi rend="code">@target</hi> also contains a URI in nearly all
+                            cases, often from a authority file, to guarantee cross-project
+                            application. For some information in the <hi rend="code">@target</hi>
+                            attribute, the CMIF v2 vocabulary also provides specially defined URIs.
+                            For more information on the rationale behind the modelling of CMIF v2
+                            features, see <ref target="#dumont-etal2019">Dumont et al.
+                            2019</ref>.</p>
+                        <figure>
+                            <graphic url="images/cmif-v2-ref-explanation.png" rend="img"
+                                width="650px"/>
+                            <head>The graphic illustrates the use of the <hi rend="code">ref</hi>
+                                element with the attributes <hi rend="code">@type</hi> and <hi
+                                    rend="code">@target</hi> in CMIF v2.</head>
+                        </figure>
+                        <p>The vocabulary for the attribute <hi rend="code">@type</hi> and the
+                            CMIF-specific parts of the attribute <hi rend="code">@target</hi> is
+                            published on <ref target="https://lod.academy">lod.academy</ref>, a
+                            service provided by the Academy of Sciences and Literature Mainz. Thus,
+                            a permanent, cross-institutional and project-independent availability is
+                            guaranteed. The official namespace <ref
+                                target="https://lod.academy/cmif/vocab/terms/"
+                                >https://lod.academy/cmif/vocab/terms/</ref> can also be accessed as
+                            HTML in the browser, so that the definition of the vocabulary can be
+                            viewed directly.</p>
+                        <p>All possible information and their official URIs can be found in the <ref
+                                target="https://lod.academy/cmif/vocab/terms/">vocabulary
+                                documentation</ref>. The URIs that can be used for the ref/@type
+                            attribute can be found in the <ref
+                                target="https://lod.academy/cmif/vocab/terms/#objectproperties"
+                                >‘Object Properties’ section</ref>, and those for the ref/@target
+                            attribute in <ref
+                                target="https://lod.academy/cmif/vocab/terms/#namedindividuals"
+                                >‘Named Individuals’</ref>.</p>
+                        <figure>
+                            <graphic url="images/cmif-v2-example-explanation.png"
+                                rend="img" width="650px"/>
+                            <head>The graphic shows an example of how additional information can be
+                                encoded in correspDesc using CMIF v2 features. The example is taken
+                                from the edition project <ref
+                                    target="https://www.adwmainz.de/forschung/projekte/buber-korrespondenzen-digital/beschreibung.html"
+                                    >‘Buber-Korrespondenzen Digital’</ref>.</head>
+                        </figure>
+                        <p>The namespace <hi rend="code">https://lod.academy/cmif/vocab/terms/</hi>
+                            can be specified completely or abbreviated with the prefix <hi
+                                rend="code">cmif:</hi>. In the latter case, it is recommended to
+                            define the namespace via <hi rend="code">listPrefixDef</hi> (see <ref
+                                target="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SAPU"
+                                >https://www.tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SAPU</ref>).</p>
                     </div>
+                </div>
+                <div>
+                    <head xml:id="bibliography">Bibliography</head>
+                    <p>Sorted by year (ascending)</p>
+                    <listBibl>
+                        <bibl xml:id="stadler2014">Stadler, Peter. 2014. „Interoperabilität von
+                            digitalen Briefeditionen“. In Fontanes Briefe ediert, edited by Hanna
+                            Delf von Wolzhagen. Fontaneana 12. Königshausen &amp; Neumann.</bibl>
+                        <bibl xml:id="stadler-etal2016">Stadler, Peter, Marcel Illetschko, and
+                            Sabine Seifert. 2016. „Towards a Model for Encoding Correspondence in
+                            the TEI: Developing and Implementing &lt;correspDesc&gt;“. Journal of
+                            the Text Encoding Initiative [Online] 9. <ref
+                                target="https://dx.doi.org/10.4000/jtei.1742."
+                                >https://dx.doi.org/10.4000/jtei.1742</ref>.</bibl>
+                        <bibl xml:id="dumont2018">Dumont, Stefan. 2018. „correspSearch – Connecting
+                            Scholarly Editions of Letters“. Journal of the Text Encoding Initiative
+                            10. <ref target="https://doi.org/10.4000/jtei.1742"
+                                >https://doi.org/10.4000/jtei.1742</ref>.</bibl>
+                        <bibl xml:id="dumont-etal2019">Dumont, Stefan, Ingo Börner, Dominik Leipold,
+                            Jonas Müller-Laackman, and Gerlinde Schneider. 2019. „Correspondence
+                            Metadata Interchange Format“. In Encoding Correspondence. A Manual for
+                            TEI-XML-Based Encoding of Letters and Postcards, edited by Stefan
+                            Dumont, Susanne Haaf, und Sabine Seifert. Berlin. <ref
+                                target="https://encoding-correspondence.bbaw.de/v1/CMIF.html"
+                                >https://encoding-correspondence.bbaw.de/v1/CMIF.html</ref>. </bibl>
+                        <bibl>TEI Correspondence SIG. 2025. Correspondence Metadata Interchange
+                            Format (CMIF) vocabulary <ref
+                                target="https://lod.academy/cmif/vocab/terms"
+                                >https://lod.academy/cmif/vocab/terms</ref>
+                        </bibl>
+                    </listBibl>
+                </div>
             </div>
         </body>
     </text>
