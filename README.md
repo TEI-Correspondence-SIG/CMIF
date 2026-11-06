@@ -32,18 +32,9 @@ There are various ways of extracting CMIF from existing TEI collections via XSL-
 * [Proposal of CMIF v2](proposals/CMIFv2_proposal.md) in this repository.
 * See also ["Dumont et al. 2019"](https://encoding-correspondence.bbaw.de/v1/CMIF.html) for the further development of the CMIF. Discuss there via Hypothes.is, in the section ["Issues"](https://github.com/TEI-Correspondence-SIG/CMIF/issues) in this repository or on the [Mailinglist](https://lists.psu.edu/cgi-bin/wa?SUBED1=TEI-CORRESP-SIG&A=1) of the TEI Correspondence SIG. 
 
-## Changelog 
+## Changelog
 
-### Version 1.1 (2025-02-26)
-
-* `bibl/@xml:id` is now mandatory
-* Restrict: `persName` & Co, `correspAction/@type` and content of `correspAction`  
-* Allow @cert and @evidence for `persName` & Co
-* Allow text in `correspAction/date` 
-* Introduce additional Schematron file for CMIF 
-* Proposals for CMIF v1.1 and CMIF v2
-* Updated documentation
-* Minor Bugfixes & adjustments to current TEI Guidelines 
+See [CHANGELOG.md](CHANGELOG.md)
 
 ## Literature
 
